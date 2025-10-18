@@ -3,6 +3,8 @@ export interface Chapter {
     id: string;
     title: string;
     synopsis: string;
+    audioUrl?: string;
+    videoUrl?: string;
 }
 
 export interface Part {

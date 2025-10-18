@@ -1,13 +1,42 @@
-
 import React from 'react';
 import type { Chapter } from '../types';
-import { SparklesIcon, DownloadIcon } from './IconComponents';
+import { SparklesIcon, DownloadIcon, TrashIcon } from './IconComponents';
+
+const MediaNarrative: React.FC<{ audioUrl?: string; videoUrl?: string }> = ({ audioUrl, videoUrl }) => {
+    if (!audioUrl && !videoUrl) {
+        return null;
+    }
+
+    return (
+        <div className="my-8 p-4 bg-stone-800/50 border border-stone-700 rounded-lg space-y-6 not-prose">
+            {audioUrl && (
+                <div>
+                    <h4 className="text-lg font-semibold text-amber-300 mb-3">Narración en Audio</h4>
+                    <audio controls className="w-full">
+                        <source src={audioUrl} type="audio/mpeg" />
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            )}
+            {videoUrl && (
+                 <div>
+                    <h4 className="text-lg font-semibold text-amber-300 mb-3">Narración en Video</h4>
+                    <video controls className="w-full rounded-md">
+                        <source src={videoUrl} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            )}
+        </div>
+    );
+};
 
 interface ChapterViewProps {
     chapter: Chapter;
     content?: string;
     isGenerating: boolean;
     generateChapter: () => void;
+    clearChapter: () => void;
 }
 
 const LoadingSpinner: React.FC = () => (
@@ -36,7 +65,7 @@ const Placeholder: React.FC<{ chapterTitle: string; onGenerate: () => void }> = 
 );
 
 
-export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGenerating, generateChapter }) => {
+export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGenerating, generateChapter, clearChapter }) => {
     
     const handleExport = () => {
         if (!content) return;
@@ -134,26 +163,38 @@ export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGe
     };
 
     return (
-        <div className="prose prose-invert prose-p:text-stone-300 prose-h2:text-amber-300 prose-h3:text-amber-400 max-w-none">
-            <div className="flex justify-between items-start border-b border-stone-700 pb-4 mb-6">
+        <div className="prose prose-invert prose-lg prose-p:text-stone-200 prose-h2:text-amber-300 prose-h3:text-amber-400 max-w-4xl mx-auto">
+            <div className="flex justify-between items-start border-b border-stone-700 pb-4 mb-8">
                 <h2 className="text-4xl font-bold border-b-0 pb-0 mb-0">{chapter.title}</h2>
                 {content && !isGenerating && (
-                    <button
-                        onClick={handleExport}
-                        className="p-2 rounded-full hover:bg-stone-700/60 transition-colors duration-200 flex-shrink-0 ml-4"
-                        aria-label="Exportar capítulo como HTML"
-                        title="Exportar como HTML"
-                    >
-                        <DownloadIcon className="w-6 h-6 text-stone-300" />
-                    </button>
+                    <div className="flex items-center gap-2 flex-shrink-0 ml-4">
+                        <button
+                            onClick={handleExport}
+                            className="p-2 rounded-full hover:bg-stone-700/60 transition-colors duration-200"
+                            aria-label="Exportar capítulo como HTML"
+                            title="Exportar como HTML"
+                        >
+                            <DownloadIcon className="w-6 h-6 text-stone-300" />
+                        </button>
+                        <button
+                            onClick={clearChapter}
+                            className="p-2 rounded-full hover:bg-red-800/60 transition-colors duration-200"
+                            aria-label="Borrar contenido del capítulo"
+                            title="Borrar Contenido"
+                        >
+                            <TrashIcon className="w-6 h-6 text-stone-300" />
+                        </button>
+                    </div>
                 )}
             </div>
-
 
             {isGenerating ? (
                 <LoadingSpinner />
             ) : content ? (
-                <div dangerouslySetInnerHTML={{ __html: content }} />
+                <>
+                    <MediaNarrative audioUrl={chapter.audioUrl} videoUrl={chapter.videoUrl} />
+                    <div dangerouslySetInnerHTML={{ __html: content }} />
+                </>
             ) : (
                 <Placeholder chapterTitle={chapter.title} onGenerate={generateChapter} />
             )}

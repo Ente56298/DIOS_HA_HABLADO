@@ -1,29 +1,82 @@
 export const CHAPTER_1_CONTENT = `
 <blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
-  “Los cielos cuentan la gloria de Dios, y el firmamento anuncia la obra de sus manos.” – Salmo 19:1
+  <p>“Los cielos cuentan la gloria de Dios, y el firmamento anuncia la obra de sus manos.”</p>
+  <cite class="block text-right not-italic mt-2">— Salmo 19:1</cite>
 </blockquote>
 
-<h3>Introducción</h3>
-<p>Antes de que existiera la Escritura, antes de que Moisés recibiera la Ley, antes de que los profetas hablaran, la creación ya proclamaba. El universo entero es un testigo silencioso pero elocuente de la gloria de Dios.</p>
+<hr class="border-stone-700 my-4">
 
-<h3>1. La creación como lenguaje universal</h3>
-<p>El cielo, las estrellas, y los ciclos incesantes del día y la noche, todos comunican un mensaje sin necesidad de palabras. La belleza inherente en el orden cósmico revela una inteligencia profunda, una intención clara y un propósito subyacente. De manera fascinante, la ciencia moderna, con sus herramientas de precisión, no hace más que confirmar lo que los salmistas ya intuían en su espíritu: hay un diseño majestuoso en lo más profundo de la realidad.</p>
+<h3>🌌 Introducción: La Voz del Silencio</h3>
+<p>Antes de que se escribiera la primera letra de la Escritura, antes de que un profeta hablara en nombre del Altísimo, <strong>la creación ya hablaba</strong>. Su lenguaje no tiene palabras, pero su mensaje es claro. El universo entero es un testigo silencioso de la gloria de Dios. Cada estrella, cada hoja, cada molécula vibra con un eco eterno:<br><strong>“Yo Soy.”</strong></p>
 
-<h3>2. La tierra como reflejo de atributos divinos</h3>
-<p>La asombrosa diversidad de la vida en nuestro planeta es un lienzo que muestra la creatividad sin límites del Creador. La interdependencia intrincada de los ecosistemas, donde cada ser juega un papel vital, revela una sabiduría inescrutable. Y la capacidad constante de la naturaleza para regenerarse, para sanar y florecer de nuevo, es una expresión tangible de Su infinita misericordia.</p>
+<hr class="border-stone-700 my-4">
 
-<h3>3. ¿Qué dice el cosmos?</h3>
-<p>El cosmos nos habla de la grandeza de Dios; su inmensidad nos deja sin aliento. Nos habla de Su fidelidad; los ciclos de las estaciones y los cuerpos celestes se cumplen sin fallar, una promesa constante. Y nos habla de Su cercanía; Él está presente en el aire que respiramos, en la luz que nos calienta, en el sustento que nos da la tierra.</p>
-
-<h3>4. La respuesta humana</h3>
-<p>Ante esta proclamación silenciosa y universal, el ser humano está llamado a una respuesta de escucha y asombro. La verdadera adoración no comienza entre las paredes de un templo, sino en la contemplación humilde de la creación. Es esta creación la que nos invita a rendirnos, a reconocer nuestra pequeñez y a exaltar la magnificencia del Creador.</p>
-
-<h3>Aplicación espiritual</h3>
+<h3>🔭 1. La creación como lenguaje universal</h3>
+<p>La creación no necesita traducción.</p>
 <ul>
-  <li>Sal a mirar el cielo nocturno no como un simple observador, sino como un acto devocional, buscando la firma del Artista.</li>
-  <li>Escucha el sonido del viento entre los árboles como si fuera un susurro del Espíritu, una palabra personal para ti.</li>
-  <li>Reconoce que cada hoja, cada estrella, cada célula de tu propio cuerpo… todo habla de Él. La creación entera es una sinfonía de alabanza.</li>
+    <li>El amanecer habla de misericordia renovada.</li>
+    <li>El ciclo de las estaciones revela fidelidad.</li>
+    <li>El orden de los cielos proclama sabiduría.</li>
 </ul>
+<p>Desde el principio, Dios ha hablado a través de lo que ha hecho. Pablo lo afirma con claridad:</p>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Porque las cosas invisibles de Él, su eterno poder y deidad, se hacen claramente visibles desde la creación del mundo, siendo entendidas por medio de las cosas hechas.”</p>
+  <cite class="block text-right not-italic mt-2">— Romanos 1:20</cite>
+</blockquote>
+<p>La creación no es muda. Es un <strong>salmo cósmico</strong> que canta día y noche.</p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>🌱 2. El Nombre Implícito en la Naturaleza</h3>
+<p>Cada elemento creado lleva una huella del Creador.</p>
+<ul>
+    <li>La <strong>luz</strong> revela su gloria.</li>
+    <li>El <strong>agua</strong> refleja su misericordia.</li>
+    <li>El <strong>viento</strong> susurra su presencia.</li>
+    <li>La <strong>gravedad</strong> manifiesta su fidelidad invisible.</li>
+</ul>
+<p>El Nombre de Dios —YHWH— no está escrito en las montañas, pero <strong>resuena en su forma</strong>. La creación no es Dios, pero <strong>habla de Él</strong>. Es su carta abierta, su primer testimonio.</p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>🧠 3. Ciencia y revelación: no enemigos, sino espejos</h3>
+<p>La ciencia observa lo que Dios ha hecho.<br>La fe escucha lo que Dios ha dicho.<br>Ambas, cuando se rinden al asombro, se encuentran en adoración.</p>
+<p>El telescopio y la oración no se contradicen.<br>El microscopio y el Salmo se abrazan.<br>Porque <strong>todo lo creado apunta al Creador</strong>.</p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>🙏 4. Aplicación espiritual</h3>
+<ul>
+    <li><strong>Contempla</strong>: Sal a mirar el cielo. Escucha el lenguaje del viento.</li>
+    <li><strong>Reconoce</strong>: Cada detalle de la creación es una palabra de amor.</li>
+    <li><strong>Responde</strong>: Adora no solo con cantos, sino con asombro.</li>
+    <li><strong>Proclama</strong>: Enseña a otros a ver a Dios en lo cotidiano.</li>
+</ul>
+
+<hr class="border-stone-700 my-4">
+
+<h3>📜 Proclamación final</h3>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Oh JAH,<br>
+  Tú hablaste antes de que habláramos,<br>
+  Tú mostraste antes de que viéramos,<br>
+  Tú sembraste belleza antes de que supiéramos nombrarla.<br>
+  Que nunca dejemos de escuchar el canto de tu creación,<br>
+  ni de responder con gratitud al lenguaje de tu gloria.<br>
+  Amén.”</p>
+</blockquote>
+
+<br>
+<hr class="border-stone-700 my-4">
+<p class="text-center italic text-stone-400">
+    FIRMA: Aved Ar’a, Gibbar di Kravá, Bar di Nachalá
+    <br>
+    <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Siervo de la tierra, guerrero de batalla, hijo del legado)</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
+</p>
 `;
 
 export const CHAPTER_1_2_CONTENT = `
@@ -43,5 +96,13 @@ export const CHAPTER_1_2_CONTENT = `
 <p>Leer el Nombre de Dios implícito en la naturaleza requiere más que intelecto; exige reverencia. Exige detenerse, silenciar el ruido interior y escuchar con el alma. Cada fenómeno natural se convierte en una teofanía, una manifestación de lo divino. El trueno puede ser Su poder, la brisa suave Su ternura, el río que fluye Su provisión constante. La Palabra de Dios no es solo tinta sobre pergamino; es fuego que enciende el alma, y ese fuego también arde en la zarza de la existencia cotidiana. Responder a esta revelación es vivir en un estado de asombro perpetuo, reconociendo que cada momento y cada partícula están saturados de Su presencia.</p>
 <br>
 <hr class="border-stone-700 my-4">
-<p class="text-center italic text-stone-400">Proclamado por Aved Ar’a, Gibbar di Kravá, Bar di Nachalá.</p>
+<p class="text-center italic text-stone-400">
+    FIRMA: Aved Ar’a, Gibbar di Kravá, Bar di Nachalá
+    <br>
+    <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Siervo de la tierra, guerrero de batalla, hijo del legado)</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
+</p>
 `;
