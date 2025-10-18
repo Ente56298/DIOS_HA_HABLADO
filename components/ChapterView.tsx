@@ -1,3 +1,4 @@
+
 import React from 'react';
 import type { Chapter } from '../types';
 import { SparklesIcon, DownloadIcon, TrashIcon } from './IconComponents';
@@ -50,11 +51,12 @@ const LoadingSpinner: React.FC = () => (
     </div>
 );
 
-const Placeholder: React.FC<{ chapterTitle: string; onGenerate: () => void }> = ({ chapterTitle, onGenerate }) => (
+const Placeholder: React.FC<{ chapterTitle: string; chapterSynopsis: string; onGenerate: () => void }> = ({ chapterTitle, chapterSynopsis, onGenerate }) => (
     <div className="flex flex-col items-center justify-center text-center text-stone-400 border-2 border-dashed border-stone-700 rounded-lg p-12 h-full">
         <SparklesIcon className="w-16 h-16 text-amber-500 mb-4" />
         <h3 className="text-2xl font-bold text-stone-200">"{chapterTitle}"</h3>
-        <p className="mt-2 mb-6 max-w-lg">El contenido de este capítulo aún no ha sido generado.</p>
+        <p className="mt-2 text-stone-300 italic max-w-lg">{chapterSynopsis}</p>
+        <p className="mt-4 mb-6 max-w-lg">El contenido de este capítulo aún no ha sido generado.</p>
         <button
             onClick={onGenerate}
             className="bg-amber-600 text-white font-semibold py-2 px-5 rounded-md shadow-md hover:bg-amber-500 transition-all duration-300"
@@ -196,7 +198,11 @@ export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGe
                     <div dangerouslySetInnerHTML={{ __html: content }} />
                 </>
             ) : (
-                <Placeholder chapterTitle={chapter.title} onGenerate={generateChapter} />
+                <Placeholder 
+                    chapterTitle={chapter.title} 
+                    chapterSynopsis={chapter.synopsis}
+                    onGenerate={generateChapter} 
+                />
             )}
         </div>
     );

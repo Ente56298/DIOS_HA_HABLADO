@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useMemo } from 'react';
 import { TableOfContents } from './components/TableOfContents';
 import { ChapterView } from './components/ChapterView';
@@ -125,7 +126,7 @@ const App: React.FC = () => {
                 <div className="flex items-center gap-4">
                     <BookIcon className="w-8 h-8 text-amber-300" />
                     <div>
-                        <h1 className="text-2xl font-bold text-stone-100 tracking-wider">Y Dios Ha Hablado</h1>
+                        <h1 className="text-2xl font-bold tracking-wider text-gradient">Y Dios Ha Hablado</h1>
                         <p className="text-sm text-stone-400">Revelación, Palabra y Respuesta</p>
                     </div>
                 </div>
@@ -164,6 +165,7 @@ const App: React.FC = () => {
                             </div>
                         )}
                     </div>
+
                     <button
                         onClick={() => setIsReportVisible(true)}
                         className="p-2 rounded-full hover:bg-stone-700/60 transition-colors duration-200"
@@ -172,6 +174,9 @@ const App: React.FC = () => {
                     >
                         <InfoIcon className="w-6 h-6 text-stone-300" />
                     </button>
+
+                    <div className="w-px h-8 bg-stone-700/50"></div>
+
                     <button
                         onClick={handleClearAll}
                         disabled={isGenerating}
@@ -210,7 +215,7 @@ const App: React.FC = () => {
                         generatedChapters={new Set(Object.keys(bookContent))}
                     />
                 </aside>
-                <main className="flex-1 overflow-y-auto p-8 md:p-12">
+                <main key={currentView} className="flex-1 overflow-y-auto p-8 md:p-12 animate-content-fade-in">
                    {currentChapter && (
                        <ChapterView
                            chapter={currentChapter}
