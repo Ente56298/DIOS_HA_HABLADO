@@ -99,6 +99,18 @@ export const BOOK_STRUCTURE: BookStructure = [
         ]
     },
     {
+        id: 'fuentes',
+        title: 'Guía de Fuentes',
+        description: 'Recursos y referencias teológicas.',
+        chapters: [
+            {
+                id: 'chap-fuentes-1',
+                title: 'Fuentes y Referencias Teológicas',
+                synopsis: `Una bibliografía comentada de las fuentes teológicas, patrísticas y filosóficas que informaron la escritura de este libro. Incluye obras de Agustín de Hipona, Tomás de Aquino, Karl Barth, y otros, así como referencias a textos bíblicos clave.`
+            }
+        ]
+    },
+    {
         id: 'epilogo',
         title: 'Epílogo: Y Dios Sigue Hablando',
         description: 'La revelación continúa en nuestras vidas.',

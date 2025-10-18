@@ -3,16 +3,19 @@ import { TableOfContents } from './components/TableOfContents';
 import { ChapterView } from './components/ChapterView';
 import { generateChapterContent } from './services/geminiService';
 import { BOOK_STRUCTURE } from './constants';
-import { CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT } from './prefilledContent';
+import { CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT, CHAPTER_FUENTES_1_CONTENT } from './prefilledContent';
 import type { BookContent, Chapter } from './types';
-import { BookIcon, InfoIcon } from './components/IconComponents';
+import { BookIcon, InfoIcon, TrashIcon } from './components/IconComponents';
 import { ResearchReportModal } from './components/ResearchReportModal';
 
+const initialBookContent: BookContent = {
+    'chap-1-1': CHAPTER_1_CONTENT,
+    'chap-1-2': CHAPTER_1_2_CONTENT,
+    'chap-fuentes-1': CHAPTER_FUENTES_1_CONTENT,
+};
+
 const App: React.FC = () => {
-    const [bookContent, setBookContent] = useState<BookContent>({
-        'chap-1-1': CHAPTER_1_CONTENT,
-        'chap-1-2': CHAPTER_1_2_CONTENT,
-    });
+    const [bookContent, setBookContent] = useState<BookContent>(initialBookContent);
     const [generatingChapters, setGeneratingChapters] = useState<Set<string>>(new Set());
     const [isGenerating, setIsGenerating] = useState<boolean>(false);
     const [isReportVisible, setIsReportVisible] = useState<boolean>(false);
@@ -47,6 +50,22 @@ const App: React.FC = () => {
 
         setIsGenerating(false);
     }, [handleGenerateChapter, bookContent]);
+
+    const handleClearChapter = useCallback((chapterId: string) => {
+        if (window.confirm('¿Está seguro de que desea borrar el contenido de este capítulo? Podrá generarlo de nuevo.')) {
+            setBookContent(prev => {
+                const newContent = { ...prev };
+                delete newContent[chapterId];
+                return newContent;
+            });
+        }
+    }, []);
+
+    const handleClearAll = useCallback(() => {
+        if (window.confirm('¿Está seguro de que desea borrar TODO el contenido generado? Esta acción restablecerá el libro a su estado inicial.')) {
+            setBookContent(initialBookContent);
+        }
+    }, []);
     
     const currentChapter = BOOK_STRUCTURE.flatMap(p => p.chapters).find(c => c.id === currentView);
 
@@ -68,6 +87,15 @@ const App: React.FC = () => {
                         title="Informe de Investigación"
                     >
                         <InfoIcon className="w-6 h-6 text-stone-300" />
+                    </button>
+                    <button
+                        onClick={handleClearAll}
+                        disabled={isGenerating}
+                        className="p-2 rounded-full hover:bg-red-800/60 transition-colors duration-200"
+                        aria-label="Borrar todo el contenido generado"
+                        title="Borrar Todo"
+                    >
+                        <TrashIcon className="w-6 h-6 text-stone-300" />
                     </button>
                     <button
                         onClick={handleGenerateBook}
@@ -105,6 +133,7 @@ const App: React.FC = () => {
                            content={bookContent[currentView]}
                            isGenerating={generatingChapters.has(currentView)}
                            generateChapter={() => handleGenerateChapter(currentChapter)}
+                           clearChapter={() => handleClearChapter(currentChapter.id)}
                        />
                    )}
                 </main>
