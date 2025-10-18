@@ -1,7 +1,7 @@
 
 import React from 'react';
 import type { Chapter } from '../types';
-import { SparklesIcon } from './IconComponents';
+import { SparklesIcon, DownloadIcon } from './IconComponents';
 
 interface ChapterViewProps {
     chapter: Chapter;
@@ -37,9 +37,118 @@ const Placeholder: React.FC<{ chapterTitle: string; onGenerate: () => void }> = 
 
 
 export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGenerating, generateChapter }) => {
+    
+    const handleExport = () => {
+        if (!content) return;
+
+        // Sanitize the title for the filename
+        const fileName = `${chapter.id}-${chapter.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.html`;
+
+        // Create a full HTML document string with embedded styles
+        const htmlContent = `
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${chapter.title} | Y Dios Ha Hablado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #1c1917;
+            color: #d6d3d1;
+            line-height: 1.7;
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 768px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            color: #fcd34d; /* amber-300 */
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 1px solid #44403c;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        h3 {
+            color: #fBBF24; /* amber-400 */
+            font-size: 1.5rem;
+        }
+        p {
+            margin-bottom: 1.25rem;
+        }
+        blockquote {
+            border-left: 4px solid #f59e0b;
+            padding-left: 1rem;
+            margin-left: 0;
+            font-style: italic;
+            color: #a8a29e;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #44403c; /* border-stone-700 */
+        }
+        .my-4 { margin-top: 1rem; margin-bottom: 1rem; }
+        .text-center { text-align: center; }
+        .italic { font-style: italic; }
+        .text-stone-400 { color: #a8a29e; }
+        .text-red-400 { color: #f87171; }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h1>${chapter.title}</h1>
+        <div>
+            ${content}
+        </div>
+    </main>
+</body>
+</html>`;
+
+        const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    };
+
     return (
         <div className="prose prose-invert prose-p:text-stone-300 prose-h2:text-amber-300 prose-h3:text-amber-400 max-w-none">
-            <h2 className="text-4xl font-bold border-b border-stone-700 pb-4 mb-6">{chapter.title}</h2>
+            <div className="flex justify-between items-start border-b border-stone-700 pb-4 mb-6">
+                <h2 className="text-4xl font-bold border-b-0 pb-0 mb-0">{chapter.title}</h2>
+                {content && !isGenerating && (
+                    <button
+                        onClick={handleExport}
+                        className="p-2 rounded-full hover:bg-stone-700/60 transition-colors duration-200 flex-shrink-0 ml-4"
+                        aria-label="Exportar capítulo como HTML"
+                        title="Exportar como HTML"
+                    >
+                        <DownloadIcon className="w-6 h-6 text-stone-300" />
+                    </button>
+                )}
+            </div>
+
 
             {isGenerating ? (
                 <LoadingSpinner />
