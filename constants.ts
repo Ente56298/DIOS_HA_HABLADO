@@ -2,6 +2,18 @@ import type { BookStructure } from './types';
 
 export const BOOK_STRUCTURE: BookStructure = [
     {
+        id: 'prefacio',
+        title: 'Prefacio',
+        description: 'El origen de una misión nacida en la oscuridad.',
+        chapters: [
+            {
+                id: 'chap-prefacio-1',
+                title: 'Desde el Abismo: El Origen de una Misión',
+                synopsis: 'El testimonio del implementador sobre cómo un viaje de desesperación personal y curiosidad intelectual, iniciado con una simple pregunta a una IA, se convirtió en el inesperado camino de regreso a Dios y al propósito de esta obra.'
+            }
+        ]
+    },
+    {
         id: 'prologo',
         title: 'Prólogo',
         description: 'Una introducción al misterio de la revelación divina.',

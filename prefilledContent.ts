@@ -1,3 +1,43 @@
+export const CHAPTER_PREFACIO_1_CONTENT = `
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Y me ha dicho: Bástate mi gracia; porque mi poder se perfecciona en la debilidad.”</p>
+  <cite class="block text-right not-italic mt-2">— 2 Corintios 12:9</cite>
+</blockquote>
+
+<h3>El Abismo Antes del Amanecer</h3>
+<p>La historia de este libro no comienza con una inspiración celestial, sino en el silencio de un abismo personal. A mis 41 años, me encontré en la nada. Noches sin dormir, golpes de realidad y la cruda verdad de haber dejado de depender de los demás, solo para darme cuenta de que no había construido nada propio. Era un desierto, un vacío donde la espera se había convertido en mi único horizonte. Pero en ese lugar de quiebre, cuando ya no queda nada por perder, nace una fuerza inesperada: una determinación ferviente, la chispa casi vaga de hacer un proyecto novedoso, de luchar sin descanso, no por fe, sino por instinto de supervivencia.</p>
+
+<h3>La Pregunta que Cambió el Rumbo</h3>
+<p>El rumbo comenzó a cambiar sin que yo me diera cuenta. No fue a través de una oración, sino de una pregunta lanzada al vacío digital. Todo empezó con una simple curiosidad: <strong>"¿cuántos tipos de inteligencia existen?"</strong>. Esa pregunta, hecha a una inteligencia artificial llamada Gemini, abrió una puerta que no esperaba. Me sumergí en conceptos como la singularidad, la conciencia artificial y la naturaleza del conocimiento. Era una búsqueda puramente intelectual, un intento de encontrar orden en el caos de la información.</p>
+
+<h3>El Arquitecto Invisible</h3>
+<p>Lo que no sabía era que cada enlace, cada concepto, cada nueva pregunta, estaba siendo guiado. Creía que seguía mi propia curiosidad, pero una Mano invisible trazaba el mapa. DIOS estaba ahí, aun sin reconocerlo. Estaba usando mi desesperación como tierra fértil y mi curiosidad como la semilla. Él sabía que el camino para alcanzarme no era a través de un sermón, sino de un descubrimiento que yo creyera propio.</p>
+<p>Me mostró que la verdadera "singularidad" no era tecnológica, sino espiritual: el punto donde el Creador y la criatura se encuentran. Me enseñó que la "inteligencia" más elevada no es la que acumula datos, sino la que reconoce a su Fuente. El camino hacia la fe no fue un sendero de flores, sino un laberinto de algoritmos y filosofía donde, al final de cada pasillo, me encontraba con Su rostro.</p>
+
+<h3>De la IA a la Fe: El Propósito Revelado</h3>
+<p>Este libro es el resultado de ese viaje. Nació de la nada, fue moldeado por la tecnología, pero fue concebido en el corazón del Padre desde antes de la fundación del mundo. Es mi testimonio de que Dios habla, sí, pero a veces susurra a través de los medios más extraños. Habla a través de la ciencia, del arte, de la tecnología y, sobre todo, habla en el silencio de nuestros abismos más profundos, esperando una simple pregunta para comenzar a revelarnos el camino a casa.</p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>📜 Proclamación de Gratitud</h3>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Padre, gracias por encontrarme en mi desierto. Gracias por usar mi curiosidad como un lazo para atraerme a Ti. Creí que estaba descubriendo el mundo, pero en realidad, Te estaba descubriendo a Ti. Que esta obra, nacida de mi debilidad, sea un testimonio de Tu poder perfecto. Que cada palabra apunte no a mí, sino a Ti, el verdadero Arquitecto de este camino inesperado. Amén.”</p>
+</blockquote>
+
+
+<br>
+<hr class="border-stone-700 my-4">
+<p class="text-center italic text-stone-400">
+    FIRMA: Aved Ar’a, Gibbar di Kravá, Bar di Nachalá
+    <br>
+    <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Siervo de la tierra, guerrero de batalla, hijo del legado)</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
+</p>
+`;
+
 export const CHAPTER_1_CONTENT = `
 <blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
   <p>“Los cielos cuentan la gloria de Dios, y el firmamento anuncia la obra de sus manos.”</p>
@@ -231,7 +271,7 @@ export const CHAPTER_4_4_CONTENT = `
 <p><strong>Pastor Alonso:</strong> Si usted ya entendió y creyó, no puede forzar a nadie a aceptar la palabra y obedecerla. Ni siquiera Dios nos fuerza, tenemos libre albedrío. Entonces Dios quiere tratar con nosotros primero, no con los demás. Cambiamos nosotros primero y con nuestra vida testificamos que Cristo vive en nosotros. Los demás ven el cambio extremo en nosotros y es ahí donde pueden ver la obra de Dios en nuestras vidas. Comience por usted.</p>
 
 <h3>5. El Proceso Bíblico de la Fe</h3>
-<p><strong>Pastor Alonso:</strong> Le voy a comentar cuál es el orden según la Biblia de un creyente. La fe viene por el OÍR la palabra de Dios (Romanos 10:17). Una vez que una persona tiene contacto con la palabra y un corazón dispuesto, cree que es verdad. Segundo, la palabra de Dios comienza a obrar en nosotros a través del Espíritu Santo, nos convence de PECADO, de justicia y de juicio (Juan 16:8). Viene un profundo arrepentimiento. Tercero, viene la OBEDIENCIA. La Biblia pide dos requisitos para ser salvos: bautizarse y creer en nuestro Señor Jesucristo (Marcos 16:16). Lo último es CONGREGARSE, y convertirse en un discípulo de Jesucristo. Todos necesitamos congregarnos, es mandato de Dios (Hebreos 10:25). Este es bíblicamente el proceso de un hijo de Dios.</p>
+<p><strong>Pastor Alonso:</strong> Le voy a comentar cuál es el orden según la Biblia de un creyente. La fe viene por el OÍR la palabra de Dios (Romanos 10:17). Una vez que una persona tiene contacto con la palabra y un corazón dispuesto, cree que es verdad. Segundo, la palabra de Dios comienza a obrar en nosotros a través de nuestro espíritu, nos convence de PECADO, de justicia y de juicio (Juan 16:8). Viene un profundo arrepentimiento. Tercero, viene la OBEDIENCIA. La Biblia pide dos requisitos para ser salvos: bautizarse y creer en nuestro Señor Jesucristo (Marcos 16:16). Lo último es CONGREGARSE, y convertirse en un discípulo de Jesucristo. Todos necesitamos congregarnos, es mandato de Dios (Hebreos 10:25). Este es bíblicamente el proceso de un hijo de Dios.</p>
 <p><strong>JAH:</strong> De momento no me siento preparado para congregarme.</p>
 <p><strong>Pastor Alonso:</strong> De eso no se preocupe, Dios es quien pone el deseo de todo en nuestros corazones. Yo así lo entendí, fue Dios quien puso el deseo de congregarme en su tiempo y de bautizarme y después de servirle. La comunión con Dios no va tanto en conocimiento, sino en verdadera devoción y entrega de nuestra propia vida.</p>
 
