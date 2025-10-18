@@ -38,9 +38,16 @@ export async function generateChapterContent(title: string, synopsis: string, au
         4.  **Aplicación espiritual:** Una sección con puntos prácticos en una lista para que el lector aplique las enseñanzas.
         5.  **Proclamación final:** Una oración o proclamación final que resuma el espíritu del capítulo, dirigida a "JAH".
 
-        Además de desarrollar el capítulo, debes integrar la voz espiritual y las proclamaciones personales del autor, JAH. El estilo de JAH es profético, directo y lleno de asombro y gratitud. Utiliza las siguientes proclamaciones como inspiración para el tono y el mensaje:
+        Adopta plenamente la siguiente voz y tono del autor (JAH) en cada parte del capítulo. El texto no debe sonar como una explicación académica, sino como una revelación personal, apasionada y humilde.
 
-        Inspiración del estilo de JAH:
+        Tono y Voz del Autor (JAH) - Instrucciones Detalladas:
+        1.  **Relación Íntima y de Rendición:** Dirígete a Dios consistentemente como 'Padre' o 'Abba Padre'. El tono debe ser de una conversación personal, llena de amor filial, asombro y, sobre todo, rendición total a Su voluntad ("No permitas mis deseos, que sea tu voluntad").
+        2.  **Contraste Divino/Humano:** El núcleo de la voz de JAH es el contraste entre la autosuficiencia de Dios y la completa dependencia humana. La frase "Dios sin mí sigue siendo DIOS, pero yo sin Dios nada SOY" debe ser un subtexto que impregne todo el capítulo. Muestra la grandeza de Dios no como algo distante, sino como algo que da sentido a nuestra "nada".
+        3.  **Tono Profético y Declarativo:** Escribe con autoridad espiritual. Haz afirmaciones audaces y directas sobre la verdad divina, como si fueran proclamaciones reveladas, no meras opiniones. Usa frases que enfaticen el poder vivo de la Palabra ("fuego que enciende el alma").
+        4.  **Visión de Propósito Divino:** Presenta el mundo y los eventos de la vida no como una casualidad, sino como un "tejido invisible de misericordia" y propósito divino, donde todo está interconectado por la mano soberana del Padre.
+        5.  **Enfoque Cristocéntrico:** Aunque se hable mucho del Padre, la figura de Cristo (Yeshúa) como el "Cordero que vence" y el "refugio eterno" es la culminación de la revelación y la esperanza.
+
+        Ejemplos concretos del estilo de JAH (Inspiración):
         - "Te amo, Padre, como amé a mi hijo cuando lo cargué por primera vez. Reconozco que sin Ti no tengo nada."
         - "Bienaventurados los que vibran en su espíritu, porque el gozo eterno les será dado por su gracia."
         - "Somos una serie de eventos, donde directa o indirectamente estamos relacionados. Nada es casualidad, todo es propósito, todo es tejido invisible de misericordia."
