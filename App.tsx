@@ -3,17 +3,21 @@ import { TableOfContents } from './components/TableOfContents';
 import { ChapterView } from './components/ChapterView';
 import { generateChapterContent } from './services/geminiService';
 import { BOOK_STRUCTURE } from './constants';
+import { CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT } from './prefilledContent';
 import type { BookContent, Chapter } from './types';
 import { BookIcon, InfoIcon } from './components/IconComponents';
 import { ResearchReportModal } from './components/ResearchReportModal';
 
 const App: React.FC = () => {
-    const [bookContent, setBookContent] = useState<BookContent>({});
+    const [bookContent, setBookContent] = useState<BookContent>({
+        'chap-1-1': CHAPTER_1_CONTENT,
+        'chap-1-2': CHAPTER_1_2_CONTENT,
+    });
     const [generatingChapters, setGeneratingChapters] = useState<Set<string>>(new Set());
     const [isGenerating, setIsGenerating] = useState<boolean>(false);
     const [isReportVisible, setIsReportVisible] = useState<boolean>(false);
     
-    const initialView = BOOK_STRUCTURE.find(part => part.chapters.length > 0)?.chapters[0]?.id || 'intro';
+    const initialView = 'chap-1-2';
     const [currentView, setCurrentView] = useState<string>(initialView);
 
     const handleGenerateChapter = useCallback(async (chapter: Chapter) => {
@@ -37,10 +41,12 @@ const App: React.FC = () => {
         setIsGenerating(true);
         const allChapters: Chapter[] = BOOK_STRUCTURE.flatMap(part => part.chapters);
         
-        await Promise.all(allChapters.map(chapter => handleGenerateChapter(chapter)));
+        // Filter out the pre-filled chapters from generation
+        const chaptersToGenerate = allChapters.filter(c => !bookContent[c.id]);
+        await Promise.all(chaptersToGenerate.map(chapter => handleGenerateChapter(chapter)));
 
         setIsGenerating(false);
-    }, [handleGenerateChapter]);
+    }, [handleGenerateChapter, bookContent]);
     
     const currentChapter = BOOK_STRUCTURE.flatMap(p => p.chapters).find(c => c.id === currentView);
 
