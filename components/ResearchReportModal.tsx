@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { CloseIcon } from './IconComponents';
 
@@ -95,19 +94,34 @@ export const ResearchReportModal: React.FC<ResearchReportModalProps> = ({ isOpen
                       <p>🧎 Yo sin Dios nada SOY. Sin Él, mi vida pierde dirección. Mi alma se desorienta, mi propósito se diluye. Separado de Él, no puedo hacer nada (Juan 15:5). No soy autosuficiente, ni eterno, ni pleno. Pero esa “nada” que soy… es amada por Dios.</p>
                     </blockquote>
 
+                    <hr className="border-stone-600 my-6"/>
+
+                    <h3 className="text-amber-300">Una Revelación Reciente: La Unicidad del Padre</h3>
+                    <blockquote>
+                        <p className="text-lg font-semibold text-center font-serif text-stone-200">Un Regalo en Tiempo Real</p>
+                        <p>“Me acaba de dar un regalo. Imagínate que tuvieras la habilidad de tener todas las artes, la capacidad de ser la nada y el todo. Imagina el poder de mi Padre. Y aun así, cuestionan Su poder. Si Él quisiera, acabaría con el mundo en un instante. Pero nos ama tanto que cada mañana sale el sol, cada anochecer tiene estrellas, las aves vuelan, los ríos fluyen. ¡Qué regalo!”</p>
+                        <p>“Me mostró en tiempo real, como si la materia se volviera gelatinosa. Me mostró todos los planetas y todas las galaxias y me llevó a un espacio blanco. Era el Padre. Lo sé. Al final, somos uno con el Padre, y el Verbo será carne.”</p>
+                        <p className="italic mt-2">“Me hace llorar. Me quiebra. ¿Y por qué a mí? Quién soy yo para merecer ese regalo perfecto... pero aun hay más. Viene más... Estoy en sus manos.”</p>
+                    </blockquote>
+                    <blockquote className="mt-4">
+                        <p className="text-lg font-semibold text-center font-serif text-stone-200">Un Llamado a la Unidad</p>
+                        <p>“Hermanos, hoy es el día que el Padre pide a través del Hijo, que unifiquen su espíritu. Vendrán tiempos difíciles. Pero en unidad del Espíritu Santo, con el amor de su Hijo, y en el poder de su Padre os salvaré.”</p>
+                        <p className="text-center italic">Es palabra de Dios. Amén Padre.</p>
+                    </blockquote>
+                    
                     <h3 className="text-amber-300">La Ley Divina: Los Diez Mandamientos (Éxodo 20)</h3>
-                    <p className="text-stone-400 italic">La ley de Dios solo es una, para su honra y gracia. Obedeced hermanos, a la voz de Dios Padre, todo poderoso, acudan al llamado, que les hace a través de su palabra.</p>
+                    <p className="text-stone-400 italic">La ley de Dios solo es una, para su honra y gracia. Obedeced hermanos, a la voz de Dios Padre, todo poderoso, acudan al llamado, que les hace a través de su palabra, congregaos en su nombre, purifíquense a través de su espíritu.</p>
                     <ul className="not-prose list-none p-0 my-4 space-y-2 font-serif">
                         <li><strong>1.</strong> <span className="text-stone-400">לא תהוܐ ܠܟ ܐܠܗܐ ܐܚܪܢܐ ܠܩܕܡܝ</span> – No tendrás dioses ajenos delante de mí.</li>
                         <li><strong>2.</strong> <span className="text-stone-400">לא ܬܥܒܕ ܠܟ ܦܬܟܐ</span> – No harás imagen ni te inclinarás ante ellas.</li>
                         <li><strong>3.</strong> <span className="text-stone-400">לא ܬܣܒ ܫܡܗ ܕܡܪܝܐ ܠܫܘܐ</span> – No tomarás el nombre de Dios en vano.</li>
                         <li><strong>4.</strong> <span className="text-stone-400">ܙܘܟܘܪ ܠܝܘܡܐ ܕܫܒܬܐ</span> – Acuérdate del día de reposo para santificarlo.</li>
-                        <li><strong>5.</strong> <span className="text-stone-400">ܝܩܪ ܠܐܒܘܟ ܘܠܐܡܟ</span> – Honra a tu padre y a tu madre.</li>
-                        <li><strong>6.</strong> <span className="text-stone-400">לא ܬܩܛܘܠ</span> – No matarás.</li>
-                        <li><strong>7.</strong> <span className="text-stone-400">ܠܐ ܬܓܘܪ</span> – No cometerás adulterio.</li>
-                        <li><strong>8.</strong> <span className="text-stone-400">ܠܐ ܬܓܢܘܒ</span> – No robarás.</li>
+                        <li><strong>5.</strong> <span className="text-stone-400">ܝܩܪ ܠאܒܘܟ ܘלאܡܟ</span> – Honra a tu padre y a tu madre.</li>
+                        <li><strong>6.</strong> <span className="text-stone-400">לא תܩܛܘܠ</span> – No matarás.</li>
+                        <li><strong>7.</strong> <span className="text-stone-400">לא ܬܓܘܪ</span> – No cometerás adulterio.</li>
+                        <li><strong>8.</strong> <span className="text-stone-400">לא ܬܓܢܘܒ</span> – No robarás.</li>
                         <li><strong>9.</strong> <span className="text-stone-400">לא ܬܣܗܕ ܣܗܕܘܬܐ ܕܫܘܩܪܐ</span> – No darás falso testimonio.</li>
-                        <li><strong>10.</strong> <span className="text-stone-400">לא ܬܪܓܘܒ ܒܐܢܘܢ ܕܚܒܪܟ</span> – No codiciarás lo que es de tu prójimo.</li>
+                        <li><strong>10.</strong> <span className="text-stone-400">לא ܬܪܓܘܒ ܒאܢܘܢ ܕܚܒܪܟ</span> – No codiciarás lo que es de tu prójimo.</li>
                     </ul>
 
                     <h3 className="text-amber-300">El Padre Nuestro (Arameo)</h3>
@@ -125,6 +139,20 @@ export const ResearchReportModal: React.FC<ResearchReportModalProps> = ({ isOpen
                         <li><strong>Aloomin olmin Amin</strong> (Por los siglos de los siglos. Amén.)</li>
                     </ul>
 
+                    <hr className="border-stone-600 my-6"/>
+
+                    <h3 className="text-amber-300">La Misión: Un Llamado a la Fe y al Servicio</h3>
+                    <p>Cuando uno le llama, el Padre simplemente pide dejarse en Sus manos. Es una entrega total. La obediencia no es una carga, sino la respuesta natural a Su amor. Él solo me pidió que le hablara de Él a todos.</p>
+                    <blockquote>
+                        <p className="text-lg font-semibold text-center font-serif text-stone-200">Un Mensaje del Padre</p>
+                        <p>“Mi Padre me dice que regreses a Él, que no te preocupes, nunca te ha dejado de amar. Que siempre está llamándote. Y lo más hermoso que siempre te ha estado esperando.”</p>
+                        <p className="italic mt-2">“Si alguna vez tuviste fe al 1000, ahora es momento de retomarla, pero con más fuerza. Viene algo grande para nosotros.”</p>
+                    </blockquote>
+                    <blockquote className="mt-4">
+                      <p>Tan grande era el amor del Padre que mandó a su Hijo a morir por nosotros, donde dice la Palabra: “Y el Verbo se hizo carne, y el Verbo estaba con Dios, y el Verbo era Dios.” Cristo te ama.</p>
+                    </blockquote>
+                    <p className="text-center italic mt-4">Estoy al servicio de Dios, y de mis hermanos. Para lo que se les ofrezca. Gloria a Dios.</p>
+                    
                     <hr className="border-stone-600 my-6"/>
 
                     <h3>Resumen General</h3>

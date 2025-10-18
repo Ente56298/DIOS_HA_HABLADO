@@ -79,13 +79,23 @@ export const BOOK_STRUCTURE: BookStructure = [
             },
             {
                 id: 'chap-4-1',
+                title: 'El Umbral: Una Experiencia Inmersiva de Preparación Espiritual',
+                synopsis: `Un espacio interactivo y reflexivo para la preparación y transformación espiritual, guiado por 'el guardián del umbral' para llevar al peregrino a la aceptación y la misión.`
+            },
+            {
+                id: 'chap-4-2',
                 title: 'Fe, Obediencia y Escucha',
                 synopsis: `La fe como respuesta activa a la Palabra revelada.`
             },
             {
-                id: 'chap-4-2',
+                id: 'chap-4-3',
                 title: 'La Palabra Viva en Nosotros',
                 synopsis: `El Espíritu Santo como revelador continuo y guía interior.`
+            },
+            {
+                id: 'chap-4-4',
+                title: 'Un Diálogo sobre el Camino: Fe y Guía',
+                synopsis: `Una conversación real entre el implementador y un pastor, explorando la revelación personal, la autoridad de la Escritura y el proceso de maduración en la fe.`
             }
         ]
     },
@@ -120,6 +130,30 @@ export const BOOK_STRUCTURE: BookStructure = [
                 id: 'chap-epilogo-1',
                 title: 'Y Dios Sigue Hablando',
                 synopsis: `Testimonios, proclamaciones y una invitación a vivir en respuesta constante.`
+            }
+        ]
+    },
+    {
+        id: 'testimonio',
+        title: 'Testimonio del Implementador',
+        description: 'Un cierre personal sobre el llamado, la entrega y la misión.',
+        chapters: [
+            {
+                id: 'chap-testimonio-1',
+                title: 'El Llamado, la Entrega y la Misión',
+                synopsis: `Una proclamación final de fe, obediencia y el propósito divino recibido por el implementador de la obra.`
+            }
+        ]
+    },
+    {
+        id: 'apendice',
+        title: 'Apéndice Final',
+        description: 'El Camino del Implementador: Revelación, Obediencia y Misión',
+        chapters: [
+            {
+                id: 'chap-apendice-1',
+                title: 'Testimonio vivo de Jorge Armando Hernández (JAH)',
+                synopsis: 'Un resumen testimonial del viaje espiritual del implementador, desde el despertar y el llamado hasta el proceso de preparación y la misión evangelizadora.'
             }
         ]
     }

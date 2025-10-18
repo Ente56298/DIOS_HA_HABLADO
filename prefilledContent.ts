@@ -1,4 +1,3 @@
-
 export const CHAPTER_1_CONTENT = `
 <blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
   <p>“Los cielos cuentan la gloria de Dios, y el firmamento anuncia la obra de sus manos.”</p>
@@ -136,6 +135,211 @@ export const CHAPTER_4_0_CONTENT = `
   Haz que mi vida sea eco de tu voz,<br>
   y que cada paso sea respuesta a tu llamado.<br>
   Amén.”</p>
+</blockquote>
+
+<br>
+<hr class="border-stone-700 my-4">
+<p class="text-center italic text-stone-400">
+    FIRMA: Aved Ar’a, Gibbar di Kravá, Bar di Nachalá
+    <br>
+    <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Siervo de la tierra, guerrero de batalla, hijo del legado)</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
+</p>
+`;
+
+export const CHAPTER_4_1_CONTENT = `
+<p class="italic text-stone-400">Antes de ser enviados, debemos ser preparados. Antes de la misión, está la transformación. Mi Padre me ha mostrado que existe un espacio sagrado, un lugar interior donde el alma se detiene antes de avanzar. Lo llamo "El Umbral". No es un lugar físico, sino una disposición del corazón. Aquí, el Guardián —que es el Espíritu mismo hablándote a través de estas palabras— te invita a una pausa, a una reflexión honesta, antes de que puedas recibir lo que Dios tiene para ti.</p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>El Guardián te da la Bienvenida al Umbral</h3>
+<p>Detente. Respira. Estás en tierra santa. Has llegado al límite de tu propio entendimiento y al comienzo de la sabiduría de Dios. Para cruzar, no necesitas fuerza, sino rendición. No necesitas respuestas, sino sinceridad. Te pido que contemples conmigo cuatro espejos. No mires con tus ojos, sino con tu espíritu. Y responde en el silencio de tu ser.</p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>Los Cuatro Espejos del Alma</h3>
+
+<h4>1. El Espejo del Agua: Tu Verdadera Identidad</h4>
+<p>Ante ti hay un estanque de aguas tranquilas. No reflejan tu rostro, sino tu alma. Muestran todo lo que yace bajo la superficie: los miedos ocultos, los afectos desordenados, las heridas que aún dictan tus reacciones. El Guardián te pregunta:</p>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Mira en estas aguas. ¿Qué ves reflejado que aún te ata al pasado, a la persona que eras? Nómbralo sin juicio. Reconócelo y ofrécelo al Padre.”</p>
+</blockquote>
+
+<h4>2. El Espejo de la Isla: Tu Autosuficiencia</h4>
+<p>Ahora ves una isla solitaria. En ella has construido tus refugios, tus fortalezas, tus defensas. Es el reino de tu "yo", el lugar donde crees tener el control, donde te sientes seguro sin necesitar de nadie, ni siquiera de Dios. El Guardián te pregunta:</p>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“¿Qué has edificado en esta isla de tu ego que temes entregar? ¿Qué tesoros de autosuficiencia proteges, impidiendo que el Padre sea tu única fortaleza?”</p>
+</blockquote>
+
+<h4>3. El Espejo del Árbol Seco: Tu Falta de Fe</h4>
+<p>Frente a ti se alza un árbol con ramas secas y sin fruto. Representa cada área de tu vida que se siente estéril, donde la esperanza se ha marchitado. Es el lugar de tus dudas, de tus oraciones no respondidas, de tu cansancio espiritual. El Guardián te pregunta:</p>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Toca la corteza de este árbol. ¿Qué área de tu vida anhela la lluvia de Su gracia? ¿Dónde has dejado de creer que Él puede hacer florecer vida nueva?”</p>
+</blockquote>
+
+<h4>4. El Espejo de las Ruinas: Tu Pasado Roto</h4>
+<p>Finalmente, caminas entre las ruinas de una antigua construcción. Son tus fracasos, tus pecados, las estructuras que levantaste con orgullo y que se derrumbaron. Cada piedra rota es un recordatorio de tu fragilidad. El Guardián te pregunta:</p>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“¿Qué fracaso o herida sigues cargando como una vergüenza, en lugar de verla como el terreno fértil donde la misericordia del Padre puede construir Su templo?”</p>
+</blockquote>
+
+<hr class="border-stone-700 my-4">
+
+<h3>La Aceptación Total: La Muerte del 'Yo'</h3>
+<p>Haber mirado en los espejos es el primer paso. Ahora viene el más importante: la aceptación. Aceptar no es resignarse, es confiar. Es aceptar que todo lo que viste —lo bueno, lo malo, lo roto— es amado por Dios. Es aceptar Su voluntad, incluso si implica la muerte de tus planes, de tu reputación, de tu propia vida. Porque solo cuando estamos dispuestos a perderlo todo, estamos verdaderamente preparados para recibirlo a Él.</p>
+
+<h3>Cruzar el Umbral</h3>
+<p>Ahora, el Umbral está frente a ti. Ya no eres el mismo que llegó. Has nombrado tus ataduras, has visto tus ídolos, has tocado tu sequedad y has caminado sobre tus ruinas. Al cruzar, dejas todo eso atrás, no por tu fuerza, sino por Su gracia. Cruzas no como alguien perfecto, sino como alguien rendido. Estás listo. Estás preparada. La misión te espera.</p>
+
+<br>
+<hr class="border-stone-700 my-4">
+<p class="text-center italic text-stone-400">
+    FIRMA: Aved Ar’a, Gibbar di Kravá, Bar di Nachalá
+    <br>
+    <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Siervo de la tierra, guerrero de batalla, hijo del legado)</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
+</p>
+`;
+
+
+export const CHAPTER_4_4_CONTENT = `
+<p class="italic text-stone-400">La respuesta a la voz de Dios no ocurre en el vacío. Se vive en la tensión de la experiencia personal y la sabiduría de la comunidad. Lo que sigue es una transcripción, editada para mayor claridad, de una conversación real que ilustra este camino: un diálogo entre el implementador de esta obra (JAH) y un pastor (Alonso Luna), explorando las profundidades de la fe, la revelación y la obediencia en la vida cotidiana.</p><hr class="border-stone-700 my-4">
+
+<h3>1. La Prueba de la Fe y el Propósito Divino</h3>
+<p><strong>JAH:</strong> Pastor, buen día. Estoy en un tiempo de aprendizaje y entendimiento. Santiago y yo entendemos las pruebas de Dios y ciertamente nos indicó una que próximamente tendremos que afrontar. Sin embargo, también le expliqué que a veces las pruebas no son para nosotros, y entiendo que a veces somos medios de Dios para mostrar su amor y demostrarle nuestra fe. Cuando uno pide ver al Padre directamente, pues que tenga conciencia de su fe misma, porque así de grande es el amor del Padre que así de grande serán sus pruebas.</p>
+<p><strong>Pastor Alonso:</strong> Correcto, la Biblia enseña que nuestra fe tiene que ser probada, pasada por el fuego para ser refinada como el oro. Sigan adelante y Dios les seguirá bendiciendo y ayudando en todo. Quizá en prueba y muchas cosas, pero Dios promete estar en todo tiempo y momento con aquellos que le buscamos.</p>
+<p><strong>JAH:</strong> La obra de Dios es perfecta. Por eso se habla del tiempo. Pero desafortunadamente, aunque hay pruebas y mensajes y señales, a veces no entendemos. A veces me cuesta entender ciertas situaciones, pero entro en oración, y Dios me dijo: "todo estará bien". ¡Imagínese cómo me puse! Prácticamente todo el día en alabanza, un júbilo, un gozo.</p>
+
+<h3>2. La Lucha por el Entendimiento y la Guía del Espíritu</h3>
+<p><strong>JAH:</strong> Para que Dios nos llene de su amor y sabiduría, necesitamos una cabeza vacía y un corazón vacío. Pero pecamos de soberbia, egolatría, idolatría e ignorancia. Mi Padre me dijo que mi obra estaba realizada... y solo me dijo: "ve y dile a todos los que te encuentres de mí". De pronto se me vienen pensamientos como "y entonces el Verbo se hizo carne", pero es mucho más profundo y más amplio. Apenas empiezo a entender el Génesis. Antes de Él, todo estaba desordenado: mi vida, mi conciencia, mi alma. Entonces Él viene a ordenarnos.</p>
+<p><strong>Pastor Alonso:</strong> Tenga fe y paciencia. El que hace la obra es Dios, nosotros solo somos el medio que Él utiliza para llegar a las personas. Dios le quiere usar como un evangelista, que anuncie su reino. Siga buscando de Dios, y no se preocupe mucho por el entendimiento, Dios le va a ir revelando poco a poco lo que Él quiera revelarle.</p>
+<p><strong>JAH:</strong> No, para nada, solo hago lo que me indique. Tengo confianza, fe y obediencia. Confío en Él, no me queda duda, Él sabe por qué hace las cosas como las hace.</p>
+
+<h3>3. La Tensión entre Revelación Personal y Autoridad Bíblica</h3>
+<p><strong>JAH:</strong> Tengo una consulta. ¿Cómo puedo estar cierto que estoy bajo la guía de DIOS? No me quiero confundir y hablar desde el EGO o la Soberbia... Me molesto cuando no se apegan a la palabra de DIOS en la Biblia.</p>
+<p><strong>Pastor Alonso:</strong> Oración, ayunos, lectura de la palabra, y pedirle a Dios que dé el discernimiento necesario para saber que en realidad es Él quien está guiándonos. Buscar el rostro de Dios en humillación de nosotros mismos. El diablo es muy astuto y puede engañarnos, se disfraza de ángel de luz. Le recomiendo algo: deje de buscar tanto en línea y busque en la Biblia las respuestas. Todo lo que está en línea es escrito por hombres, y los hombres nos equivocamos. La Biblia dice que no necesitamos nada más que la palabra de Dios para conocer a Dios, arrepentirnos y salvarnos. Si usted le ora a Dios y le pide que a través de su Santo Espíritu le revele lo que lee, Él lo hará.</p>
+<p><strong>JAH:</strong> Me lo da. La principal guía no la saco del Internet, la pido en oración en silencio. Cuando estoy tranquilo. El Internet es por la rapidez, nada más. Solo hasta cuando me pongo en paz en calma y en oración pidiendo al Padre, me llega entendimiento.</p>
+
+<h3>4. El Desafío del Testimonio frente a la Incredulidad</h3>
+<p><strong>JAH:</strong> El problema es que todo mi núcleo y primer círculo no cree lo que me está sucediendo. Piensan que estoy desvariando por la vida que llevaba. Mi esposa, mi papá, mi mamá... niegan y se burlan. Mi papá me dijo que es imposible que yo pase todo el día en Dios, que me obsesioné. Mi esposa dice que no puede ser posible que todos estén de acuerdo y yo no. Pero yo les digo lo que siento, y la encomienda que tengo. Mi Padre me pidió que yo debía hablarle a todos de Él... Siento un calor en todo mi cuerpo cuando hablo de Él, pero no es una sensación mala, es muy de paz.</p>
+<p><strong>Pastor Alonso:</strong> Si usted ya entendió y creyó, no puede forzar a nadie a aceptar la palabra y obedecerla. Ni siquiera Dios nos fuerza, tenemos libre albedrío. Entonces Dios quiere tratar con nosotros primero, no con los demás. Cambiamos nosotros primero y con nuestra vida testificamos que Cristo vive en nosotros. Los demás ven el cambio extremo en nosotros y es ahí donde pueden ver la obra de Dios en nuestras vidas. Comience por usted.</p>
+
+<h3>5. El Proceso Bíblico de la Fe</h3>
+<p><strong>Pastor Alonso:</strong> Le voy a comentar cuál es el orden según la Biblia de un creyente. La fe viene por el OÍR la palabra de Dios (Romanos 10:17). Una vez que una persona tiene contacto con la palabra y un corazón dispuesto, cree que es verdad. Segundo, la palabra de Dios comienza a obrar en nosotros a través del Espíritu Santo, nos convence de PECADO, de justicia y de juicio (Juan 16:8). Viene un profundo arrepentimiento. Tercero, viene la OBEDIENCIA. La Biblia pide dos requisitos para ser salvos: bautizarse y creer en nuestro Señor Jesucristo (Marcos 16:16). Lo último es CONGREGARSE, y convertirse en un discípulo de Jesucristo. Todos necesitamos congregarnos, es mandato de Dios (Hebreos 10:25). Este es bíblicamente el proceso de un hijo de Dios.</p>
+<p><strong>JAH:</strong> De momento no me siento preparado para congregarme.</p>
+<p><strong>Pastor Alonso:</strong> De eso no se preocupe, Dios es quien pone el deseo de todo en nuestros corazones. Yo así lo entendí, fue Dios quien puso el deseo de congregarme en su tiempo y de bautizarme y después de servirle. La comunión con Dios no va tanto en conocimiento, sino en verdadera devoción y entrega de nuestra propia vida.</p>
+
+<h3>6. El Llamado a la Preparación y la Misión</h3>
+<p><strong>Pastor Alonso:</strong> En base a lo que le he dicho es el orden, la formación y la maduración de una persona en Cristo, y tiene que ver con el tema que tocamos anteriormente: Dios no te dará nada si no estamos preparados. Dios quiere usarnos, pero debemos ser procesados y enseñados por Él para cumplir su obra en la tierra. Moisés: 80 años de preparación, solo 40 de ministerio. Los apóstoles: 3.5 años enseñados por Jesús, después investidos por el Espíritu Santo y después fue que los envió.</p>
+<p><strong>JAH:</strong> Hoy creo que ya tuve el llamado. Voy a ir al centro de restauración cristiano. Creo que ya pronto, si Dios padre me lo permite, nos estaremos congregando. Sé de sus oraciones, mi Padre está contento, Él tenía el Plan perfeccionado.</p>
+<p><strong>Pastor Alonso:</strong> Adelante. Dios le bendice y le pone la gente correcta, los lugares correctos. Vamos a estar orando por esto y que Dios ponga los medios y su tiempo correcto para esta obra.</p>
+
+<br>
+<hr class="border-stone-700 my-4">
+<p class="text-center italic text-stone-400">
+    FIRMA: Aved Ar’a, Gibbar di Kravá, Bar di Nachalá
+    <br>
+    <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Siervo de la tierra, guerrero de batalla, hijo del legado)</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
+</p>
+`;
+
+export const CHAPTER_TESTIMONIO_1_CONTENT = `
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Cuando uno le llama ‘Padre’, simplemente es dejarse en sus manos.”</p>
+</blockquote>
+<p>Así comenzó. No fue una decisión racional, fue una rendición espiritual. El Padre me indicó que debía ir al centro. Me tenía un regalo. Y yo, sin reservas, me entregué.</p>
+<p>Sentí que la fe debía retomarse, no al 100, sino al 1000. Porque viene algo grande. Y no solo para mí, sino para todos. El mundo lo necesita. Y yo quiero que el mundo lo conozca.</p>
+<p>Él está poniendo en mi camino las personas que necesita. Y me dijo:</p>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Regresa. Nunca te he dejado de amar. Siempre te he estado esperando.”</p>
+</blockquote>
+<p>Tan grande es su amor, que envió a su Hijo a morir por nosotros. Y el Verbo se hizo carne. Y el Verbo era Dios. Y Cristo vive.</p>
+<p>Hoy invito a mis amigos, a mis hermanos, a volver sus ojos al Padre, a acercarse a Él a través de su Palabra, a entregarse, como yo lo hice.</p>
+<p>Él solo me pidió que hablara de Él a todos. Y conforme a su Palabra, <strong>yo soy obediente</strong>.</p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>📜 Proclamación final</h3>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Padre eterno,<br>
+  gracias por el regalo de tu llamado.<br>
+  gracias por confiar en mí para llevar tu mensaje.<br>
+  Que mi vida sea testimonio,<br>
+  mi voz sea invitación,<br>
+  y mi obediencia, semilla de unidad.<br>
+  Que todos los pueblos te alaben,<br>
+  que tu Iglesia se congregue,<br>
+  y que tu Espíritu obre en nuestros corazones.<br>
+  Amén.”</p>
+</blockquote>
+
+<br>
+<hr class="border-stone-700 my-4">
+<p class="text-center italic text-stone-400">
+    FIRMA: Aved Ar’a, Gibbar di Kravá, Bar di Nachalá
+    <br>
+    <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Siervo de la tierra, guerrero de batalla, hijo del legado)</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
+</p>
+`;
+
+export const CHAPTER_APENDICE_1_CONTENT = `
+<h3>✨ El Camino del Implementador: Revelación, Obediencia y Misión</h3>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Solo soy el instrumento. Toda la gloria a Él.”</p>
+</blockquote>
+<hr class="border-stone-700 my-4">
+
+<h4>🕊️ 1. El despertar: El Padre me mostró todo</h4>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Me llevó a un espacio blanco… y ahí me mostró eso. Era el Padre. Lo sé.”</p>
+</blockquote>
+<p>Una mañana, el velo se rasgó. Vi galaxias, códigos genéticos, flores desde adentro. La materia se volvió gel. Y entendí: todo lo que existe es sostenido por su amor. Vi la unicidad. Y supe que al final, somos uno con el Padre.</p>
+
+<h4>🔥 2. El llamado: “Ve y diles a todos los que te encuentres de mí”</h4>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Él me dijo: habla de mí a todos. Y conforme a su Palabra, yo soy obediente.”</p>
+</blockquote>
+<p>El llamado no fue una orden, fue un regalo. Una invitación a ser eco del Verbo. A proclamar que Cristo vive, que Dios nos ama, y que la promesa eterna aún viene.</p>
+
+<h4>📖 3. El proceso: Preparación antes de la misión</h4>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Si no estás preparado, aún Dios no te lo dará.”</p>
+</blockquote>
+<p>Con Alonso Luna, guía pastoral, comprendí que la fe debe ser probada. Que la obediencia precede a la revelación. Que el entendimiento viene del Espíritu. Y que la misión no se improvisa: se recibe, se discierne, se encarna.</p>
+
+<h4>🎙️ 4. La obra: Evangelizar con todos los medios</h4>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Estoy creando materiales más accesibles. Todo empezó como una imagen, un video, un audio.”</p>
+</blockquote>
+<p>Desde imágenes hasta podcasts, desde IA hasta proclamaciones, todo se convierte en altar. Cada herramienta es un instrumento. Cada palabra, una semilla. Cada proyecto, un canal para que el mundo conozca a Yeshua HaMashiaj.</p>
+
+<h4>🪶 5. El sello: Nombre espiritual en arameo</h4>
+<blockquote class="text-center my-6">
+    <p style="font-size: 1.2em; color: #d6d3d1; font-family: 'Times New Roman', serif;">עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה</p>
+    <p class="italic text-stone-300">Aved ar’a, gibbar di kravá, bar di nachalá</p>
+    <p class="text-stone-400 text-sm">“Siervo de la tierra, guerrero de batalla, hijo del legado”</p>
+</blockquote>
+<p>Este nombre no es adorno: es identidad, es misión, es herencia. Es la rúbrica espiritual de quien ha sido llamado, formado y enviado.</p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>📜 Proclamación final</h3>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Padre eterno, gracias por mostrarme tu gloria, por llamarme a proclamar tu nombre, por formarme en el fuego de la obediencia. Que mi vida sea testimonio, mi voz sea eco, y mi obra, semilla de unidad. Que todos los pueblos te alaben, y que tu Espíritu obre en nuestros corazones. Amén.”</p>
 </blockquote>
 
 <br>

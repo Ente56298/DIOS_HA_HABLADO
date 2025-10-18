@@ -1,18 +1,22 @@
-
 import React, { useState, useCallback, useMemo } from 'react';
 import { TableOfContents } from './components/TableOfContents';
 import { ChapterView } from './components/ChapterView';
 import { generateChapterContent } from './services/geminiService';
 import { BOOK_STRUCTURE } from './constants';
-import { CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT, CHAPTER_4_0_CONTENT } from './prefilledContent';
+import { CHAPTER_PREFACIO_1_CONTENT, CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT, CHAPTER_4_0_CONTENT, CHAPTER_4_1_CONTENT, CHAPTER_4_4_CONTENT, CHAPTER_TESTIMONIO_1_CONTENT, CHAPTER_APENDICE_1_CONTENT } from './prefilledContent';
 import type { BookContent, Chapter } from './types';
 import { BookIcon, InfoIcon, TrashIcon, SearchIcon, DownloadIcon } from './components/IconComponents';
 import { ResearchReportModal } from './components/ResearchReportModal';
 
 const initialBookContent: BookContent = {
+    'chap-prefacio-1': CHAPTER_PREFACIO_1_CONTENT,
     'chap-1-1': CHAPTER_1_CONTENT,
     'chap-1-2': CHAPTER_1_2_CONTENT,
     'chap-4-0': CHAPTER_4_0_CONTENT,
+    'chap-4-1': CHAPTER_4_1_CONTENT,
+    'chap-4-4': CHAPTER_4_4_CONTENT,
+    'chap-testimonio-1': CHAPTER_TESTIMONIO_1_CONTENT,
+    'chap-apendice-1': CHAPTER_APENDICE_1_CONTENT,
 };
 
 interface SearchResult {
@@ -27,7 +31,7 @@ const App: React.FC = () => {
     const [isGenerating, setIsGenerating] = useState<boolean>(false);
     const [isReportVisible, setIsReportVisible] = useState<boolean>(false);
     
-    const initialView = 'chap-1-2';
+    const initialView = 'chap-prefacio-1';
     const [currentView, setCurrentView] = useState<string>(initialView);
 
     const [searchQuery, setSearchQuery] = useState('');
