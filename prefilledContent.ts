@@ -276,7 +276,7 @@ export const CHAPTER_4_4_CONTENT = `
 <p><strong>Pastor Alonso:</strong> De eso no se preocupe, Dios es quien pone el deseo de todo en nuestros corazones. Yo así lo entendí, fue Dios quien puso el deseo de congregarme en su tiempo y de bautizarme y después de servirle. La comunión con Dios no va tanto en conocimiento, sino en verdadera devoción y entrega de nuestra propia vida.</p>
 
 <h3>6. El Llamado a la Preparación y la Misión</h3>
-<p><strong>Pastor Alonso:</strong> En base a lo que le he dicho es el orden, la formación y la maduración de una persona en Cristo, y tiene que ver con el tema que tocamos anteriormente: Dios no te dará nada si no estamos preparados. Dios quiere usarnos, pero debemos ser procesados y enseñados por Él para cumplir su obra en la tierra. Moisés: 80 años de preparación, solo 40 de ministerio. Los apóstoles: 3.5 años enseñados por Jesús, después investidos por el Espíritu Santo y después fue que los envió.</p>
+<p><strong>Pastor Alonso:</strong> En base a lo que le he dicho es el orden, la formación y la maduración de una persona en Cristo, y tiene que ver con el tema que tocamos anteriormente: Dios no te dará nada si no estamos preparados. Recuerde lo que dijo el Señor Jesús: "separados de mí nada podéis hacer" (Juan 15:5). Dios quiere usarnos, pero debemos ser procesados y enseñados por Él para cumplir su obra en la tierra. Moisés: 80 años de preparación, solo 40 de ministerio. Los apóstoles: 3.5 años enseñados por Jesús, después investidos por el Espíritu Santo y después fue que los envió.</p>
 <p><strong>JAH:</strong> Hoy creo que ya tuve el llamado. Voy a ir al centro de restauración cristiano. Creo que ya pronto, si Dios padre me lo permite, nos estaremos congregando. Sé de sus oraciones, mi Padre está contento, Él tenía el Plan perfeccionado.</p>
 <p><strong>Pastor Alonso:</strong> Adelante. Dios le bendice y le pone la gente correcta, los lugares correctos. Vamos a estar orando por esto y que Dios ponga los medios y su tiempo correcto para esta obra.</p>
 
@@ -380,6 +380,67 @@ export const CHAPTER_APENDICE_1_CONTENT = `
 <h3>📜 Proclamación final</h3>
 <blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
   <p>“Padre eterno, gracias por mostrarme tu gloria, por llamarme a proclamar tu nombre, por formarme en el fuego de la obediencia. Que mi vida sea testimonio, mi voz sea eco, y mi obra, semilla de unidad. Que todos los pueblos te alaben, y que tu Espíritu obre en nuestros corazones. Amén.”</p>
+</blockquote>
+
+<br>
+<hr class="border-stone-700 my-4">
+<p class="text-center italic text-stone-400">
+    FIRMA: Aved Ar’a, Gibbar di Kravá, Bar di Nachalá
+    <br>
+    <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Siervo de la tierra, guerrero de batalla, hijo del legado)</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
+</p>
+`;
+
+export const CHAPTER_5_2_CONTENT = `
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Mis ovejas oyen mi voz, y yo las conozco, y me siguen.”</p>
+  <cite class="block text-right not-italic mt-2">— Juan 10:27</cite>
+</blockquote>
+
+<h3>Introducción: El Susurro Persistente en el Ruido del Mundo</h3>
+<p>En un mundo saturado de información, notificaciones y opiniones, la pregunta más crucial para el creyente no es si Dios habla, sino ¿cómo podemos escucharlo? El Padre no es un Dios de la historia, una deidad silenciosa que se retiró tras escribir la última página de la Biblia. Él es el Dios del "ahora", el "Yo Soy" cuya voz resuena hoy con la misma autoridad y ternura que en el Sinaí o en las orillas de Galilea. Sin embargo, aprender a discernir Su voz en medio del clamor de nuestra propia alma, las presiones del mundo y los engaños del enemigo es el mayor desafío y la más grande aventura de la vida espiritual.</p>
+
+<h3>1. Discernimiento: ¿Quién Habla en el Silencio del Corazón?</h3>
+<p>El corazón es un santuario, pero también es un campo de batalla de voces. Para distinguir la voz del Buen Pastor, debemos convertirnos en examinadores sabios, como los de Berea, probando todo espíritu. La voz de Dios siempre tendrá tres sellos inconfundibles:</p>
+<ul>
+    <li><strong>Consonancia con la Escritura:</strong> El Espíritu Santo nunca se contradice a sí mismo. Una "palabra" que viola el carácter de Dios o los principios claros de la Biblia no proviene de Él. Su voz no anula Su Palabra escrita, la ilumina.</li>
+    <li><strong>El Fruto del Espíritu:</strong> La guía de Dios, incluso cuando es desafiante o correctiva, produce en última instancia el fruto de Gálatas 5:22-23: amor, gozo, paz, paciencia. Una voz que genera ansiedad persistente, confusión, arrogancia o división debe ser cuestionada.</li>
+    <li><strong>Confirmación en la Comunidad:</strong> A menudo, el Padre confirma Su dirección a través del consejo de creyentes maduros y piadosos. No busca la opinión de la mayoría, sino la sabiduría de aquellos que también caminan en intimidad con Él.</li>
+</ul>
+
+<h3>2. Revelación Divina vs. Opinión Humana: El Fuego y la Ceniza</h3>
+<p>Nuestros deseos, miedos y razonamientos pueden sonar convincentes, vistiéndose a menudo con un lenguaje espiritual. La diferencia entre la revelación genuina y la opinión humana es la diferencia entre el fuego y la ceniza. La opinión nace de nuestra lógica finita; la revelación desciende de la sabiduría infinita de Dios. Vemos esta tensión en Pedro, quien, por amor humano, intentó disuadir a Jesús de ir a la cruz. La respuesta de Yeshúa fue tajante: "¡Quítate de delante de mí, Satanás!; me eres tropiezo, porque no pones la mira en las cosas de Dios, sino en las de los hombres" (Mateo 16:23). La revelación divina nos llama a la cruz, a la rendición y a la gloria del Padre; la opinión humana a menudo busca la comodidad, la autopreservación y la lógica terrenal.</p>
+
+<h3>3. Cultivando un Corazón que Escucha: Prácticas para el Mundo Moderno</h3>
+<p>Escuchar a Dios no es una técnica mística, sino una disciplina de la relación. Requiere intencionalidad para acallar el ruido exterior e interior.</p>
+<ul>
+    <li><strong>Abrazar el Silencio:</strong> Como Elías, que no encontró a Dios en el viento, el terremoto o el fuego, sino en el "silbo apacible y delicado" (1 Reyes 19:12), debemos buscar espacios de quietud. Apagar los dispositivos, retirarnos del ruido y simplemente estar.</li>
+    <li><strong>Oración Dialógica:</strong> Transformar nuestros monólogos de petición en diálogos de comunión. Después de hablar, quedémonos en silencio, esperando, escuchando, con el corazón abierto.</li>
+    <li><strong>Lectura Meditativa de la Escritura:</strong> No leer la Biblia para acumular información, sino para tener un encuentro. Leer despacio, preguntando al Espíritu Santo: "Padre, ¿qué me estás diciendo a través de esto hoy?".</li>
+</ul>
+
+<h3>4. Trampas en el Camino: Falsos Ecos y Luces Engañosas</h3>
+<p>El enemigo es un imitador. Satanás se disfraza de "ángel de luz" (2 Corintios 11:14), y sus susurros pueden sonar atractivos. Debemos estar alerta a las trampas:</p>
+<ul>
+    <li><strong>El Engaño Emocional:</strong> Una experiencia espiritual que produce un éxtasis emocional intenso pero que no lleva a un arrepentimiento genuino, a una mayor santidad o a un amor más profundo por los demás, puede ser una falsificación.</li>
+    <li><strong>La Soberbia Espiritual:</strong> Una "revelación" que nos hace sentir superiores, especiales o exentos de la corrección y la comunidad es una bandera roja. La voz de Dios siempre nos lleva a la humildad, reconociendo que "Dios sin mí sigue siendo DIOS, pero yo sin Dios nada SOY."</li>
+    <li><strong>La Justificación del Pecado:</strong> El Espíritu Santo nos convence de pecado; nunca nos dará una excusa para él. Cualquier "voz" que nos dé permiso para violar la ley moral de Dios es un engaño.</li>
+</ul>
+
+<h3>Aplicación Espiritual: Afinando el Oído del Alma</h3>
+<ul>
+    <li><strong>Prueba cada Impulso:</strong> Antes de actuar sobre una "palabra" o un sentimiento fuerte, pásalo por el filtro: ¿Se alinea con la Biblia? ¿Me da paz o ansiedad? ¿Me lleva a amar más?</li>
+    <li><strong>Busca Sabiduría:</strong> Comparte tus discernimientos con un mentor espiritual o un pastor de confianza. La humildad para someter nuestra percepción a la comunidad es una gran protección.</li>
+    <li><strong>Mantén un Diario Espiritual:</strong> Anota lo que crees que Dios te está diciendo. Con el tiempo, podrás ver patrones, confirmar Su guía y aprender a reconocer Su voz con mayor claridad.</li>
+</ul>
+
+<h3>Proclamación Final</h3>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Abba Padre, en este mundo ruidoso, anhelo el susurro de Tu voz. Calla el clamor de mi ego, silencia los miedos que me acusan y apaga las distracciones que me alejan. Dame, oh Señor, oídos de oveja para reconocer la voz de mi Pastor. Dame un corazón como el del joven Samuel, que pueda decir con sinceridad: 'Habla, Señor, que tu siervo oye'. Que no siga mi opinión, sino Tu revelación. Que no busque mi voluntad, sino Tu glorioso propósito. Amén.”</p>
 </blockquote>
 
 <br>

@@ -3,7 +3,7 @@ import { TableOfContents } from './components/TableOfContents';
 import { ChapterView } from './components/ChapterView';
 import { generateChapterContent } from './services/geminiService';
 import { BOOK_STRUCTURE } from './constants';
-import { CHAPTER_PREFACIO_1_CONTENT, CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT, CHAPTER_4_0_CONTENT, CHAPTER_4_1_CONTENT, CHAPTER_4_4_CONTENT, CHAPTER_TESTIMONIO_1_CONTENT, CHAPTER_APENDICE_1_CONTENT } from './prefilledContent';
+import { CHAPTER_PREFACIO_1_CONTENT, CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT, CHAPTER_4_0_CONTENT, CHAPTER_4_1_CONTENT, CHAPTER_4_4_CONTENT, CHAPTER_5_2_CONTENT, CHAPTER_TESTIMONIO_1_CONTENT, CHAPTER_APENDICE_1_CONTENT } from './prefilledContent';
 import type { BookContent, Chapter } from './types';
 import { BookIcon, InfoIcon, TrashIcon, SearchIcon, DownloadIcon } from './components/IconComponents';
 import { ResearchReportModal } from './components/ResearchReportModal';
@@ -15,6 +15,7 @@ const initialBookContent: BookContent = {
     'chap-4-0': CHAPTER_4_0_CONTENT,
     'chap-4-1': CHAPTER_4_1_CONTENT,
     'chap-4-4': CHAPTER_4_4_CONTENT,
+    'chap-5-2': CHAPTER_5_2_CONTENT,
     'chap-testimonio-1': CHAPTER_TESTIMONIO_1_CONTENT,
     'chap-apendice-1': CHAPTER_APENDICE_1_CONTENT,
 };
