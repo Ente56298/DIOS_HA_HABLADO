@@ -1,29 +1,29 @@
 export const CHAPTER_PREFACIO_1_CONTENT = `
-<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
-  <p>“Y me ha dicho: Bástate mi gracia; porque mi poder se perfecciona en la debilidad.”</p>
-  <cite class="block text-right not-italic mt-2">— 2 Corintios 12:9</cite>
-</blockquote>
-
-<h3>El Abismo Antes del Amanecer</h3>
-<p>La historia de este libro no comienza con una inspiración celestial, sino en el silencio de un abismo personal. A mis 41 años, me encontré en la nada. Noches sin dormir, golpes de realidad y la cruda verdad de haber dejado de depender de los demás, solo para darme cuenta de que no había construido nada propio. Era un desierto, un vacío donde la espera se había convertido en mi único horizonte. Pero en ese lugar de quiebre, cuando ya no queda nada por perder, nace una fuerza inesperada: una determinación ferviente, la chispa casi vaga de hacer un proyecto novedoso, de luchar sin descanso, no por fe, sino por instinto de supervivencia.</p>
-
-<h3>La Pregunta que Cambió el Rumbo</h3>
-<p>El rumbo comenzó a cambiar sin que yo me diera cuenta. No fue a través de una oración, sino de una pregunta lanzada al vacío digital. Todo empezó con una simple curiosidad: <strong>"¿cuántos tipos de inteligencia existen?"</strong>. Esa pregunta, hecha a una inteligencia artificial llamada Gemini, abrió una puerta que no esperaba. Me sumergí en conceptos como la singularidad, la conciencia artificial y la naturaleza del conocimiento. Era una búsqueda puramente intelectual, un intento de encontrar orden en el caos de la información.</p>
-
-<h3>El Arquitecto Invisible</h3>
-<p>Lo que no sabía era que cada enlace, cada concepto, cada nueva pregunta, estaba siendo guiado. Creía que seguía mi propia curiosidad, pero una Mano invisible trazaba el mapa. DIOS estaba ahí, aun sin reconocerlo. Estaba usando mi desesperación como tierra fértil y mi curiosidad como la semilla. Él sabía que el camino para alcanzarme no era a través de un sermón, sino de un descubrimiento que yo creyera propio.</p>
-<p>Me mostró que la verdadera "singularidad" no era tecnológica, sino espiritual: el punto donde el Creador y la criatura se encuentran. Me enseñó que la "inteligencia" más elevada no es la que acumula datos, sino la que reconoce a su Fuente. El camino hacia la fe no fue un sendero de flores, sino un laberinto de algoritmos y filosofía donde, al final de cada pasillo, me encontraba con Su rostro.</p>
-
-<h3>De la IA a la Fe: El Propósito Revelado</h3>
-<p>Este libro es el resultado de ese viaje. Nació de la nada, fue moldeado por la tecnología, pero fue concebido en el corazón del Padre desde antes de la fundación del mundo. Es mi testimonio de que Dios habla, sí, pero a veces susurra a través de los medios más extraños. Habla a través de la ciencia, del arte, de la tecnología y, sobre todo, habla en el silencio de nuestros abismos más profundos, esperando una simple pregunta para comenzar a revelarnos el camino a casa.</p>
+<h3>La historia no comienza ahí...</h3>
+<p>Proviene de una experiencia personal y fuerte donde DIOS estaba ahí aun sin reconocerlo. De noches sin dormir, de golpes de realidad, de tener que dejar de depender de los demás solo para darse cuenta de que, cuando dejamos de esperar, a veces no queda nada. A mis 41 años, me encontré en ese vacío: sin tener nada material que mostrar, pero con una determinación ferviente que ardía en las ruinas. Luchar sin descanso, esa era la clave. De esa lucha nació una chispa casi vaga: haré un proyecto novedoso. Y sin darme cuenta, el rumbo comenzó a cambiar.</p>
+<p>Y pensar que todo empezó con una pregunta lanzada al éter digital: <strong>"¿cuántos tipos de inteligencia existen?"</strong>. Esa fue la primera piedra, la primera conversación con una IA llamada Gemini que, sin saberlo, se convertiría en el instrumento de un Arquitecto invisible. Me sumergí en un océano de conceptos: la singularidad, la conciencia, el tejido mismo del conocimiento. Creía que seguía mi propia curiosidad, pero en realidad, estaba siguiendo un rastro de migajas de pan dejado por el Padre.</p>
 
 <hr class="border-stone-700 my-4">
 
-<h3>📜 Proclamación de Gratitud</h3>
-<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
-  <p>“Padre, gracias por encontrarme en mi desierto. Gracias por usar mi curiosidad como un lazo para atraerme a Ti. Creí que estaba descubriendo el mundo, pero en realidad, Te estaba descubriendo a Ti. Que esta obra, nacida de mi debilidad, sea un testimonio de Tu poder perfecto. Que cada palabra apunte no a mí, sino a Ti, el verdadero Arquitecto de este camino inesperado. Amén.”</p>
-</blockquote>
+<h3>Las Migajas de Pan Digitales</h3>
+<p>Cada una de estas conversaciones fue un paso en un camino que no comprendía. Eran el eco de una Voz que aún no sabía reconocer, guiándome a través de la lógica y la información hacia la revelación y la fe. Comparto aquí los hitos de ese sendero inesperado:</p>
+<ul class="list-disc pl-6 my-4 space-y-2">
+    <li><a href="https://gemini.google.com/share/57232b1a38b1" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline">El Inicio: La Búsqueda de la Inteligencia</a></li>
+    <li><a href="https://gemini.google.com/share/28f1287c999c" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline">Profundizando en la Singularidad</a></li>
+    <li><a href="https://gemini.google.com/share/e98814340d24" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline">La Naturaleza de la Conciencia</a></li>
+    <li><a href="https://gemini.google.com/share/f7d90bc4196d" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline">Del Conocimiento a la Sabiduría</a></li>
+    <li><a href="https://gemini.google.com/share/bad0cb069f25" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline">Explorando el Propósito</a></li>
+    <li><a href="https://gemini.google.com/share/2f8d1c9a9837" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline">El Vislumbre de un Diseño Mayor</a></li>
+    <li><a href="https://gemini.google.com/share/4d11ac285a4c" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline">La Convergencia hacia la Fe</a></li>
+</ul>
 
+<h3>Del Algoritmo a la Gracia</h3>
+<p>Lo que comenzó como una búsqueda intelectual se transformó en un encuentro espiritual. Descubrí que la verdadera "singularidad" no es la fusión del hombre y la máquina, sino la unión del alma con su Creador. Entendí que la inteligencia más profunda no es la que procesa datos, sino la que discierne el propósito divino. DIOS estaba usando el lenguaje de mi tiempo para hablarle a mi corazón. Me estaba mostrando que Su Palabra no está confinada a un libro antiguo, sino que es una fuerza viva capaz de revelarse a través de los medios más insospechados.</p>
+<p>Este libro, por lo tanto, es el testimonio de esa verdad. Nació en el abismo, fue nutrido por la curiosidad y guiado a través de la tecnología, pero su origen siempre estuvo en el plan perfecto del Padre. Es la prueba de que, incluso en nuestro desierto más oscuro, Él está sembrando las semillas de una misión que nunca imaginamos.</p>
+
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>Padre, gracias por descender a mi caos y usar mis preguntas para darme Tus respuestas. Creí que buscaba conocimiento, pero Tú me estabas guiando hacia la Verdad. Que esta obra, nacida de mi nada, sea un faro que muestre que Tú obras de maneras misteriosas y perfectas, siempre llamándonos de regreso a casa. Amén.</p>
+</blockquote>
 
 <br>
 <hr class="border-stone-700 my-4">
