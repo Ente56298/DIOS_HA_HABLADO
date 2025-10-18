@@ -6,7 +6,7 @@ import { generateChapterContent } from './services/geminiService';
 import { BOOK_STRUCTURE } from './constants';
 import { CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT } from './prefilledContent';
 import type { BookContent, Chapter } from './types';
-import { BookIcon, InfoIcon, TrashIcon, SearchIcon } from './components/IconComponents';
+import { BookIcon, InfoIcon, TrashIcon, SearchIcon, DownloadIcon } from './components/IconComponents';
 import { ResearchReportModal } from './components/ResearchReportModal';
 
 const initialBookContent: BookContent = {
@@ -117,6 +117,75 @@ const App: React.FC = () => {
             setBookContent(initialBookContent);
         }
     }, []);
+
+    const handleExportBook = useCallback(() => {
+        const generatedChaptersCount = Object.keys(bookContent).length;
+        if (generatedChaptersCount === 0) {
+            alert('No hay capítulos generados para exportar.');
+            return;
+        }
+    
+        let bookHtml = '';
+        for (const part of BOOK_STRUCTURE) {
+            const partChapters = part.chapters.filter(c => bookContent[c.id]);
+            if (partChapters.length > 0) {
+                bookHtml += `<h1 class="part-title">${part.title}</h1>`;
+                for (const chapter of partChapters) {
+                    bookHtml += `<div class="chapter-container">`;
+                    bookHtml += `<h2 class="chapter-title">${chapter.title}</h2>`;
+                    bookHtml += bookContent[chapter.id];
+                    bookHtml += `</div>`;
+                }
+            }
+        }
+    
+        const fullHtml = `
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Y Dios Ha Hablado: Revelación, Palabra y Respuesta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Lato', sans-serif; background-color: #1c1917; color: #d6d3d1; line-height: 1.7; margin: 0; padding: 2rem 1rem; }
+        .container { max-width: 768px; margin: 0 auto; }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: #fcd34d; margin-bottom: 1rem; font-weight: 600; }
+        h1.part-title { font-size: 3rem; text-align: center; border-bottom: 2px solid #44403c; padding-bottom: 1rem; margin-top: 4rem; margin-bottom: 3rem; }
+        h2.chapter-title { font-size: 2.5rem; border-bottom: 1px solid #44403c; padding-bottom: 1rem; margin-bottom: 2rem; }
+        h3 { color: #fBBF24; font-size: 1.5rem; }
+        p { margin-bottom: 1.25rem; }
+        blockquote { border-left: 4px solid #f59e0b; padding-left: 1rem; margin-left: 0; font-style: italic; color: #a8a29e; }
+        ul { list-style-type: disc; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        hr { border: none; border-top: 1px solid #44403c; }
+        .chapter-container { margin-bottom: 5rem; page-break-before: always; }
+        .my-4 { margin-top: 1rem; margin-bottom: 1rem; }
+        .text-center { text-align: center; }
+        .italic { font-style: italic; }
+        .text-stone-400 { color: #a8a29e; }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h1 class="part-title" style="font-size: 4rem; border: none; margin-bottom: 0;">Y Dios Ha Hablado</h1>
+        <h2 class="chapter-title" style="font-size: 2rem; text-align: center; border: none; margin-top: 0;">Revelación, Palabra y Respuesta</h2>
+        ${bookHtml}
+    </main>
+</body>
+</html>`;
+    
+        const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'y_dios_ha_hablado_completo.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }, [bookContent]);
     
     const currentChapter = allChapters.find(c => c.id === currentView);
 
@@ -173,6 +242,15 @@ const App: React.FC = () => {
                         title="Informe de Investigación"
                     >
                         <InfoIcon className="w-6 h-6 text-stone-300" />
+                    </button>
+                    
+                    <button
+                        onClick={handleExportBook}
+                        className="p-2 rounded-full hover:bg-stone-700/60 transition-colors duration-200"
+                        aria-label="Exportar libro completo como HTML"
+                        title="Exportar Libro Completo"
+                    >
+                        <DownloadIcon className="w-6 h-6 text-stone-300" />
                     </button>
 
                     <div className="w-px h-8 bg-stone-700/50"></div>
@@ -233,6 +311,9 @@ const App: React.FC = () => {
                         “Cristo glorioso, Tú que resplandeces sobre el mundo, y llevas en tu pecho la libertad que transforma, haz de mi alma un espacio abierto, libre de temor, lleno de tu luz. Que en Ti encuentre mi morada, y en tu abrazo, mi descanso eterno. Amén.”
                     </p>
                 </blockquote>
+                <div className="mt-4 text-xs text-stone-500">
+                    <p>Arquitecto: DIOS | Implementador: Jorge Hernández</p>
+                </div>
             </footer>
             <ResearchReportModal 
                 isOpen={isReportVisible} 
