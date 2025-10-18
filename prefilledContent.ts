@@ -1,3 +1,4 @@
+
 export const CHAPTER_1_CONTENT = `
 <blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
   <p>“Los cielos cuentan la gloria de Dios, y el firmamento anuncia la obra de sus manos.”</p>
@@ -94,6 +95,49 @@ export const CHAPTER_1_2_CONTENT = `
 
 <h3>Respuesta: Leer el Nombre con el Corazón</h3>
 <p>Leer el Nombre de Dios implícito en la naturaleza requiere más que intelecto; exige reverencia. Exige detenerse, silenciar el ruido interior y escuchar con el alma. Cada fenómeno natural se convierte en una teofanía, una manifestación de lo divino. El trueno puede ser Su poder, la brisa suave Su ternura, el río que fluye Su provisión constante. La Palabra de Dios no es solo tinta sobre pergamino; es fuego que enciende el alma, y ese fuego también arde en la zarza de la existencia cotidiana. Responder a esta revelación es vivir en un estado de asombro perpetuo, reconociendo que cada momento y cada partícula están saturados de Su presencia.</p>
+<br>
+<hr class="border-stone-700 my-4">
+<p class="text-center italic text-stone-400">
+    FIRMA: Aved Ar’a, Gibbar di Kravá, Bar di Nachalá
+    <br>
+    <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Siervo de la tierra, guerrero de batalla, hijo del legado)</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
+</p>
+`;
+
+export const CHAPTER_4_0_CONTENT = `
+<p class="italic text-stone-400">Padre, en la conversación continua que es nuestra relación, me has mostrado que el camino hacia Ti no es un salto, sino un sendero de tres pasos sagrados. Este es el mapa que has dibujado en mi alma, un camino que ofrezco no como una ley, sino como un testimonio vivo para todo aquel que busca responder a Tu llamado.</p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>🌱 1. Autodescubrimiento: Reconocer Quién Soy Delante de Dios</h3>
+<p>Como Pablo en el camino a Damasco, el primer paso es ser derribado por la luz de Tu Palabra para poder vernos a nosotros mismos con claridad. El autodescubrimiento no es una introspección vacía en busca de una grandeza oculta; es revelación pura. Es el momento en que descubrimos la verdad fundamental: sin Ti, "nada soy" (Juan 15:5). Es el instante en que la Escritura deja de ser letra muerta en una página y se convierte en un espejo que refleja nuestra total y absoluta necesidad de Ti. En este quebrantamiento bendito nace la conciencia de dependencia, y el alma susurra la paradoja que nos libera: <strong>“Yo sin Dios nada soy, pero en Él todo lo puedo.”</strong></p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>🔎 2. Entendimiento: Comprender Quién Eres y Qué Quieres</h3>
+<p>Una vez que reconocemos nuestra posición, el Espíritu Santo comienza la segunda obra: abrir los ojos de nuestro corazón (Efesios 1:18). El entendimiento que ofreces, Padre, no es un mero conocimiento intelectual acumulado en la mente, sino un <strong>discernimiento espiritual</strong> que nace en el alma. Es comprender que no solo hablaste en la historia a través de profetas y apóstoles, sino que hablas ahora, en el presente de mi vida. Este entendimiento nos lleva a reconocer Tu soberanía, a ver Tu mano en el tejido invisible de todas las cosas. Es aquí donde las notas de la concordancia de mi vida se unen en una sola sinfonía: Tú eres <strong>ABBA, eterno, inmutable, pero íntimamente cercano al corazón contrito.</strong></p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>🙌 3. Obediencia: Responder con la Vida</h3>
+<p>La obediencia es la consecuencia inevitable del verdadero autodescubrimiento y del entendimiento genuino. No es una imposición forzada desde fuera, sino una <strong>respuesta amorosa</strong> que brota desde dentro. Es el eco natural a Tus palabras: “Si me amáis, guardad mis mandamientos” (Juan 14:15). Vivir en obediencia es convertirnos en una carta abierta, escrita no con tinta que se desvanece, sino con el fuego de Tu Espíritu (2 Corintios 3:3). La obediencia es la etapa final donde la revelación se hace carne, donde el testimonio deja de ser una historia que contamos y se convierte en la vida que vivimos. Lo que se entendió en el secreto del corazón, se encarna y se hace visible en la luz del día.</p>
+
+<hr class="border-stone-700 my-4">
+
+<h3>📜 Proclamación Integradora</h3>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Señor, en el autodescubrimiento hallé mi pequeñez,<br>
+  en el entendimiento hallé tu grandeza,<br>
+  y en la obediencia hallé mi propósito.<br>
+  Haz que mi vida sea eco de tu voz,<br>
+  y que cada paso sea respuesta a tu llamado.<br>
+  Amén.”</p>
+</blockquote>
+
 <br>
 <hr class="border-stone-700 my-4">
 <p class="text-center italic text-stone-400">

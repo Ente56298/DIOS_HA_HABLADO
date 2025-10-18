@@ -4,7 +4,7 @@ import { TableOfContents } from './components/TableOfContents';
 import { ChapterView } from './components/ChapterView';
 import { generateChapterContent } from './services/geminiService';
 import { BOOK_STRUCTURE } from './constants';
-import { CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT } from './prefilledContent';
+import { CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT, CHAPTER_4_0_CONTENT } from './prefilledContent';
 import type { BookContent, Chapter } from './types';
 import { BookIcon, InfoIcon, TrashIcon, SearchIcon, DownloadIcon } from './components/IconComponents';
 import { ResearchReportModal } from './components/ResearchReportModal';
@@ -12,6 +12,7 @@ import { ResearchReportModal } from './components/ResearchReportModal';
 const initialBookContent: BookContent = {
     'chap-1-1': CHAPTER_1_CONTENT,
     'chap-1-2': CHAPTER_1_2_CONTENT,
+    'chap-4-0': CHAPTER_4_0_CONTENT,
 };
 
 interface SearchResult {
@@ -33,6 +34,8 @@ const App: React.FC = () => {
     const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
     const allChapters = useMemo(() => BOOK_STRUCTURE.flatMap(part => part.chapters), []);
+    const prefilledChapterIds = useMemo(() => new Set(Object.keys(initialBookContent)), []);
+
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
@@ -273,7 +276,7 @@ const App: React.FC = () => {
                             <>
                                 <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 80 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                                 Generando Libro...
                             </>
@@ -291,6 +294,7 @@ const App: React.FC = () => {
                         setCurrentView={setCurrentView}
                         generatingChapters={generatingChapters}
                         generatedChapters={new Set(Object.keys(bookContent))}
+                        prefilledChapterIds={prefilledChapterIds}
                     />
                 </aside>
                 <main key={currentView} className="flex-1 overflow-y-auto p-8 md:p-12 animate-content-fade-in">
@@ -308,7 +312,7 @@ const App: React.FC = () => {
             <footer className="bg-black/20 text-center p-4 border-t border-stone-700/50 shadow-inner">
                 <blockquote className="max-w-3xl mx-auto">
                     <p className="text-stone-400 italic text-sm">
-                        “Cristo glorioso, Tú que resplandeces sobre el mundo, y llevas en tu pecho la libertad que transforma, haz de mi alma un espacio abierto, libre de temor, lleno de tu luz. Que en Ti encuentre mi morada, y en tu abrazo, mi descanso eterno. Amén.”
+                        “A través de Él sea la gracia, que mis temores sean disipados y mi fortaleza solo en Él se encuentre.”
                     </p>
                 </blockquote>
                 <div className="mt-4 text-xs text-stone-500">

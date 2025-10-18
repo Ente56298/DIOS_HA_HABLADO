@@ -73,6 +73,11 @@ export const BOOK_STRUCTURE: BookStructure = [
         description: 'Cómo respondemos a la revelación.',
         chapters: [
             {
+                id: 'chap-4-0',
+                title: 'El Camino de Tres Etapas: Del Yo a Dios',
+                synopsis: `Un marco espiritual de autodescubrimiento, entendimiento y obediencia como respuesta a la revelación divina.`
+            },
+            {
                 id: 'chap-4-1',
                 title: 'Fe, Obediencia y Escucha',
                 synopsis: `La fe como respuesta activa a la Palabra revelada.`
@@ -98,6 +103,11 @@ export const BOOK_STRUCTURE: BookStructure = [
                 id: 'chap-5-2',
                 title: 'El Dios que Habla Hoy',
                 synopsis: `Discernimiento espiritual, revelación continua y la Palabra como lámpara.`
+            },
+            {
+                id: 'chap-5-3',
+                title: 'Regalos Divinos',
+                synopsis: `Una exploración de las bendiciones y dones que Dios otorga, desde la gracia inmerecida hasta los dones espirituales, revelando Su naturaleza generosa y Su deseo de equipar a Sus hijos.`
             }
         ]
     },

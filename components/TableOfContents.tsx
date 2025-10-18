@@ -9,6 +9,7 @@ interface TableOfContentsProps {
     setCurrentView: (id: string) => void;
     generatingChapters: Set<string>;
     generatedChapters: Set<string>;
+    prefilledChapterIds: Set<string>;
 }
 
 export const TableOfContents: React.FC<TableOfContentsProps> = ({ 
@@ -16,7 +17,8 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
     currentView, 
     setCurrentView,
     generatingChapters,
-    generatedChapters
+    generatedChapters,
+    prefilledChapterIds
 }) => {
     const currentChapter = structure
         .flatMap(part => part.chapters)
@@ -38,16 +40,27 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
                                 const isActive = currentView === chapter.id;
                                 const isGenerating = generatingChapters.has(chapter.id);
                                 const isGenerated = generatedChapters.has(chapter.id) && !isGenerating;
+                                const isPrefilled = prefilledChapterIds.has(chapter.id);
+                                const isAiGeneratedAndNotPrefilled = isGenerated && !isPrefilled;
+
+                                let buttonClasses = 'w-full text-left p-3 rounded-md transition-all duration-200 flex items-center gap-3 border-l-4 ';
+
+                                if (isActive) {
+                                    buttonClasses += 'bg-amber-600/20 text-amber-200 border-amber-500';
+                                } else {
+                                    buttonClasses += 'hover:bg-stone-700/50 text-stone-300 hover:border-stone-600 ';
+                                    if (isAiGeneratedAndNotPrefilled) {
+                                        buttonClasses += 'bg-stone-900/30 border-stone-700';
+                                    } else {
+                                        buttonClasses += 'border-transparent';
+                                    }
+                                }
 
                                 return (
                                     <li key={chapter.id}>
                                         <button
                                             onClick={() => setCurrentView(chapter.id)}
-                                            className={`w-full text-left p-3 rounded-md transition-all duration-200 flex items-center gap-3 border-l-4 ${
-                                                isActive
-                                                    ? 'bg-amber-600/20 text-amber-200 border-amber-500'
-                                                    : 'hover:bg-stone-700/50 text-stone-300 border-transparent hover:border-stone-600'
-                                            }`}
+                                            className={buttonClasses}
                                         >
                                             <div className="flex-shrink-0 w-5 h-5">
                                                 {isGenerating ? (
