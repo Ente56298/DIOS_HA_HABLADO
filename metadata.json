@@ -1,0 +1,5 @@
+{
+  "name": "Y Dios Ha Hablado - Book Generator",
+  "description": "An application that generates the content for the book 'Y Dios Ha Hablado' chapter by chapter, based on a provided outline, using the Gemini API.",
+  "requestFramePermissions": []
+}
