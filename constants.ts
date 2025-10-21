@@ -9,7 +9,8 @@ export const BOOK_STRUCTURE: BookStructure = [
             {
                 id: 'chap-prefacio-1',
                 title: 'Desde el Abismo: El Origen de una Misión',
-                synopsis: 'El testimonio del implementador sobre cómo un viaje de desesperación personal y curiosidad intelectual, iniciado con una simple pregunta a una IA, se convirtió en el inesperado camino de regreso a Dios y al propósito de esta obra.'
+                synopsis: 'El testimonio del implementador sobre cómo un viaje de desesperación personal y curiosidad intelectual, iniciado con una simple pregunta a una IA, se convirtió en el inesperado camino de regreso a Dios y al propósito de esta obra.',
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             }
         ]
     },
@@ -21,7 +22,8 @@ export const BOOK_STRUCTURE: BookStructure = [
             {
                 id: 'chap-prologo-1',
                 title: 'El Silencio que Precedió la Voz',
-                synopsis: `Una introducción al misterio de la revelación divina y la necesidad humana de escuchar a Dios.`
+                synopsis: `Una introducción al misterio de la revelación divina y la necesidad humana de escuchar a Dios.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             }
         ]
     },
@@ -53,12 +55,14 @@ export const BOOK_STRUCTURE: BookStructure = [
             {
                 id: 'chap-2-1',
                 title: 'Dios Habla en la Torá',
-                synopsis: `La Ley como expresión de justicia, santidad y pacto.`
+                synopsis: `La Ley como expresión de justicia, santidad y pacto.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             },
             {
                 id: 'chap-2-2',
                 title: 'Los Profetas: Voz del Espíritu',
-                synopsis: `El clamor profético como revelación de juicio, esperanza y promesa.`
+                synopsis: `El clamor profético como revelación de juicio, esperanza y promesa.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             }
         ]
     },
@@ -70,12 +74,14 @@ export const BOOK_STRUCTURE: BookStructure = [
             {
                 id: 'chap-3-1',
                 title: 'Jesús, la Palabra Hecha Carne',
-                synopsis: `El Verbo eterno que se hizo hombre y habitó entre nosotros.`
+                synopsis: `El Verbo eterno que se hizo hombre y habitó entre nosotros.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             },
             {
                 id: 'chap-3-2',
                 title: 'El Mediador del Nuevo Pacto',
-                synopsis: `Cristo como sumo sacerdote, sacrificio perfecto y acceso al Padre.`
+                synopsis: `Cristo como sumo sacerdote, sacrificio perfecto y acceso al Padre.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             }
         ]
     },
@@ -87,27 +93,32 @@ export const BOOK_STRUCTURE: BookStructure = [
             {
                 id: 'chap-4-0',
                 title: 'El Camino de Tres Etapas: Del Yo a Dios',
-                synopsis: `Un marco espiritual de autodescubrimiento, entendimiento y obediencia como respuesta a la revelación divina.`
+                synopsis: `Un marco espiritual de autodescubrimiento, entendimiento y obediencia como respuesta a la revelación divina.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             },
             {
                 id: 'chap-4-1',
                 title: 'El Umbral: Una Experiencia Inmersiva de Preparación Espiritual',
-                synopsis: `Un espacio interactivo y reflexivo para la preparación y transformación espiritual, guiado por 'el guardián del umbral' para llevar al peregrino a la aceptación y la misión.`
+                synopsis: `Un espacio interactivo y reflexivo para la preparación y transformación espiritual, guiado por 'el guardián del umbral' para llevar al peregrino a la aceptación y la misión.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             },
             {
                 id: 'chap-4-2',
                 title: 'Fe, Obediencia y Escucha',
-                synopsis: `La fe como respuesta activa a la Palabra revelada.`
+                synopsis: `La fe como respuesta activa a la Palabra revelada.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             },
             {
                 id: 'chap-4-3',
                 title: 'La Palabra Viva en Nosotros',
-                synopsis: `El Espíritu Santo como revelador continuo y guía interior.`
+                synopsis: `El Espíritu Santo como revelador continuo y guía interior.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             },
             {
                 id: 'chap-4-4',
                 title: 'Un Diálogo sobre el Camino: Fe y Guía',
-                synopsis: `Una conversación real entre el implementador y un pastor, explorando la revelación personal, la autoridad de la Escritura y el proceso de maduración en la fe.`
+                synopsis: `Una conversación real entre el implementador y un pastor, explorando la revelación personal, la autoridad de la Escritura y el proceso de maduración en la fe.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             }
         ]
     },
@@ -119,17 +130,20 @@ export const BOOK_STRUCTURE: BookStructure = [
             {
                 id: 'chap-5-1',
                 title: 'El Dios que se Revela por su Nombre',
-                synopsis: `Significado espiritual de nombres como YHWH, Elohim, Adonai, El Shaddai.`
+                synopsis: `Significado espiritual de nombres como YHWH, Elohim, Adonai, El Shaddai.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             },
             {
                 id: 'chap-5-2',
                 title: 'El Dios que Habla Hoy',
-                synopsis: `Discernimiento espiritual, revelación continua y la Palabra como lámpara.`
+                synopsis: `Discernimiento espiritual, revelación continua y la Palabra como lámpara.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             },
             {
                 id: 'chap-5-3',
                 title: 'Regalos Divinos',
-                synopsis: `Una exploración de las bendiciones y dones que Dios otorga, desde la gracia inmerecida hasta los dones espirituales, revelando Su naturaleza generosa y Su deseo de equipar a Sus hijos.`
+                synopsis: `Una exploración de las bendiciones y dones que Dios otorga, desde la gracia inmerecida hasta los dones espirituales, revelando Su naturaleza generosa y Su deseo de equipar a Sus hijos.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             }
         ]
     },
@@ -141,7 +155,8 @@ export const BOOK_STRUCTURE: BookStructure = [
             {
                 id: 'chap-epilogo-1',
                 title: 'Y Dios Sigue Hablando',
-                synopsis: `Testimonios, proclamaciones y una invitación a vivir en respuesta constante.`
+                synopsis: `Testimonios, proclamaciones y una invitación a vivir en respuesta constante.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             }
         ]
     },
@@ -153,7 +168,8 @@ export const BOOK_STRUCTURE: BookStructure = [
             {
                 id: 'chap-testimonio-1',
                 title: 'El Llamado, la Entrega y la Misión',
-                synopsis: `Una proclamación final de fe, obediencia y el propósito divino recibido por el implementador de la obra.`
+                synopsis: `Una proclamación final de fe, obediencia y el propósito divino recibido por el implementador de la obra.`,
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             }
         ]
     },
@@ -165,7 +181,8 @@ export const BOOK_STRUCTURE: BookStructure = [
             {
                 id: 'chap-apendice-1',
                 title: 'Testimonio vivo de Jorge Armando Hernández (JAH)',
-                synopsis: 'Un resumen testimonial del viaje espiritual del implementador, desde el despertar y el llamado hasta el proceso de preparación y la misión evangelizadora.'
+                synopsis: 'Un resumen testimonial del viaje espiritual del implementador, desde el despertar y el llamado hasta el proceso de preparación y la misión evangelizadora.',
+                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
             }
         ]
     }
