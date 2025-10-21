@@ -40,21 +40,47 @@ const App: React.FC = () => {
     
     const [editingChapterId, setEditingChapterId] = useState<string | null>(null);
 
+    const [favoriteChapters, setFavoriteChapters] = useState<Set<string>>(() => {
+        try {
+            const saved = localStorage.getItem('favoriteChapters');
+            return saved ? new Set(JSON.parse(saved)) : new Set();
+        } catch (error) {
+            console.error("Failed to parse favorite chapters from localStorage", error);
+            return new Set();
+        }
+    });
+
+    const [readChapters, setReadChapters] = useState<Set<string>>(() => {
+        try {
+            const saved = localStorage.getItem('readChapters');
+            return saved ? new Set(JSON.parse(saved)) : new Set();
+        } catch (error) {
+            console.error("Failed to parse read chapters from localStorage", error);
+            return new Set();
+        }
+    });
+
+    useEffect(() => {
+        localStorage.setItem('favoriteChapters', JSON.stringify(Array.from(favoriteChapters)));
+    }, [favoriteChapters]);
+
+    useEffect(() => {
+        localStorage.setItem('readChapters', JSON.stringify(Array.from(readChapters)));
+    }, [readChapters]);
+
     const allChapters = useMemo(() => BOOK_STRUCTURE.flatMap(part => part.chapters), []);
     const prefilledChapterIds = useMemo(() => new Set(Object.keys(initialBookContent)), []);
 
     useEffect(() => {
-        // Exit editing mode when the chapter view changes for simplicity.
-        // The handleNavigate function provides a guard for unsaved changes.
         setEditingChapterId(null);
     }, [currentView]);
 
     const handleNavigate = (chapterId: string) => {
         if (editingChapterId && editingChapterId !== chapterId) {
             if (window.confirm('Tiene cambios sin guardar en el capítulo actual. ¿Desea descartarlos y continuar?')) {
-                setEditingChapterId(null); // Discard changes by exiting edit mode
+                setEditingChapterId(null);
             } else {
-                return; // Abort navigation
+                return;
             }
         }
         setCurrentView(chapterId);
@@ -150,6 +176,30 @@ const App: React.FC = () => {
             [chapterId]: newContent,
         }));
         setEditingChapterId(null);
+    }, []);
+
+    const handleToggleFavorite = useCallback((chapterId: string) => {
+        setFavoriteChapters(prev => {
+            const newSet = new Set(prev);
+            if (newSet.has(chapterId)) {
+                newSet.delete(chapterId);
+            } else {
+                newSet.add(chapterId);
+            }
+            return newSet;
+        });
+    }, []);
+
+    const handleToggleRead = useCallback((chapterId: string) => {
+        setReadChapters(prev => {
+            const newSet = new Set(prev);
+            if (newSet.has(chapterId)) {
+                newSet.delete(chapterId);
+            } else {
+                newSet.add(chapterId);
+            }
+            return newSet;
+        });
     }, []);
 
     const handleExportBook = useCallback(() => {
@@ -326,6 +376,8 @@ const App: React.FC = () => {
                         generatingChapters={generatingChapters}
                         generatedChapters={new Set(Object.keys(bookContent))}
                         prefilledChapterIds={prefilledChapterIds}
+                        favoriteChapters={favoriteChapters}
+                        readChapters={readChapters}
                     />
                 </aside>
                 <main key={currentView} className="flex-1 overflow-y-auto p-8 md:p-12 animate-content-fade-in">
@@ -339,6 +391,10 @@ const App: React.FC = () => {
                            editingChapterId={editingChapterId}
                            setEditingChapterId={setEditingChapterId}
                            onUpdateContent={handleUpdateChapterContent}
+                           isFavorite={favoriteChapters.has(currentChapter.id)}
+                           isRead={readChapters.has(currentChapter.id)}
+                           onToggleFavorite={() => handleToggleFavorite(currentChapter.id)}
+                           onToggleRead={() => handleToggleRead(currentChapter.id)}
                        />
                    )}
                 </main>

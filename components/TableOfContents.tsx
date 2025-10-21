@@ -1,7 +1,6 @@
-
 import React from 'react';
 import type { BookStructure } from '../types';
-import { CheckCircleIcon, DocumentIcon, SparklesIcon } from './IconComponents';
+import { CheckCircleIcon, DocumentIcon, SparklesIcon, StarIcon, BookmarkIcon } from './IconComponents';
 
 interface TableOfContentsProps {
     structure: BookStructure;
@@ -10,6 +9,8 @@ interface TableOfContentsProps {
     generatingChapters: Set<string>;
     generatedChapters: Set<string>;
     prefilledChapterIds: Set<string>;
+    favoriteChapters: Set<string>;
+    readChapters: Set<string>;
 }
 
 export const TableOfContents: React.FC<TableOfContentsProps> = ({ 
@@ -18,7 +19,9 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
     setCurrentView,
     generatingChapters,
     generatedChapters,
-    prefilledChapterIds
+    prefilledChapterIds,
+    favoriteChapters,
+    readChapters
 }) => {
     const currentChapter = structure
         .flatMap(part => part.chapters)
@@ -42,6 +45,8 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
                                 const isGenerated = generatedChapters.has(chapter.id) && !isGenerating;
                                 const isPrefilled = prefilledChapterIds.has(chapter.id);
                                 const isAiGeneratedAndNotPrefilled = isGenerated && !isPrefilled;
+                                const isFavorite = favoriteChapters.has(chapter.id);
+                                const isRead = readChapters.has(chapter.id);
 
                                 let buttonClasses = 'w-full text-left p-3 rounded-md transition-all duration-200 flex items-center gap-3 border-l-4 ';
 
@@ -72,6 +77,10 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
                                                 )}
                                             </div>
                                             <span className="flex-1">{chapter.title}</span>
+                                            <div className="flex-shrink-0 flex items-center gap-2">
+                                                {isFavorite && <StarIcon className="w-4 h-4 text-amber-400" filled />}
+                                                {isRead && <BookmarkIcon className="w-4 h-4 text-sky-400" filled />}
+                                            </div>
                                         </button>
                                     </li>
                                 );

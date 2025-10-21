@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { Chapter } from '../types';
-import { SparklesIcon, DownloadIcon, TrashIcon, PencilIcon, MicrophoneIcon } from './IconComponents';
+import { SparklesIcon, DownloadIcon, TrashIcon, PencilIcon, MicrophoneIcon, StarIcon, BookmarkIcon } from './IconComponents';
 
 // SpeechRecognition might not be on the window type, so we declare it.
 declare global {
@@ -49,6 +49,10 @@ interface ChapterViewProps {
     editingChapterId: string | null;
     setEditingChapterId: (id: string | null) => void;
     onUpdateContent: (chapterId: string, newContent: string) => void;
+    isFavorite: boolean;
+    isRead: boolean;
+    onToggleFavorite: () => void;
+    onToggleRead: () => void;
 }
 
 const LoadingSpinner: React.FC = () => (
@@ -78,7 +82,20 @@ const Placeholder: React.FC<{ chapterTitle: string; chapterSynopsis: string; onG
 );
 
 
-export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGenerating, generateChapter, clearChapter, editingChapterId, setEditingChapterId, onUpdateContent }) => {
+export const ChapterView: React.FC<ChapterViewProps> = ({ 
+    chapter, 
+    content, 
+    isGenerating, 
+    generateChapter, 
+    clearChapter, 
+    editingChapterId, 
+    setEditingChapterId, 
+    onUpdateContent,
+    isFavorite,
+    isRead,
+    onToggleFavorite,
+    onToggleRead 
+}) => {
     
     const isEditing = editingChapterId === chapter.id;
     const [editedContent, setEditedContent] = useState('');
@@ -131,7 +148,9 @@ export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGe
         recognitionRef.current = recognition;
 
         return () => {
-            recognition.stop();
+            if (recognitionRef.current) {
+                recognitionRef.current.stop();
+            }
         };
     }, [isListening]);
     
@@ -222,6 +241,22 @@ export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGe
                 <h2 className="text-4xl font-bold border-b-0 pb-0 mb-0">{chapter.title}</h2>
                 {content && !isGenerating && !isEditing && (
                     <div className="flex items-center gap-2 flex-shrink-0 ml-4">
+                        <button
+                            onClick={onToggleFavorite}
+                            className="p-2 rounded-full hover:bg-stone-700/60 transition-colors duration-200"
+                            aria-label={isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}
+                            title={isFavorite ? 'Quitar de Favoritos' : 'Añadir a Favoritos'}
+                        >
+                            <StarIcon className={`w-6 h-6 ${isFavorite ? 'text-amber-400' : 'text-stone-300'}`} filled={isFavorite} />
+                        </button>
+                        <button
+                            onClick={onToggleRead}
+                            className="p-2 rounded-full hover:bg-stone-700/60 transition-colors duration-200"
+                            aria-label={isRead ? 'Marcar como no leído' : 'Marcar como leído'}
+                            title={isRead ? 'Marcar como No Leído' : 'Marcar como Leído'}
+                        >
+                            <BookmarkIcon className={`w-6 h-6 ${isRead ? 'text-sky-400' : 'text-stone-300'}`} filled={isRead} />
+                        </button>
                          <button
                             onClick={() => setEditingChapterId(chapter.id)}
                             className="p-2 rounded-full hover:bg-stone-700/60 transition-colors duration-200"
