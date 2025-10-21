@@ -5,7 +5,7 @@ import { generateChapterContent } from './services/geminiService';
 import { BOOK_STRUCTURE } from './constants';
 import { CHAPTER_PREFACIO_1_CONTENT, CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT, CHAPTER_4_0_CONTENT, CHAPTER_4_1_CONTENT, CHAPTER_4_4_CONTENT, CHAPTER_5_2_CONTENT, CHAPTER_TESTIMONIO_1_CONTENT, CHAPTER_APENDICE_1_CONTENT } from './prefilledContent';
 import type { BookContent, Chapter } from './types';
-import { BookIcon, InfoIcon, TrashIcon, SearchIcon, DownloadIcon } from './components/IconComponents';
+import { BookIcon, InfoIcon, TrashIcon, SearchIcon, DownloadIcon, SwitchHorizontalIcon } from './components/IconComponents';
 import { ResearchReportModal } from './components/ResearchReportModal';
 
 const initialBookContent: BookContent = {
@@ -59,6 +59,8 @@ const App: React.FC = () => {
             return new Set();
         }
     });
+    
+    const [progressMode, setProgressMode] = useState<'read' | 'generated'>('read');
 
     useEffect(() => {
         localStorage.setItem('favoriteChapters', JSON.stringify(Array.from(favoriteChapters)));
@@ -69,6 +71,7 @@ const App: React.FC = () => {
     }, [readChapters]);
 
     const allChapters = useMemo(() => BOOK_STRUCTURE.flatMap(part => part.chapters), []);
+    const totalChapters = allChapters.length;
     const prefilledChapterIds = useMemo(() => new Set(Object.keys(initialBookContent)), []);
 
     useEffect(() => {
@@ -273,6 +276,12 @@ const App: React.FC = () => {
     
     const currentChapter = allChapters.find(c => c.id === currentView);
 
+    const generatedCount = Object.keys(bookContent).length;
+    const readCount = readChapters.size;
+    
+    const progressCount = progressMode === 'read' ? readCount : generatedCount;
+    const progressPercentage = totalChapters > 0 ? (progressCount / totalChapters) * 100 : 0;
+
     return (
         <div className="bg-gradient-to-br from-stone-900 to-stone-950 text-stone-300 min-h-screen flex flex-col">
             <header className="bg-black/20 backdrop-blur-sm border-b border-stone-700/50 p-4 shadow-lg flex items-center justify-between sticky top-0 z-20">
@@ -367,6 +376,27 @@ const App: React.FC = () => {
                     </button>
                 </div>
             </header>
+            
+            <div className="px-6 py-2 bg-stone-800/30 border-b border-stone-700/50 flex items-center gap-4 text-sm">
+                <button 
+                    onClick={() => setProgressMode(prev => prev === 'read' ? 'generated' : 'read')}
+                    className="p-1 rounded-full hover:bg-stone-700/60 transition-colors"
+                    title="Cambiar modo de progreso"
+                >
+                    <SwitchHorizontalIcon className="w-5 h-5 text-stone-400" />
+                </button>
+                <span className="font-semibold text-stone-300 w-48">
+                    {progressMode === 'read' ? 'Progreso de Lectura:' : 'Contenido Generado:'}
+                </span>
+                <div className="w-full bg-stone-700 rounded-full h-2.5">
+                    <div 
+                        className="bg-amber-500 h-2.5 rounded-full transition-all duration-500 ease-out" 
+                        style={{ width: `${progressPercentage}%` }}
+                    ></div>
+                </div>
+                <span className="font-mono text-stone-200 w-20 text-right">{progressPercentage.toFixed(0)}%</span>
+            </div>
+
             <div className="flex flex-1 overflow-hidden">
                 <aside className="w-1/3 max-w-sm bg-stone-800/50 border-r border-stone-700/50 overflow-y-auto p-4">
                     <TableOfContents 
@@ -378,6 +408,10 @@ const App: React.FC = () => {
                         prefilledChapterIds={prefilledChapterIds}
                         favoriteChapters={favoriteChapters}
                         readChapters={readChapters}
+                        progressMode={progressMode}
+                        totalChapters={totalChapters}
+                        readCount={readCount}
+                        generatedCount={generatedCount}
                     />
                 </aside>
                 <main key={currentView} className="flex-1 overflow-y-auto p-8 md:p-12 animate-content-fade-in">

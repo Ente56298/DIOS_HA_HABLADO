@@ -11,6 +11,10 @@ interface TableOfContentsProps {
     prefilledChapterIds: Set<string>;
     favoriteChapters: Set<string>;
     readChapters: Set<string>;
+    progressMode: 'read' | 'generated';
+    totalChapters: number;
+    readCount: number;
+    generatedCount: number;
 }
 
 export const TableOfContents: React.FC<TableOfContentsProps> = ({ 
@@ -21,7 +25,11 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
     generatedChapters,
     prefilledChapterIds,
     favoriteChapters,
-    readChapters
+    readChapters,
+    progressMode,
+    totalChapters,
+    readCount,
+    generatedCount
 }) => {
     const currentChapter = structure
         .flatMap(part => part.chapters)
@@ -29,6 +37,14 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
         
     return (
         <>
+            <div className="mb-6 p-3 bg-stone-900/40 rounded-lg border border-stone-700/50 text-center">
+                <p className="text-sm font-semibold text-stone-300">
+                    {progressMode === 'read' ? 'Capítulos Leídos' : 'Capítulos Generados'}
+                </p>
+                <p className="text-2xl font-bold text-amber-300">
+                    {progressMode === 'read' ? readCount : generatedCount} <span className="text-lg font-normal text-stone-400">/ {totalChapters}</span>
+                </p>
+            </div>
             <nav className="space-y-6">
                 {structure.map((part) => (
                     <div key={part.id}>
