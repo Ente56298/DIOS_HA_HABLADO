@@ -1,7 +1,15 @@
-
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { Chapter } from '../types';
-import { SparklesIcon, DownloadIcon, TrashIcon } from './IconComponents';
+import { SparklesIcon, DownloadIcon, TrashIcon, PencilIcon, MicrophoneIcon } from './IconComponents';
+
+// SpeechRecognition might not be on the window type, so we declare it.
+declare global {
+    interface Window {
+        SpeechRecognition: any;
+        webkitSpeechRecognition: any;
+    }
+}
+
 
 const MediaNarrative: React.FC<{ audioUrl?: string; videoUrl?: string }> = ({ audioUrl, videoUrl }) => {
     if (!audioUrl && !videoUrl) {
@@ -38,6 +46,9 @@ interface ChapterViewProps {
     isGenerating: boolean;
     generateChapter: () => void;
     clearChapter: () => void;
+    editingChapterId: string | null;
+    setEditingChapterId: (id: string | null) => void;
+    onUpdateContent: (chapterId: string, newContent: string) => void;
 }
 
 const LoadingSpinner: React.FC = () => (
@@ -67,15 +78,95 @@ const Placeholder: React.FC<{ chapterTitle: string; chapterSynopsis: string; onG
 );
 
 
-export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGenerating, generateChapter, clearChapter }) => {
+export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGenerating, generateChapter, clearChapter, editingChapterId, setEditingChapterId, onUpdateContent }) => {
+    
+    const isEditing = editingChapterId === chapter.id;
+    const [editedContent, setEditedContent] = useState('');
+    const [isListening, setIsListening] = useState(false);
+    const recognitionRef = useRef<any>(null);
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    useEffect(() => {
+        if (isEditing) {
+            setEditedContent(content || '');
+        }
+    }, [isEditing, content]);
+
+    useEffect(() => {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) {
+            console.warn('La API de reconocimiento de voz no es compatible con este navegador.');
+            return;
+        }
+
+        const recognition = new SpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = false;
+        recognition.lang = 'es-ES';
+
+        recognition.onresult = (event: any) => {
+            let finalTranscript = '';
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    finalTranscript += event.results[i][0].transcript;
+                }
+            }
+            if (finalTranscript) {
+                setEditedContent(prev => prev.trim() + ' ' + finalTranscript.trim());
+            }
+        };
+
+        recognition.onend = () => {
+            if (isListening) {
+                // Restart listening if it was stopped by the browser
+                recognition.start();
+            }
+        };
+
+        recognition.onerror = (event: any) => {
+            console.error('Error en el reconocimiento de voz:', event.error);
+            setIsListening(false);
+        };
+
+        recognitionRef.current = recognition;
+
+        return () => {
+            recognition.stop();
+        };
+    }, [isListening]);
+    
+    useEffect(() => {
+        if (textareaRef.current) {
+            textareaRef.current.scrollTop = textareaRef.current.scrollHeight;
+        }
+    }, [editedContent]);
+
+    const handleToggleListen = () => {
+        if (!recognitionRef.current) {
+            alert('El reconocimiento de voz no está disponible en este navegador.');
+            return;
+        }
+        
+        if (isListening) {
+            recognitionRef.current.stop();
+            setIsListening(false);
+        } else {
+            recognitionRef.current.start();
+            setIsListening(true);
+        }
+    };
+
+    const handleSave = () => {
+        onUpdateContent(chapter.id, editedContent);
+    };
+
+    const handleCancel = () => {
+        setEditingChapterId(null);
+    };
     
     const handleExport = () => {
         if (!content) return;
-
-        // Sanitize the title for the filename
         const fileName = `${chapter.id}-${chapter.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.html`;
-
-        // Create a full HTML document string with embedded styles
         const htmlContent = `
 <!DOCTYPE html>
 <html lang="es">
@@ -87,55 +178,16 @@ export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGe
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: #1c1917;
-            color: #d6d3d1;
-            line-height: 1.7;
-            margin: 0;
-            padding: 2rem 1rem;
-        }
-        .container {
-            max-width: 768px;
-            margin: 0 auto;
-        }
-        h1, h2, h3 {
-            font-family: 'Cormorant Garamond', serif;
-            color: #fcd34d; /* amber-300 */
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        h1 {
-            font-size: 2.5rem;
-            border-bottom: 1px solid #44403c;
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-        }
-        h3 {
-            color: #fBBF24; /* amber-400 */
-            font-size: 1.5rem;
-        }
-        p {
-            margin-bottom: 1.25rem;
-        }
-        blockquote {
-            border-left: 4px solid #f59e0b;
-            padding-left: 1rem;
-            margin-left: 0;
-            font-style: italic;
-            color: #a8a29e;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-        }
-        li {
-            margin-bottom: 0.5rem;
-        }
-        hr {
-            border: none;
-            border-top: 1px solid #44403c; /* border-stone-700 */
-        }
+        body { font-family: 'Lato', sans-serif; background-color: #1c1917; color: #d6d3d1; line-height: 1.7; margin: 0; padding: 2rem 1rem; }
+        .container { max-width: 768px; margin: 0 auto; }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: #fcd34d; margin-bottom: 1rem; font-weight: 600; }
+        h1 { font-size: 2.5rem; border-bottom: 1px solid #44403c; padding-bottom: 1rem; margin-bottom: 2rem; }
+        h3 { color: #fBBF24; font-size: 1.5rem; }
+        p { margin-bottom: 1.25rem; }
+        blockquote { border-left: 4px solid #f59e0b; padding-left: 1rem; margin-left: 0; font-style: italic; color: #a8a29e; }
+        ul { list-style-type: disc; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        hr { border: none; border-top: 1px solid #44403c; }
         .my-4 { margin-top: 1rem; margin-bottom: 1rem; }
         .text-center { text-align: center; }
         .italic { font-style: italic; }
@@ -168,8 +220,16 @@ export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGe
         <div className="prose prose-invert prose-lg prose-p:text-stone-200 prose-h2:text-amber-300 prose-h3:text-amber-400 max-w-4xl mx-auto">
             <div className="flex justify-between items-start border-b border-stone-700 pb-4 mb-8">
                 <h2 className="text-4xl font-bold border-b-0 pb-0 mb-0">{chapter.title}</h2>
-                {content && !isGenerating && (
+                {content && !isGenerating && !isEditing && (
                     <div className="flex items-center gap-2 flex-shrink-0 ml-4">
+                         <button
+                            onClick={() => setEditingChapterId(chapter.id)}
+                            className="p-2 rounded-full hover:bg-stone-700/60 transition-colors duration-200"
+                            aria-label="Editar contenido del capítulo"
+                            title="Editar Contenido"
+                        >
+                            <PencilIcon className="w-6 h-6 text-stone-300" />
+                        </button>
                         <button
                             onClick={handleExport}
                             className="p-2 rounded-full hover:bg-stone-700/60 transition-colors duration-200"
@@ -192,11 +252,46 @@ export const ChapterView: React.FC<ChapterViewProps> = ({ chapter, content, isGe
 
             {isGenerating ? (
                 <LoadingSpinner />
-            ) : content ? (
-                <>
-                    <MediaNarrative audioUrl={chapter.audioUrl} videoUrl={chapter.videoUrl} />
-                    <div dangerouslySetInnerHTML={{ __html: content }} />
-                </>
+            ) : content && !isGenerating ? (
+                isEditing ? (
+                    <div className="space-y-4 not-prose">
+                        <textarea
+                            ref={textareaRef}
+                            value={editedContent}
+                            onChange={(e) => setEditedContent(e.target.value)}
+                            className="w-full h-[60vh] bg-stone-900/80 border border-stone-600 rounded-md p-4 text-stone-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors"
+                            aria-label="Editor de contenido del capítulo"
+                        />
+                        <div className="flex items-center justify-between">
+                            <button
+                                onClick={handleToggleListen}
+                                className={`flex items-center gap-2 font-semibold py-2 px-4 rounded-md shadow-md transition-all duration-300 ${isListening ? 'bg-red-600 text-white hover:bg-red-500 animate-pulse' : 'bg-sky-600 text-white hover:bg-sky-500'}`}
+                            >
+                                <MicrophoneIcon className="w-5 h-5" />
+                                {isListening ? 'Detener Dictado' : 'Iniciar Dictado'}
+                            </button>
+                             <div className="flex items-center gap-4">
+                                <button
+                                    onClick={handleCancel}
+                                    className="bg-stone-600 text-white font-semibold py-2 px-5 rounded-md shadow-md hover:bg-stone-500 transition-all duration-300"
+                                >
+                                    Cancelar
+                                </button>
+                                <button
+                                    onClick={handleSave}
+                                    className="bg-amber-600 text-white font-semibold py-2 px-5 rounded-md shadow-md hover:bg-amber-500 transition-all duration-300"
+                                >
+                                    Guardar Cambios
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ) : (
+                    <>
+                        <MediaNarrative audioUrl={chapter.audioUrl} videoUrl={chapter.videoUrl} />
+                        <div dangerouslySetInnerHTML={{ __html: content }} />
+                    </>
+                )
             ) : (
                 <Placeholder 
                     chapterTitle={chapter.title} 

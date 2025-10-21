@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { TableOfContents } from './components/TableOfContents';
 import { ChapterView } from './components/ChapterView';
 import { generateChapterContent } from './services/geminiService';
@@ -37,10 +37,28 @@ const App: React.FC = () => {
 
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+    
+    const [editingChapterId, setEditingChapterId] = useState<string | null>(null);
 
     const allChapters = useMemo(() => BOOK_STRUCTURE.flatMap(part => part.chapters), []);
     const prefilledChapterIds = useMemo(() => new Set(Object.keys(initialBookContent)), []);
 
+    useEffect(() => {
+        // Exit editing mode when the chapter view changes for simplicity.
+        // The handleNavigate function provides a guard for unsaved changes.
+        setEditingChapterId(null);
+    }, [currentView]);
+
+    const handleNavigate = (chapterId: string) => {
+        if (editingChapterId && editingChapterId !== chapterId) {
+            if (window.confirm('Tiene cambios sin guardar en el capítulo actual. ¿Desea descartarlos y continuar?')) {
+                setEditingChapterId(null); // Discard changes by exiting edit mode
+            } else {
+                return; // Abort navigation
+            }
+        }
+        setCurrentView(chapterId);
+    };
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
@@ -81,7 +99,7 @@ const App: React.FC = () => {
     };
 
     const handleResultClick = (chapterId: string) => {
-        setCurrentView(chapterId);
+        handleNavigate(chapterId);
         setSearchQuery('');
         setSearchResults([]);
     };
@@ -124,6 +142,14 @@ const App: React.FC = () => {
         if (window.confirm('¿Está seguro de que desea borrar TODO el contenido generado? Esta acción restablecerá el libro a su estado inicial.')) {
             setBookContent(initialBookContent);
         }
+    }, []);
+    
+    const handleUpdateChapterContent = useCallback((chapterId: string, newContent: string) => {
+        setBookContent(prev => ({
+            ...prev,
+            [chapterId]: newContent,
+        }));
+        setEditingChapterId(null);
     }, []);
 
     const handleExportBook = useCallback(() => {
@@ -296,7 +322,7 @@ const App: React.FC = () => {
                     <TableOfContents 
                         structure={BOOK_STRUCTURE} 
                         currentView={currentView} 
-                        setCurrentView={setCurrentView}
+                        setCurrentView={handleNavigate}
                         generatingChapters={generatingChapters}
                         generatedChapters={new Set(Object.keys(bookContent))}
                         prefilledChapterIds={prefilledChapterIds}
@@ -310,6 +336,9 @@ const App: React.FC = () => {
                            isGenerating={generatingChapters.has(currentView)}
                            generateChapter={() => handleGenerateChapter(currentChapter)}
                            clearChapter={() => handleClearChapter(currentChapter.id)}
+                           editingChapterId={editingChapterId}
+                           setEditingChapterId={setEditingChapterId}
+                           onUpdateContent={handleUpdateChapterContent}
                        />
                    )}
                 </main>
