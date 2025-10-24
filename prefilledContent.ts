@@ -1,4 +1,5 @@
 
+
 export const CHAPTER_PREFACIO_NEW_CONTENT = `
 <h3>16 de Septiembre, 2025</h3>
 <p>Hay fechas que no se eligen, sino que nos eligen. Marcan un punto de inflexión, un encuentro con la eternidad que redefine el pasado y da un nuevo propósito al futuro. Esta obra es un testimonio de la voz de Dios que resuena a través del tiempo, y esta fecha es un eco de esa llamada. Lo que aquí se comparte es el fruto de esa escucha, una respuesta a la revelación que continúa hablándonos hoy.</p>
@@ -173,6 +174,33 @@ export const CHAPTER_NEW_6_CONTENT = `
 </blockquote>
 `;
 
+export const CHAPTER_INTERLUDIO_ORAR_SIN_CESAR_CONTENT = `
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Solo tengo control hasta donde mi mano alcanza, y mi primer pie avanza… después de eso, solo Dios.”</p>
+</blockquote>
+
+<h3>🌿 Cada paso es altar</h3>
+<p>En cada decisión, oración.</p>
+<p>En cada movimiento, dependencia.</p>
+<p>En cada silencio, comunión.</p>
+
+<h3>🔥 Reconozco al Alfa y al Omega</h3>
+<p>Antes de mí, Él.</p>
+<p>Después de mí, Él.</p>
+<p>Fuera de mí, solo Él.</p>
+<p>Dentro de mí, Él también.</p>
+
+<h3>🌌 Él es el Todo y la Nada</h3>
+<p>Porque entre el todo y la nada, está Él.</p>
+<p>Porque incluso en lo que no entiendo, Él permanece.</p>
+<p>Porque mi vida no se sostiene por lógica, sino por presencia.</p>
+
+<h3>📜 Oración final</h3>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>Padre eterno, que cada paso sea oración, que cada gesto sea rendición, que cada instante sea comunión. Yo reconozco que mi alcance es corto, pero tu fidelidad es infinita. Tú eres el Alfa y el Omega, el Todo y la Nada, y entre ambos, estás Tú. Amén.</p>
+</blockquote>
+`;
+
 export const CHAPTER_APENDICE_GLOSARIO_CONTENT = `
 <blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
   <p>“Porque el SEÑOR da la sabiduría; de su boca vienen el conocimiento y la inteligencia.”</p>
@@ -248,4 +276,51 @@ export const CHAPTER_APENDICE_REFERENCIAS_CONTENT = `
 <blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
   <p>Abba Padre, gracias por Tu Palabra viva. Que no sea solo letra en una página, sino la espada de mi espíritu, la luz en mi oscuridad y el pan que me sustenta. Que cada versículo me ancle más profundamente en Ti, que cada promesa renueve mi fe y que cada mandato me guíe en obediencia. Que Tu verdad sea mi única verdad. En el nombre de Yeshúa, amén.</p>
 </blockquote>
+`;
+
+export const CHAPTER_ORACION_FINAL_CONTENT = `
+<h3>Oración Final</h3>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>Padre justo y fiel, hoy oro como si fuera mi último segundo. Con todo mi ser, sin reservas, sin distracciones. Y te doy gracias, no porque lo vea, sino porque sé que ya lo has hecho. Que mi oración sea altar, mi fe sea fuego, y mi gratitud, testimonio. Amén.</p>
+</blockquote>
+
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>Padre, alinea mi corazón con el tuyo. Que mis latidos sigan tu ritmo. Que mi fe no dependa de la vista, sino de tu fidelidad. Hoy me rindo, no por resignación, sino por confianza. Porque tu voluntad es buena, tu sabiduría es perfecta, y tu amor es eterno. Amén.</p>
+</blockquote>
+
+<h3>🔥 Lista de Oraciones Fervientes</h3>
+<ol>
+    <li>
+        <strong>Oración del Último Segundo</strong>
+        <p>Padre, si este fuera mi último aliento, que sea para decirte: hágase tu voluntad. No me guardo nada. Todo es tuyo. Gracias, porque ya está hecho. Amén.</p>
+    </li>
+    <li>
+        <strong>Oración del Justo</strong>
+        <p>Señor, no oro desde mi mérito, sino desde tu misericordia. Purifica mi intención, enciende mi fe, y haz eficaz mi clamor. Amén.</p>
+    </li>
+    <li>
+        <strong>Oración de Rendición</strong>
+        <p>No quiero controlar, no quiero entender, solo quiero obedecer. Toma mi voluntad, y reemplázala con la tuya. Amén.</p>
+    </li>
+    <li>
+        <strong>Oración de Gratitud Profética</strong>
+        <p>Gracias, Padre, no por lo que veo, sino por lo que ya has decretado. Gracias por lo que aún no llega, porque en tu tiempo, ya es. Amén.</p>
+    </li>
+    <li>
+        <strong>Oración de Getsemaní</strong>
+        <p>Si es posible, pasa de mí esta copa… pero si no, dame fuerza para beberla con obediencia. Que tu voluntad sea mi paz. Amén.</p>
+    </li>
+    <li>
+        <strong>Oración de Intercesión Ardiente</strong>
+        <p>Padre, por los que no oran, por los que no creen, por los que están lejos: ten misericordia. Hazme canal de tu compasión. Amén.</p>
+    </li>
+    <li>
+        <strong>Oración de Despertar</strong>
+        <p>Despiértame, Señor, de toda tibieza, de toda distracción, de toda comodidad. Hazme vivir como si cada segundo contara. Amén.</p>
+    </li>
+    <li>
+        <strong>Oración de Alineación</strong>
+        <p>Alinea mi corazón con el tuyo. Que mis deseos se sometan a tu propósito. Que mi fe camine al ritmo de tu voluntad. Hazme uno contigo. Amén.</p>
+    </li>
+</ol>
 `;

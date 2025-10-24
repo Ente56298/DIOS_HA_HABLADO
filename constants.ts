@@ -58,6 +58,18 @@ export const BOOK_STRUCTURE: BookStructure = [
         ]
     },
     {
+        id: 'interludio-caminar',
+        title: 'Interludio: Orar sin Cesar',
+        description: 'Una pausa para meditar en la dependencia constante y la comunión incesante con el Padre.',
+        chapters: [
+            {
+                id: 'chap-interludio-orar-sin-cesar',
+                title: 'Proclamación: Caminar con Dios',
+                synopsis: 'Una declaración de rendición que reconoce el control limitado del hombre y la soberanía total de Dios en cada paso de la vida.'
+            }
+        ]
+    },
+    {
         id: 'part-3-respuesta',
         title: 'Parte III: La Respuesta - El Alma que Escucha',
         description: 'Explorando las profundidades de la respuesta del alma a la voz de Dios.',
@@ -108,6 +120,18 @@ export const BOOK_STRUCTURE: BookStructure = [
                 id: 'chap-apendice-referencias',
                 title: 'Referencias Bíblicas Clave',
                 synopsis: 'Una lista compilada de los versículos y pasajes bíblicos más importantes que fundamentan los argumentos y reflexiones presentados en la obra.',
+            }
+        ]
+    },
+    {
+        id: 'oracion-final',
+        title: 'Oración Final',
+        description: 'Una declaración final de fe y gratitud.',
+        chapters: [
+            {
+                id: 'chap-oracion-final',
+                title: 'Declaración de Fe',
+                synopsis: 'Una oración final que encapsula la entrega total, la gratitud anticipada y la fe activa que son el corazón de esta obra.',
             }
         ]
     }

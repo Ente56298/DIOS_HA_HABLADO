@@ -11,11 +11,13 @@ import {
     CHAPTER_NEW_4_CONTENT,
     CHAPTER_NEW_5_CONTENT,
     CHAPTER_NEW_6_CONTENT,
+    CHAPTER_INTERLUDIO_ORAR_SIN_CESAR_CONTENT,
     CHAPTER_APENDICE_GLOSARIO_CONTENT,
     CHAPTER_APENDICE_REFERENCIAS_CONTENT,
+    CHAPTER_ORACION_FINAL_CONTENT,
 } from './prefilledContent';
 import type { BookContent, Chapter, Signature } from './types';
-import { BookIcon, InfoIcon, TrashIcon, SearchIcon, DownloadIcon, SwitchHorizontalIcon } from './components/IconComponents';
+import { BookIcon, InfoIcon, TrashIcon, SearchIcon, DownloadIcon, ChevronDoubleRightIcon } from './components/IconComponents';
 import { ResearchReportModal } from './components/ResearchReportModal';
 
 const initialBookContent: BookContent = {
@@ -26,8 +28,10 @@ const initialBookContent: BookContent = {
     'chap-new-4': CHAPTER_NEW_4_CONTENT,
     'chap-new-5': CHAPTER_NEW_5_CONTENT,
     'chap-new-6': CHAPTER_NEW_6_CONTENT,
+    'chap-interludio-orar-sin-cesar': CHAPTER_INTERLUDIO_ORAR_SIN_CESAR_CONTENT,
     'chap-apendice-glosario': CHAPTER_APENDICE_GLOSARIO_CONTENT,
     'chap-apendice-referencias': CHAPTER_APENDICE_REFERENCIAS_CONTENT,
+    'chap-oracion-final': CHAPTER_ORACION_FINAL_CONTENT,
 };
 
 const initialSignature: Signature = {
@@ -137,7 +141,7 @@ const App: React.FC = () => {
         setEditingChapterId(null);
     }, [currentView]);
 
-    const handleNavigate = (chapterId: string) => {
+    const handleNavigate = useCallback((chapterId: string) => {
         if (editingChapterId && editingChapterId !== chapterId) {
             if (window.confirm('Tiene cambios sin guardar en el capítulo actual. ¿Desea descartarlos y continuar?')) {
                 setEditingChapterId(null);
@@ -146,7 +150,7 @@ const App: React.FC = () => {
             }
         }
         setCurrentView(chapterId);
-    };
+    }, [editingChapterId]);
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
@@ -208,6 +212,17 @@ const App: React.FC = () => {
             });
         }
     }, []);
+
+    const handleGenerateNextChapter = useCallback(async () => {
+        const nextChapterToGenerate = allChapters.find(c => !bookContent[c.id]);
+
+        if (nextChapterToGenerate) {
+            handleNavigate(nextChapterToGenerate.id);
+            await handleGenerateChapter(nextChapterToGenerate);
+        } else {
+            alert('¡Felicidades! Todos los capítulos del libro han sido generados.');
+        }
+    }, [allChapters, bookContent, handleGenerateChapter, handleNavigate]);
 
     const handleGenerateBook = useCallback(async () => {
         setIsGenerating(true);
@@ -604,6 +619,10 @@ const App: React.FC = () => {
                             </div>
                         </div>
                         <div className="flex items-center gap-4">
+                           <button onClick={handleGenerateNextChapter} className="flex items-center gap-2 text-sm text-stone-300 hover:text-amber-300 transition-colors p-2 rounded-md hover:bg-stone-800/50">
+                                <ChevronDoubleRightIcon className="w-5 h-5"/>
+                                <span>Generar Siguiente</span>
+                            </button>
                            <button onClick={() => setIsReportVisible(true)} className="flex items-center gap-2 text-sm text-stone-300 hover:text-amber-300 transition-colors p-2 rounded-md hover:bg-stone-800/50">
                                 <InfoIcon className="w-5 h-5"/>
                                 <span>Informe de Investigación</span>
