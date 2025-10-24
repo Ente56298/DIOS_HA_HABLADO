@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from "@google/genai";
 
 const API_KEY = process.env.API_KEY;
@@ -75,5 +74,60 @@ export async function generateChapterContent(title: string, synopsis: string, au
     } catch (error) {
         console.error("Error calling Gemini API:", error);
         throw new Error("Failed to generate chapter content from Gemini API.");
+    }
+}
+
+export async function generateSubtitles(base64Data: string, mimeType: string): Promise<string> {
+    const prompt = "Transcribe el siguiente audio de forma precisa. Proporciona solo el texto de la transcripción, sin encabezados ni texto adicional.";
+
+    try {
+        const audioPart = {
+            inlineData: {
+                data: base64Data,
+                mimeType: mimeType,
+            },
+        };
+        
+        const response = await ai.models.generateContent({
+            model: 'gemini-2.5-pro',
+            contents: { parts: [audioPart, { text: prompt }] },
+        });
+
+        return response.text.trim();
+    } catch (error) {
+        console.error("Error calling Gemini API for subtitles:", error);
+        throw new Error("Failed to generate subtitles from Gemini API.");
+    }
+}
+
+export async function generateUnifiedTranscription(transcriptions: string[]): Promise<string> {
+    const prompt = `
+        Actúa como un editor experto y asistente de redacción. A continuación, se te proporcionarán varias transcripciones de audio, posiblemente fragmentadas, desordenadas o repetitivas.
+        Tu tarea es sintetizar estas transcripciones en un único texto coherente, bien estructurado y fácil de leer.
+
+        Instrucciones:
+        1.  **Unifica el contenido:** Combina las ideas de todas las transcripciones en un solo cuerpo de texto.
+        2.  **Organiza lógicamente:** Estructura el texto de una manera que tenga sentido. Puedes agrupar ideas similares, crear párrafos y, si es apropiado, usar subtítulos simples para mejorar la claridad.
+        3.  **Elimina redundancias:** Identifica y elimina frases o ideas que se repiten en las diferentes transcripciones.
+        4.  **Mejora la fluidez:** Corrige errores gramaticales, mejora la puntuación y ajusta la redacción para que el texto fluya de manera natural, como si hubiera sido escrito por una sola persona.
+        5.  **Mantén la voz original:** Conserva el tono, el estilo y la intención del hablante original. No añadas información nueva ni opiniones propias.
+
+        A continuación se presentan las transcripciones. Procesa el contenido y devuelve únicamente el texto final unificado.
+
+        --- INICIO DE TRANSCRIPCIONES ---
+        ${transcriptions.join('\n\n')}
+        --- FIN DE TRANSCRIPCIONES ---
+    `;
+
+    try {
+        const response = await ai.models.generateContent({
+            model: 'gemini-2.5-pro',
+            contents: prompt,
+        });
+
+        return response.text.trim();
+    } catch (error) {
+        console.error("Error calling Gemini API for unified transcription:", error);
+        throw new Error("Failed to generate unified transcription from Gemini API.");
     }
 }

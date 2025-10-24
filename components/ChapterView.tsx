@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import type { Chapter, Signature } from '../types';
-import { SparklesIcon, DownloadIcon, TrashIcon, PencilIcon, MicrophoneIcon, StarIcon, BookmarkIcon } from './IconComponents';
+import type { AudioFile, ChapterMediaState } from '../App';
+import { SparklesIcon, DownloadIcon, TrashIcon, PencilIcon, MicrophoneIcon, StarIcon, BookmarkIcon, UploadIcon, SubtitlesIcon, CombineIcon, DragHandleIcon } from './IconComponents';
 
 // SpeechRecognition might not be on the window type, so we declare it.
 declare global {
@@ -12,34 +12,295 @@ declare global {
 }
 
 
-const MediaNarrative: React.FC<{ audioUrl?: string; videoUrl?: string }> = ({ audioUrl, videoUrl }) => {
-    if (!audioUrl && !videoUrl) {
-        return null;
-    }
+interface AudioItemProps {
+    audio: AudioFile;
+    onRemove: (audioId: string) => void;
+    onGenerateSubtitles: (audioId: string) => void;
+    onDragStart: () => void;
+    onDragEnd: () => void;
+    isDragging: boolean;
+}
 
+const AudioItem: React.FC<AudioItemProps> = ({ audio, onRemove, onGenerateSubtitles, onDragStart, onDragEnd, isDragging }) => {
     return (
-        <div className="my-8 p-4 bg-stone-800/50 border border-stone-700 rounded-lg space-y-6 not-prose">
-            {audioUrl && (
-                <div>
-                    <h4 className="text-lg font-semibold text-amber-300 mb-3">Narración en Audio</h4>
-                    <audio controls className="w-full">
-                        <source src={audioUrl} type="audio/mpeg" />
-                        Your browser does not support the audio element.
-                    </audio>
+        <div 
+            draggable="true"
+            onDragStart={onDragStart}
+            onDragEnd={onDragEnd}
+            className={`p-3 bg-stone-900/50 rounded-md border border-stone-700 space-y-3 transition-opacity ${isDragging ? 'opacity-50' : 'opacity-100'}`}
+        >
+            <div className="flex justify-between items-center gap-3">
+                <div className="flex items-center gap-2 flex-grow overflow-hidden">
+                    <DragHandleIcon className="w-5 h-5 text-stone-500 cursor-grab flex-shrink-0" />
+                    <p className="font-semibold text-stone-300 truncate text-sm" title={audio.name}>{audio.name}</p>
                 </div>
-            )}
-            {videoUrl && (
-                 <div>
-                    <h4 className="text-lg font-semibold text-amber-300 mb-3">Narración en Video</h4>
-                    <video controls className="w-full rounded-md">
-                        <source src={videoUrl} type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
+                <button 
+                    onClick={() => onRemove(audio.id)}
+                    className="p-1.5 rounded-full hover:bg-red-800/60 transition-colors flex-shrink-0"
+                    aria-label="Eliminar audio"
+                    title="Eliminar Audio"
+                >
+                    <TrashIcon className="w-4 h-4 text-stone-300" />
+                </button>
+            </div>
+            <audio controls src={audio.url} className="w-full h-10" />
+            <div className="pt-3 border-t border-stone-700/50">
+                <div className="flex items-center justify-between">
+                    <h5 className="text-md font-semibold text-stone-300">Subtítulos</h5>
+                    <button
+                        onClick={() => onGenerateSubtitles(audio.id)}
+                        disabled={audio.isGeneratingSubs}
+                        className="flex items-center gap-2 bg-amber-600 text-white font-semibold py-1.5 px-3 rounded-md shadow-sm hover:bg-amber-500 transition-colors disabled:bg-stone-600 disabled:cursor-not-allowed text-sm"
+                    >
+                        {audio.isGeneratingSubs ? (
+                            <>
+                                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                                Generando...
+                            </>
+                        ) : (
+                            <>
+                                <SubtitlesIcon className="w-4 h-4" /> Generar
+                            </>
+                        )}
+                    </button>
                 </div>
-            )}
+                {audio.isGeneratingSubs && <p className="text-xs text-stone-400 mt-2 text-center">La IA está transcribiendo. Esto puede tardar unos momentos...</p>}
+                {audio.error && <p className="text-xs text-red-400 mt-2">{audio.error}</p>}
+                {audio.subtitles && (
+                    <div className="mt-3 p-3 bg-stone-900/70 rounded-md border border-stone-700 max-h-32 overflow-y-auto">
+                        <p className="text-stone-300 whitespace-pre-wrap font-mono text-xs">{audio.subtitles}</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
+
+
+interface MediaNarrativeProps {
+    mediaState?: ChapterMediaState;
+    onUploadMedia: (files: File[]) => void;
+    onRemoveAudio: (audioId: string) => void;
+    onReorderAudios: (startIndex: number, endIndex: number) => void;
+    onGenerateSubtitles: (audioId: string) => void;
+    onGenerateAllSubtitles: () => void;
+    onGenerateUnified: () => void;
+}
+
+const MediaNarrative: React.FC<MediaNarrativeProps> = ({ 
+    mediaState, 
+    onUploadMedia, 
+    onRemoveAudio, 
+    onReorderAudios, 
+    onGenerateSubtitles, 
+    onGenerateAllSubtitles, 
+    onGenerateUnified 
+}) => {
+    const audioInputRef = useRef<HTMLInputElement>(null);
+    const videoInputRef = useRef<HTMLInputElement>(null);
+    const audioListRef = useRef<HTMLDivElement>(null);
+    const [isDraggingOverAudio, setIsDraggingOverAudio] = useState(false);
+    const [isDraggingOverVideo, setIsDraggingOverVideo] = useState(false);
+    const [draggedAudioIndex, setDraggedAudioIndex] = useState<number | null>(null);
+
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const files = Array.from(event.target.files || []);
+        if (files.length > 0) {
+            onUploadMedia(files);
+        }
+        event.target.value = '';
+    };
+
+    const handleDragEvent = (e: React.DragEvent<HTMLDivElement>, area: 'audio' | 'video', isEntering: boolean) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (area === 'audio') setIsDraggingOverAudio(isEntering);
+        else setIsDraggingOverVideo(isEntering);
+    };
+
+    const handleFileDrop = (e: React.DragEvent<HTMLDivElement>, area: 'audio' | 'video') => {
+        handleDragEvent(e, area, false);
+        const files = Array.from(e.dataTransfer.files);
+        if (files.length > 0) {
+            onUploadMedia(files);
+        }
+    };
+    
+    const handleAudioDragStart = (index: number) => {
+        setDraggedAudioIndex(index);
+    };
+
+    const handleAudioDragEnd = () => {
+        setDraggedAudioIndex(null);
+    };
+
+    const handleAudioDrop = (e: React.DragEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        if (draggedAudioIndex === null || !audioListRef.current) return;
+
+        const children = Array.from(audioListRef.current.children) as HTMLElement[];
+        const dropTarget = children.find(child => {
+            const rect = child.getBoundingClientRect();
+            return e.clientY < rect.top + rect.height / 2;
+        });
+      
+        const dropIndex = dropTarget ? children.indexOf(dropTarget) : (mediaState?.userAudios.length ?? 0);
+        
+        onReorderAudios(draggedAudioIndex, dropIndex < draggedAudioIndex ? dropIndex : dropIndex -1 );
+        setDraggedAudioIndex(null);
+    };
+
+    const hasAudios = mediaState?.userAudios && mediaState.userAudios.length > 0;
+    const hasVideo = !!mediaState?.userVideoUrl;
+    const canAddAudio = (mediaState?.userAudios?.length ?? 0) < 100;
+    const transcribedCount = mediaState?.userAudios?.filter(a => a.subtitles).length ?? 0;
+    const canGenerateUnified = transcribedCount >= 2;
+    
+    const audiosWithoutSubs = mediaState?.userAudios?.filter(a => !a.subtitles && !a.isGeneratingSubs).length ?? 0;
+    const isGeneratingAnySubs = mediaState?.userAudios?.some(a => a.isGeneratingSubs) ?? false;
+    const canGenerateAllSubs = audiosWithoutSubs > 0;
+
+    return (
+        <div className="my-8 p-4 bg-stone-800/50 border border-stone-700 rounded-lg space-y-6 not-prose">
+            {/* --- Audio Section --- */}
+            <div 
+                onDragEnter={(e) => handleDragEvent(e, 'audio', true)}
+                onDragLeave={(e) => handleDragEvent(e, 'audio', false)}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => handleFileDrop(e, 'audio')}
+                className={`p-4 rounded-md transition-colors border-2 border-dashed ${isDraggingOverAudio ? 'border-amber-500 bg-stone-700/50' : 'border-transparent'}`}
+            >
+                <div className="flex justify-between items-center mb-3">
+                    <h4 className="text-lg font-semibold text-amber-300">Narraciones en Audio ({mediaState?.userAudios?.length ?? 0}/100)</h4>
+                    <div className="flex items-center gap-2">
+                        {canGenerateAllSubs && (
+                            <button
+                                onClick={onGenerateAllSubtitles}
+                                disabled={isGeneratingAnySubs}
+                                className="flex items-center gap-2 bg-teal-600 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-teal-500 transition-colors disabled:bg-stone-600 disabled:cursor-not-allowed"
+                                title={isGeneratingAnySubs ? "Generación en curso..." : `Generar subtítulos para ${audiosWithoutSubs} audio(s)`}
+                            >
+                                {isGeneratingAnySubs ? (
+                                    <>
+                                        <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                                        Procesando...
+                                    </>
+                                ) : (
+                                    <>
+                                        <SubtitlesIcon className="w-5 h-5" /> Generar para Todos
+                                    </>
+                                )}
+                            </button>
+                        )}
+                        {canAddAudio && (
+                            <>
+                                <input type="file" accept="audio/*" ref={audioInputRef} onChange={handleFileChange} className="hidden" multiple />
+                                <button onClick={() => audioInputRef.current?.click()} className="flex items-center gap-2 bg-sky-600 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-sky-500 transition-colors">
+                                    <UploadIcon className="w-5 h-5" /> Agregar Audios
+                                </button>
+                            </>
+                        )}
+                    </div>
+                </div>
+                {hasAudios ? (
+                    <div 
+                        ref={audioListRef}
+                        className="space-y-4 max-h-96 overflow-y-auto pr-2"
+                        onDragOver={(e) => e.preventDefault()}
+                        onDrop={handleAudioDrop}
+                    >
+                        {mediaState.userAudios.map((audio, index) => (
+                            <AudioItem
+                                key={audio.id}
+                                audio={audio}
+                                onRemove={onRemoveAudio}
+                                onGenerateSubtitles={onGenerateSubtitles}
+                                onDragStart={() => handleAudioDragStart(index)}
+                                onDragEnd={handleAudioDragEnd}
+                                isDragging={draggedAudioIndex === index}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <div className="text-center py-6 border-2 border-dashed border-stone-700 rounded-lg">
+                        <p className="text-sm text-stone-400">Arrastre y suelte archivos de audio aquí o use el botón "Agregar Audios".</p>
+                    </div>
+                )}
+            </div>
+
+            {/* --- Unified Transcription Section --- */}
+            <div className="pt-6 border-t border-stone-700/50">
+                 <div className="flex justify-between items-center mb-3">
+                    <h4 className="text-lg font-semibold text-amber-300">Transcripción Unificada y Coherente</h4>
+                    <button 
+                        onClick={onGenerateUnified}
+                        disabled={!canGenerateUnified || mediaState?.isGeneratingUnified}
+                        className="flex items-center gap-2 bg-purple-600 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-purple-500 transition-colors disabled:bg-stone-600 disabled:cursor-not-allowed"
+                        title={canGenerateUnified ? "Unificar transcripciones en un solo texto" : "Necesitas al menos 2 transcripciones para usar esta función"}
+                    >
+                        {mediaState?.isGeneratingUnified ? (
+                             <>
+                                <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                                Unificando...
+                            </>
+                        ) : (
+                            <>
+                                <CombineIcon className="w-5 h-5" /> Generar Texto Unificado
+                            </>
+                        )}
+                    </button>
+                </div>
+                 {mediaState?.isGeneratingUnified && <p className="text-xs text-stone-400 mt-2 text-center">La IA está organizando las transcripciones en un texto coherente. Esto puede tomar unos momentos...</p>}
+                 {mediaState?.unifiedError && <p className="text-sm text-red-400 mt-2">{mediaState.unifiedError}</p>}
+                 {mediaState?.unifiedTranscription ? (
+                    <div className="mt-3 p-4 bg-stone-900/70 rounded-md border border-stone-700 max-h-64 overflow-y-auto">
+                        <p className="text-stone-200 whitespace-pre-wrap text-sm">{mediaState.unifiedTranscription}</p>
+                    </div>
+                ) : (
+                     <div className="text-center py-6 border-2 border-dashed border-stone-700 rounded-lg">
+                        <p className="text-sm text-stone-400">El texto unificado aparecerá aquí.</p>
+                    </div>
+                )}
+            </div>
+
+            {/* --- Video Section --- */}
+            <div 
+                className={`pt-6 border-t border-stone-700/50 p-4 rounded-md transition-colors border-2 border-dashed ${isDraggingOverVideo ? 'border-amber-500 bg-stone-700/50' : 'border-transparent'}`}
+                onDragEnter={(e) => handleDragEvent(e, 'video', true)}
+                onDragLeave={(e) => handleDragEvent(e, 'video', false)}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => handleFileDrop(e, 'video')}
+            >
+                <div className="flex justify-between items-center mb-3">
+                    <h4 className="text-lg font-semibold text-amber-300">Narración en Video</h4>
+                </div>
+                {hasVideo ? (
+                    <div>
+                        <video controls className="w-full rounded-md" key={mediaState.userVideoUrl}>
+                            <source src={mediaState.userVideoUrl} />
+                            Your browser does not support the video tag.
+                        </video>
+                        <div className="flex justify-end mt-2">
+                            <input type="file" accept="video/*" ref={videoInputRef} onChange={handleFileChange} className="hidden" />
+                            <button onClick={() => videoInputRef.current?.click()} className="text-sm text-emerald-400 hover:underline">
+                                Cambiar video
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="text-center py-6 border-2 border-dashed border-stone-700 rounded-lg">
+                        <p className="text-sm text-stone-400 mb-3">Arrastre y suelte un archivo de video aquí o use el botón "Cargar Video".</p>
+                        <input type="file" accept="video/*" ref={videoInputRef} onChange={handleFileChange} className="hidden" />
+                        <button onClick={() => videoInputRef.current?.click()} className="flex items-center gap-2 bg-emerald-600 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-emerald-500 transition-colors mx-auto">
+                           <UploadIcon className="w-5 h-5" /> Cargar Video
+                        </button>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
+
 
 interface ChapterViewProps {
     chapter: Chapter;
@@ -55,6 +316,13 @@ interface ChapterViewProps {
     isRead: boolean;
     onToggleFavorite: () => void;
     onToggleRead: () => void;
+    mediaState?: ChapterMediaState;
+    onUploadMedia: (files: File[]) => void;
+    onRemoveAudio: (audioId: string) => void;
+    onReorderAudios: (startIndex: number, endIndex: number) => void;
+    onGenerateSubtitles: (audioId: string) => void;
+    onGenerateAllSubtitles: () => void;
+    onGenerateUnified: () => void;
 }
 
 const LoadingSpinner: React.FC = () => (
@@ -119,7 +387,14 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
     isFavorite,
     isRead,
     onToggleFavorite,
-    onToggleRead 
+    onToggleRead,
+    mediaState,
+    onUploadMedia,
+    onRemoveAudio,
+    onReorderAudios,
+    onGenerateSubtitles,
+    onGenerateAllSubtitles,
+    onGenerateUnified
 }) => {
     
     const isEditing = editingChapterId === chapter.id;
@@ -366,7 +641,15 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                     </div>
                 ) : (
                     <>
-                        <MediaNarrative audioUrl={chapter.audioUrl} videoUrl={chapter.videoUrl} />
+                        <MediaNarrative 
+                            mediaState={mediaState}
+                            onUploadMedia={onUploadMedia}
+                            onRemoveAudio={onRemoveAudio}
+                            onReorderAudios={onReorderAudios}
+                            onGenerateSubtitles={onGenerateSubtitles}
+                            onGenerateAllSubtitles={onGenerateAllSubtitles}
+                            onGenerateUnified={onGenerateUnified}
+                        />
                         <div dangerouslySetInnerHTML={{ __html: content }} />
                         <SignatureDisplay signature={signature} />
                     </>
