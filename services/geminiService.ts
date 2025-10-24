@@ -1,4 +1,4 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, Type } from "@google/genai";
 
 const API_KEY = process.env.API_KEY;
 if (!API_KEY) {
@@ -129,5 +129,58 @@ export async function generateUnifiedTranscription(transcriptions: string[]): Pr
     } catch (error) {
         console.error("Error calling Gemini API for unified transcription:", error);
         throw new Error("Failed to generate unified transcription from Gemini API.");
+    }
+}
+
+export async function reorderAudiosWithAI(transcriptions: { id: string; content: string }[]): Promise<string[]> {
+    const prompt = `
+        Actúa como un editor de contenido experto. Se te proporcionará una lista de transcripciones de audio, cada una con un ID único. 
+        Tu tarea es analizar el contenido de estas transcripciones y determinar el orden narrativo, cronológico o lógico más coherente.
+
+        Las transcripciones pueden ser partes de una sola narrativa, ideas fragmentadas o segmentos de una conversación.
+        Analiza las conexiones temáticas, las secuencias de eventos, las preguntas y respuestas, y cualquier otra pista contextual para establecer el mejor orden posible.
+
+        Devuelve únicamente un array JSON que contenga los IDs de las transcripciones en el orden correcto. No incluyas ninguna otra explicación o texto.
+
+        Ejemplo de entrada de transcripciones:
+        [
+            { "id": "audio-123", "content": "Para empezar, debemos considerar el contexto histórico." },
+            { "id": "audio-456", "content": "En conclusión, estos eventos llevaron a la situación actual." },
+            { "id": "audio-789", "content": "Después de establecer el contexto, el siguiente punto es analizar las consecuencias." }
+        ]
+
+        Ejemplo de salida esperada:
+        ["audio-123", "audio-789", "audio-456"]
+
+        Aquí están las transcripciones a ordenar:
+        ${JSON.stringify(transcriptions)}
+    `;
+
+    try {
+        const response = await ai.models.generateContent({
+            model: 'gemini-2.5-pro',
+            contents: prompt,
+            config: {
+                responseMimeType: "application/json",
+                responseSchema: {
+                    type: Type.ARRAY,
+                    items: {
+                        type: Type.STRING
+                    }
+                }
+            }
+        });
+
+        const jsonStr = response.text.trim();
+        const orderedIds = JSON.parse(jsonStr);
+        
+        if (!Array.isArray(orderedIds) || !orderedIds.every(id => typeof id === 'string')) {
+            throw new Error('La respuesta de la IA no es un array de strings válido.');
+        }
+
+        return orderedIds;
+    } catch (error) {
+        console.error("Error calling Gemini API for reordering audios:", error);
+        throw new Error("Failed to reorder audios from Gemini API.");
     }
 }

@@ -1,7 +1,8 @@
+
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { TableOfContents } from './components/TableOfContents';
 import { ChapterView } from './components/ChapterView';
-import { generateChapterContent, generateSubtitles, generateUnifiedTranscription } from './services/geminiService';
+import { generateChapterContent, generateSubtitles, generateUnifiedTranscription, reorderAudiosWithAI } from './services/geminiService';
 import { BOOK_STRUCTURE } from './constants';
 import { 
     CHAPTER_PREFACIO_NEW_CONTENT,
@@ -61,6 +62,8 @@ export interface ChapterMediaState {
     unifiedTranscription?: string;
     isGeneratingUnified?: boolean;
     unifiedError?: string;
+    isReordering?: boolean;
+    reorderError?: string;
 }
 
 const App: React.FC = () => {
@@ -154,12 +157,13 @@ const App: React.FC = () => {
     useEffect(() => {
         try {
             // Create a version of the state for storage that strips transient properties
-            const stateToSave = Object.entries(mediaState).reduce((acc, [chapterId, chapterState]) => {
+            // FIX: Explicitly type the accumulator and cast chapterState to resolve type inference issues.
+            const stateToSave = Object.entries(mediaState).reduce((acc: Record<string, any>, [chapterId, chapterState]) => {
                 if (!chapterState) {
                     return acc;
                 }
                 // Destructure to remove transient properties from the chapter state
-                const { isGeneratingUnified, unifiedError, ...chapterRest } = chapterState;
+                const { isGeneratingUnified, unifiedError, isReordering, reorderError, ...chapterRest } = chapterState;
     
                 acc[chapterId] = {
                     ...chapterRest,
@@ -170,7 +174,7 @@ const App: React.FC = () => {
                     })
                 };
                 return acc;
-            }, {} as { [key: string]: ChapterMediaState });
+            }, {});
     
             localStorage.setItem('mediaState', JSON.stringify(stateToSave));
         } catch (e) {
@@ -562,6 +566,59 @@ const App: React.FC = () => {
         }
     }, [mediaState]);
 
+    const handleAutoReorderAudios = useCallback(async (chapterId: string) => {
+        const chapterMedia = mediaState[chapterId];
+        if (!chapterMedia || !chapterMedia.userAudios) return;
+
+        const transcriptions = chapterMedia.userAudios
+            .filter(audio => audio.subtitles)
+            .map(audio => ({ id: audio.id, content: audio.subtitles! }));
+
+        if (transcriptions.length < 2) {
+            alert("Se necesitan al menos dos audios con transcripciones para reordenarlos automáticamente.");
+            return;
+        }
+
+        setMediaState(prev => ({
+            ...prev,
+            [chapterId]: { ...prev[chapterId], isReordering: true, reorderError: undefined }
+        }));
+
+        try {
+            const orderedIds = await reorderAudiosWithAI(transcriptions);
+            
+            const audioMap = new Map(chapterMedia.userAudios.map(audio => [audio.id, audio]));
+            
+            const reorderedAudiosWithSubs = orderedIds
+                .map(id => audioMap.get(id))
+                .filter((a): a is AudioFile => !!a);
+
+            const remainingAudios = chapterMedia.userAudios.filter(audio => !orderedIds.includes(audio.id));
+            
+            const finalAudios = [...reorderedAudiosWithSubs, ...remainingAudios];
+
+            setMediaState(prev => ({
+                ...prev,
+                [chapterId]: { 
+                    ...prev[chapterId], 
+                    userAudios: finalAudios,
+                    isReordering: false 
+                }
+            }));
+
+        } catch (error) {
+            console.error("Audio reordering failed:", error);
+            setMediaState(prev => ({
+                ...prev,
+                [chapterId]: { 
+                    ...prev[chapterId], 
+                    isReordering: false, 
+                    reorderError: 'Error al reordenar los audios con IA.' 
+                }
+            }));
+        }
+    }, [mediaState]);
+
     const handleExportBook = useCallback(() => {
         const generatedChaptersCount = Object.keys(bookContent).length;
         if (generatedChaptersCount === 0) {
@@ -759,6 +816,7 @@ const App: React.FC = () => {
                                 onGenerateSubtitles={(audioId) => handleGenerateSubtitles(currentChapter.id, audioId)}
                                 onGenerateAllSubtitles={() => handleGenerateAllSubtitles(currentChapter.id)}
                                 onGenerateUnified={() => handleGenerateUnifiedTranscription(currentChapter.id)}
+                                onAutoReorderAudios={() => handleAutoReorderAudios(currentChapter.id)}
                             />
                         ) : (
                             <div className="flex items-center justify-center h-full text-center">

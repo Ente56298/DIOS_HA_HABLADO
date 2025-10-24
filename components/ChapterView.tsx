@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { Chapter, Signature } from '../types';
 import type { AudioFile, ChapterMediaState } from '../App';
-import { SparklesIcon, DownloadIcon, TrashIcon, PencilIcon, MicrophoneIcon, StarIcon, BookmarkIcon, UploadIcon, SubtitlesIcon, CombineIcon, DragHandleIcon } from './IconComponents';
+import { SparklesIcon, DownloadIcon, TrashIcon, PencilIcon, MicrophoneIcon, StarIcon, BookmarkIcon, UploadIcon, SubtitlesIcon, CombineIcon, DragHandleIcon, AutoSortIcon } from './IconComponents';
 
 // SpeechRecognition might not be on the window type, so we declare it.
 declare global {
@@ -85,6 +85,7 @@ interface MediaNarrativeProps {
     onGenerateSubtitles: (audioId: string) => void;
     onGenerateAllSubtitles: () => void;
     onGenerateUnified: () => void;
+    onAutoReorderAudios: () => void;
 }
 
 const MediaNarrative: React.FC<MediaNarrativeProps> = ({ 
@@ -94,7 +95,8 @@ const MediaNarrative: React.FC<MediaNarrativeProps> = ({
     onReorderAudios, 
     onGenerateSubtitles, 
     onGenerateAllSubtitles, 
-    onGenerateUnified 
+    onGenerateUnified,
+    onAutoReorderAudios
 }) => {
     const audioInputRef = useRef<HTMLInputElement>(null);
     const videoInputRef = useRef<HTMLInputElement>(null);
@@ -155,6 +157,7 @@ const MediaNarrative: React.FC<MediaNarrativeProps> = ({
     const canAddAudio = (mediaState?.userAudios?.length ?? 0) < 100;
     const transcribedCount = mediaState?.userAudios?.filter(a => a.subtitles).length ?? 0;
     const canGenerateUnified = transcribedCount >= 2;
+    const canAutoReorder = transcribedCount >= 2;
     
     const audiosWithoutSubs = mediaState?.userAudios?.filter(a => !a.subtitles && !a.isGeneratingSubs).length ?? 0;
     const isGeneratingAnySubs = mediaState?.userAudios?.some(a => a.isGeneratingSubs) ?? false;
@@ -173,6 +176,25 @@ const MediaNarrative: React.FC<MediaNarrativeProps> = ({
                 <div className="flex justify-between items-center mb-3">
                     <h4 className="text-lg font-semibold text-amber-300">Narraciones en Audio ({mediaState?.userAudios?.length ?? 0}/100)</h4>
                     <div className="flex items-center gap-2">
+                        {canAutoReorder && (
+                            <button
+                                onClick={onAutoReorderAudios}
+                                disabled={mediaState?.isReordering || isGeneratingAnySubs}
+                                className="flex items-center gap-2 bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-indigo-500 transition-colors disabled:bg-stone-600 disabled:cursor-not-allowed"
+                                title={mediaState?.isReordering ? "Reordenando..." : "Ordenar audios con IA según su contenido"}
+                            >
+                                {mediaState?.isReordering ? (
+                                    <>
+                                        <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                                        Ordenando...
+                                    </>
+                                ) : (
+                                    <>
+                                        <AutoSortIcon className="w-5 h-5" /> Ordenar con IA
+                                    </>
+                                )}
+                            </button>
+                        )}
                         {canGenerateAllSubs && (
                             <button
                                 onClick={onGenerateAllSubtitles}
@@ -226,6 +248,7 @@ const MediaNarrative: React.FC<MediaNarrativeProps> = ({
                         <p className="text-sm text-stone-400">Arrastre y suelte archivos de audio aquí o use el botón "Agregar Audios".</p>
                     </div>
                 )}
+                {mediaState?.reorderError && <p className="text-sm text-red-400 mt-2 text-center">{mediaState.reorderError}</p>}
             </div>
 
             {/* --- Unified Transcription Section --- */}
@@ -323,6 +346,7 @@ interface ChapterViewProps {
     onGenerateSubtitles: (audioId: string) => void;
     onGenerateAllSubtitles: () => void;
     onGenerateUnified: () => void;
+    onAutoReorderAudios: () => void;
 }
 
 const LoadingSpinner: React.FC = () => (
@@ -394,7 +418,8 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
     onReorderAudios,
     onGenerateSubtitles,
     onGenerateAllSubtitles,
-    onGenerateUnified
+    onGenerateUnified,
+    onAutoReorderAudios
 }) => {
     
     const isEditing = editingChapterId === chapter.id;
@@ -649,6 +674,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                             onGenerateSubtitles={onGenerateSubtitles}
                             onGenerateAllSubtitles={onGenerateAllSubtitles}
                             onGenerateUnified={onGenerateUnified}
+                            onAutoReorderAudios={onAutoReorderAudios}
                         />
                         <div dangerouslySetInnerHTML={{ __html: content }} />
                         <SignatureDisplay signature={signature} />

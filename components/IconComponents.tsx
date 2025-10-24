@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export const BookIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -123,5 +122,14 @@ export const MediaBookIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) =>
 export const ChevronDoubleRightIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
         <path strokeLinecap="round" strokeLinejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+    </svg>
+);
+
+export const AutoSortIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5h12M3 12h9m-9 4.5h6" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="m16.5 19.5 2.25-2.25m0 0L21 19.5m-2.25-2.25v-9L16.5 6" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 3.75l.75.75.75-.75" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 3.75l.75.75.75-.75" />
     </svg>
 );
