@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect, useRef } from 'react';
-import type { Chapter } from '../types';
+import type { Chapter, Signature } from '../types';
 import { SparklesIcon, DownloadIcon, TrashIcon, PencilIcon, MicrophoneIcon, StarIcon, BookmarkIcon } from './IconComponents';
 
 // SpeechRecognition might not be on the window type, so we declare it.
@@ -42,6 +43,7 @@ const MediaNarrative: React.FC<{ audioUrl?: string; videoUrl?: string }> = ({ au
 
 interface ChapterViewProps {
     chapter: Chapter;
+    signature: Signature;
     content?: string;
     isGenerating: boolean;
     generateChapter: () => void;
@@ -81,9 +83,32 @@ const Placeholder: React.FC<{ chapterTitle: string; chapterSynopsis: string; onG
     </div>
 );
 
+const SignatureDisplay: React.FC<{ signature: Signature }> = ({ signature }) => {
+    const aramaicLine = `${signature.part1.aramaic}, ${signature.part2.aramaic}, ${signature.part3.aramaic}`;
+    const hebrewLine = `עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה`;
+    const spanishLine = `(${signature.part1.spanish}, ${signature.part2.spanish}, ${signature.part3.spanish})`;
+
+    return (
+        <div className="not-prose">
+            <br />
+            <hr className="border-stone-700 my-4" />
+            <p className="text-center italic text-stone-400">
+                FIRMA: {aramaicLine}
+                <br />
+                <span style={{ fontSize: '1.1em', color: '#a8a29e', fontFamily: "'Times New Roman', serif" }}>{hebrewLine}</span>
+                <br />
+                <span style={{ fontSize: '0.9em', color: '#78716c' }}>{spanishLine}</span>
+                <br />
+                <span style={{ fontSize: '0.9em', color: '#78716c' }}>(Nombre Simbólico que mi Padre me ha otorgado)</span>
+            </p>
+        </div>
+    );
+};
+
 
 export const ChapterView: React.FC<ChapterViewProps> = ({ 
-    chapter, 
+    chapter,
+    signature, 
     content, 
     isGenerating, 
     generateChapter, 
@@ -186,6 +211,23 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
     const handleExport = () => {
         if (!content) return;
         const fileName = `${chapter.id}-${chapter.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.html`;
+
+        const aramaicLine = `${signature.part1.aramaic}, ${signature.part2.aramaic}, ${signature.part3.aramaic}`;
+        const hebrewLine = `עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה`;
+        const spanishLine = `(${signature.part1.spanish}, ${signature.part2.spanish}, ${signature.part3.spanish})`;
+        const signatureHtml = `
+<br>
+<hr class="border-stone-700 my-4">
+<p class="text-center italic text-stone-400">
+    FIRMA: ${aramaicLine}
+    <br>
+    <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">${hebrewLine}</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">${spanishLine}</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
+</p>`;
+        
         const htmlContent = `
 <!DOCTYPE html>
 <html lang="es">
@@ -219,6 +261,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
         <h1>${chapter.title}</h1>
         <div>
             ${content}
+            ${signatureHtml}
         </div>
     </main>
 </body>
@@ -325,6 +368,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                     <>
                         <MediaNarrative audioUrl={chapter.audioUrl} videoUrl={chapter.videoUrl} />
                         <div dangerouslySetInnerHTML={{ __html: content }} />
+                        <SignatureDisplay signature={signature} />
                     </>
                 )
             ) : (

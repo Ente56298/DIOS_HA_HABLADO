@@ -1,23 +1,36 @@
+
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { TableOfContents } from './components/TableOfContents';
 import { ChapterView } from './components/ChapterView';
 import { generateChapterContent } from './services/geminiService';
 import { BOOK_STRUCTURE } from './constants';
-import { CHAPTER_PREFACIO_1_CONTENT, CHAPTER_1_CONTENT, CHAPTER_1_2_CONTENT, CHAPTER_4_0_CONTENT, CHAPTER_4_1_CONTENT, CHAPTER_4_4_CONTENT, CHAPTER_5_2_CONTENT, CHAPTER_TESTIMONIO_1_CONTENT, CHAPTER_APENDICE_1_CONTENT } from './prefilledContent';
-import type { BookContent, Chapter } from './types';
+import { 
+    CHAPTER_PREFACIO_NEW_CONTENT,
+    CHAPTER_NEW_1_CONTENT,
+    CHAPTER_NEW_2_CONTENT,
+    CHAPTER_NEW_3_CONTENT,
+    CHAPTER_NEW_4_CONTENT,
+    CHAPTER_APENDICE_GLOSARIO_CONTENT,
+    CHAPTER_APENDICE_REFERENCIAS_CONTENT,
+} from './prefilledContent';
+import type { BookContent, Chapter, Signature } from './types';
 import { BookIcon, InfoIcon, TrashIcon, SearchIcon, DownloadIcon, SwitchHorizontalIcon } from './components/IconComponents';
 import { ResearchReportModal } from './components/ResearchReportModal';
 
 const initialBookContent: BookContent = {
-    'chap-prefacio-1': CHAPTER_PREFACIO_1_CONTENT,
-    'chap-1-1': CHAPTER_1_CONTENT,
-    'chap-1-2': CHAPTER_1_2_CONTENT,
-    'chap-4-0': CHAPTER_4_0_CONTENT,
-    'chap-4-1': CHAPTER_4_1_CONTENT,
-    'chap-4-4': CHAPTER_4_4_CONTENT,
-    'chap-5-2': CHAPTER_5_2_CONTENT,
-    'chap-testimonio-1': CHAPTER_TESTIMONIO_1_CONTENT,
-    'chap-apendice-1': CHAPTER_APENDICE_1_CONTENT,
+    'chap-prefacio-new': CHAPTER_PREFACIO_NEW_CONTENT,
+    'chap-new-1': CHAPTER_NEW_1_CONTENT,
+    'chap-new-2': CHAPTER_NEW_2_CONTENT,
+    'chap-new-3': CHAPTER_NEW_3_CONTENT,
+    'chap-new-4': CHAPTER_NEW_4_CONTENT,
+    'chap-apendice-glosario': CHAPTER_APENDICE_GLOSARIO_CONTENT,
+    'chap-apendice-referencias': CHAPTER_APENDICE_REFERENCIAS_CONTENT,
+};
+
+const initialSignature: Signature = {
+    part1: { aramaic: "Aved Ar’a", spanish: "Siervo de la tierra" },
+    part2: { aramaic: "Gibbar di Kravá", spanish: "guerrero de batalla" },
+    part3: { aramaic: "Bar di Nachalá", spanish: "hijo del legado" },
 };
 
 interface SearchResult {
@@ -32,7 +45,7 @@ const App: React.FC = () => {
     const [isGenerating, setIsGenerating] = useState<boolean>(false);
     const [isReportVisible, setIsReportVisible] = useState<boolean>(false);
     
-    const initialView = 'chap-prefacio-1';
+    const initialView = 'chap-prefacio-new';
     const [currentView, setCurrentView] = useState<string>(initialView);
 
     const [searchQuery, setSearchQuery] = useState('');
@@ -61,6 +74,30 @@ const App: React.FC = () => {
     });
     
     const [progressMode, setProgressMode] = useState<'read' | 'generated'>('read');
+
+    const [signature, setSignature] = useState<Signature>(() => {
+        try {
+            const saved = localStorage.getItem('authorSignature');
+            return saved ? JSON.parse(saved) : initialSignature;
+        } catch (error) {
+            console.error("Failed to parse signature from localStorage", error);
+            return initialSignature;
+        }
+    });
+
+    useEffect(() => {
+        localStorage.setItem('authorSignature', JSON.stringify(signature));
+    }, [signature]);
+
+    const handleSignatureChange = (part: 'part1' | 'part2' | 'part3', type: 'aramaic' | 'spanish', value: string) => {
+        setSignature(prev => ({
+            ...prev,
+            [part]: {
+                ...prev[part],
+                [type]: value,
+            }
+        }));
+    };
 
     useEffect(() => {
         localStorage.setItem('favoriteChapters', JSON.stringify(Array.from(favoriteChapters)));
@@ -211,6 +248,22 @@ const App: React.FC = () => {
             alert('No hay capítulos generados para exportar.');
             return;
         }
+
+        const aramaicLine = `${signature.part1.aramaic}, ${signature.part2.aramaic}, ${signature.part3.aramaic}`;
+        const hebrewLine = `עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה`;
+        const spanishLine = `(${signature.part1.spanish}, ${signature.part2.spanish}, ${signature.part3.spanish})`;
+        const signatureHtml = `
+<br>
+<hr style="border: none; border-top: 1px solid #44403c; margin-top: 1rem; margin-bottom: 1rem;">
+<p style="text-align: center; font-style: italic; color: #a8a29e;">
+    FIRMA: ${aramaicLine}
+    <br>
+    <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">${hebrewLine}</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">${spanishLine}</span>
+    <br>
+    <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
+</p>`;
     
         let bookHtml = '';
         for (const part of BOOK_STRUCTURE) {
@@ -221,6 +274,7 @@ const App: React.FC = () => {
                     bookHtml += `<div class="chapter-container">`;
                     bookHtml += `<h2 class="chapter-title">${chapter.title}</h2>`;
                     bookHtml += bookContent[chapter.id];
+                    bookHtml += signatureHtml;
                     bookHtml += `</div>`;
                 }
             }
@@ -272,7 +326,7 @@ const App: React.FC = () => {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-    }, [bookContent]);
+    }, [bookContent, signature]);
     
     const currentChapter = allChapters.find(c => c.id === currentView);
 
@@ -366,7 +420,7 @@ const App: React.FC = () => {
                             <>
                                 <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 80 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                                 Generando Libro...
                             </>
@@ -377,6 +431,36 @@ const App: React.FC = () => {
                 </div>
             </header>
             
+            <div className="px-6 py-4 bg-stone-900 border-b border-stone-700/50">
+                <h3 className="text-md font-semibold text-amber-200 mb-3">Personalizar Firma del Autor</h3>
+                <div className="grid grid-cols-3 gap-x-6 gap-y-3 text-sm">
+                    {[ 'part1', 'part2', 'part3' ].map((part, index) => (
+                        <React.Fragment key={part}>
+                            <div className="col-span-1">
+                                <label htmlFor={`${part}_aramaic`} className="block text-stone-400 mb-1">{`Parte ${index + 1} (Arameo)`}</label>
+                                <input 
+                                    type="text" 
+                                    id={`${part}_aramaic`} 
+                                    value={signature[part as keyof Signature].aramaic} 
+                                    onChange={(e) => handleSignatureChange(part as keyof Signature, 'aramaic', e.target.value)} 
+                                    className="w-full bg-stone-800 border border-stone-600 rounded-md px-3 py-1.5 focus:ring-amber-500 focus:border-amber-500" 
+                                />
+                            </div>
+                            <div className="col-span-2">
+                                <label htmlFor={`${part}_spanish`} className="block text-stone-400 mb-1">Significado</label>
+                                <input 
+                                    type="text" 
+                                    id={`${part}_spanish`} 
+                                    value={signature[part as keyof Signature].spanish} 
+                                    onChange={(e) => handleSignatureChange(part as keyof Signature, 'spanish', e.target.value)} 
+                                    className="w-full bg-stone-800 border border-stone-600 rounded-md px-3 py-1.5 focus:ring-amber-500 focus:border-amber-500" 
+                                />
+                            </div>
+                        </React.Fragment>
+                    ))}
+                </div>
+            </div>
+
             <div className="px-6 py-2 bg-stone-800/30 border-b border-stone-700/50 flex items-center gap-4 text-sm">
                 <button 
                     onClick={() => setProgressMode(prev => prev === 'read' ? 'generated' : 'read')}
@@ -418,6 +502,7 @@ const App: React.FC = () => {
                    {currentChapter && (
                        <ChapterView
                            chapter={currentChapter}
+                           signature={signature}
                            content={bookContent[currentView]}
                            isGenerating={generatingChapters.has(currentView)}
                            generateChapter={() => handleGenerateChapter(currentChapter)}

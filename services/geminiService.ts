@@ -58,19 +58,7 @@ export async function generateChapterContent(title: string, synopsis: string, au
 
         Referencia Teológica Clave: El autor se apoya firmemente en los Diez Mandamientos como pilar de la Ley divina y en el Padre Nuestro como modelo de oración. Aunque no es necesario citarlos directamente en cada capítulo, su espíritu de obediencia, reverencia y dependencia filial debe impregnar el texto.
 
-        Finalmente, cada capítulo debe concluir con la firma espiritual del autor. Añade la siguiente firma al final del contenido del capítulo, formateada exactamente como se muestra:
-        
-        <br>
-        <hr class="border-stone-700 my-4">
-        <p class="text-center italic text-stone-400">
-            FIRMA: Aved Ar’a, Gibbar di Kravá, Bar di Nachalá
-            <br>
-            <span style="font-size: 1.1em; color: #a8a29e; font-family: 'Times New Roman', serif;">עָבֵד אַרְעָא גִּבָּר דִּי קְרָבָא בַּר דִּי נַחֲלָה</span>
-            <br>
-            <span style="font-size: 0.9em; color: #78716c;">(Siervo de la tierra, guerrero de batalla, hijo del legado)</span>
-            <br>
-            <span style="font-size: 0.9em; color: #78716c;">(Nombre Simbólico que mi Padre me ha otorgado)</span>
-        </p>
+        IMPORTANTE: NO incluyas la firma del autor al final del capítulo. La respuesta debe ser únicamente el contenido del capítulo (versículo, introducción, desarrollo, aplicación, proclamación). NO AÑADIR LA FIRMA.
 
         Por favor, proporciona el resultado en español, formateado como HTML limpio. Usa etiquetas <p> para los párrafos, <h3> para los subtítulos de las secciones, <ul> y <li> para las listas, y <blockquote> para los versículos y proclamaciones. No incluyas el título principal del capítulo en el cuerpo de la respuesta, solo el contenido del capítulo. La respuesta debe ser únicamente el HTML del capítulo.
     `;

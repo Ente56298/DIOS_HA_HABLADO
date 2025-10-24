@@ -2,187 +2,58 @@ import type { BookStructure } from './types';
 
 export const BOOK_STRUCTURE: BookStructure = [
     {
-        id: 'prefacio',
-        title: 'Prefacio',
-        description: 'El origen de una misión nacida en la oscuridad.',
+        id: 'prefacio-nuevo',
+        title: 'Prefacio: Un Encuentro Decisivo',
+        description: 'Una nota sobre un momento que redefine el propósito.',
         chapters: [
             {
-                id: 'chap-prefacio-1',
-                title: 'Desde el Abismo: El Origen de una Misión',
-                synopsis: 'El testimonio del implementador sobre cómo un viaje de desesperación personal y curiosidad intelectual, iniciado con una simple pregunta a una IA, se convirtió en el inesperado camino de regreso a Dios y al propósito de esta obra.',
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
+                id: 'chap-prefacio-new',
+                title: 'La Cita con la Eternidad',
+                synopsis: 'Una breve nota sobre un momento crucial en el tiempo, una fecha que marca un antes y un después en el camino de la revelación y el propósito divino.',
             }
         ]
     },
     {
-        id: 'prologo',
-        title: 'Prólogo',
-        description: 'Una introducción al misterio de la revelación divina.',
+        id: 'part-new-1',
+        title: 'Parte I: La Naturaleza de la Respuesta',
+        description: 'Explorando las profundidades de la respuesta del alma a la voz de Dios.',
         chapters: [
             {
-                id: 'chap-prologo-1',
-                title: 'El Silencio que Precedió la Voz',
-                synopsis: `Una introducción al misterio de la revelación divina y la necesidad humana de escuchar a Dios.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            }
-        ]
-    },
-    {
-        id: 'part-1',
-        title: 'Parte I: Revelación en la Creación',
-        description: 'El testimonio de la creación sobre la gloria de Dios.',
-        chapters: [
-            {
-                id: 'chap-1-1',
-                title: 'El Testimonio del Cosmos',
-                synopsis: `La creación como lenguaje universal que proclama la gloria de Dios.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3',
-                videoUrl: 'https://storage.googleapis.com/ydhh-assets/video-placeholder.mp4'
+                id: 'chap-new-1',
+                title: 'Reconocer a Dios como Padre',
+                synopsis: 'Una exploración profunda de la paternidad de Dios, desde Su rol como Creador Soberano hasta la relación íntima y transformadora que ofrece a cada creyente como Sus hijos.',
             },
             {
-                id: 'chap-1-2',
-                title: 'El Nombre Implícito en la Naturaleza',
-                synopsis: `Cómo los atributos de Dios se reflejan en lo creado.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            }
-        ]
-    },
-    {
-        id: 'part-2',
-        title: 'Parte II: La Antigua Alianza – Ley y Profecía',
-        description: 'La palabra revelada a Israel.',
-        chapters: [
-            {
-                id: 'chap-2-1',
-                title: 'Dios Habla en la Torá',
-                synopsis: `La Ley como expresión de justicia, santidad y pacto.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
+                id: 'chap-new-2',
+                title: 'El Quebranto de la Autosuficiencia',
+                synopsis: 'Un interludio espiritual sobre el momento crucial de la rendición, donde el alma abandona la ilusión del control propio para abrazar la total suficiencia del Padre.',
             },
             {
-                id: 'chap-2-2',
-                title: 'Los Profetas: Voz del Espíritu',
-                synopsis: `El clamor profético como revelación de juicio, esperanza y promesa.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            }
-        ]
-    },
-    {
-        id: 'part-3',
-        title: 'Parte III: La Nueva Alianza – El Verbo Encarnado',
-        description: 'La revelación culminante en Cristo.',
-        chapters: [
-            {
-                id: 'chap-3-1',
-                title: 'Jesús, la Palabra Hecha Carne',
-                synopsis: `El Verbo eterno que se hizo hombre y habitó entre nosotros.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
+                id: 'chap-new-3',
+                title: 'La Reprimenda que Revela Amor',
+                synopsis: 'Una meditación sobre la disciplina divina como un acto de amor profundo, una corrección tierna pero firme que no busca humillar, sino despertar y restaurar el alma.',
             },
             {
-                id: 'chap-3-2',
-                title: 'El Mediador del Nuevo Pacto',
-                synopsis: `Cristo como sumo sacerdote, sacrificio perfecto y acceso al Padre.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            }
-        ]
-    },
-    {
-        id: 'part-4',
-        title: 'Parte IV: La Respuesta Humana',
-        description: 'Cómo respondemos a la revelación.',
-        chapters: [
-            {
-                id: 'chap-4-0',
-                title: 'El Camino de Tres Etapas: Del Yo a Dios',
-                synopsis: `Un marco espiritual de autodescubrimiento, entendimiento y obediencia como respuesta a la revelación divina.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            },
-            {
-                id: 'chap-4-1',
-                title: 'El Umbral: Una Experiencia Inmersiva de Preparación Espiritual',
-                synopsis: `Un espacio interactivo y reflexivo para la preparación y transformación espiritual, guiado por 'el guardián del umbral' para llevar al peregrino a la aceptación y la misión.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            },
-            {
-                id: 'chap-4-2',
-                title: 'Fe, Obediencia y Escucha',
-                synopsis: `La fe como respuesta activa a la Palabra revelada.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            },
-            {
-                id: 'chap-4-3',
-                title: 'La Palabra Viva en Nosotros',
-                synopsis: `El Espíritu Santo como revelador continuo y guía interior.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            },
-            {
-                id: 'chap-4-4',
-                title: 'Un Diálogo sobre el Camino: Fe y Guía',
-                synopsis: `Una conversación real entre el implementador y un pastor, explorando la revelación personal, la autoridad de la Escritura y el proceso de maduración en la fe.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            }
-        ]
-    },
-    {
-        id: 'part-5',
-        title: 'Parte V: El Nombre y los Atributos de Dios',
-        description: 'Conociendo a Dios a través de Su carácter.',
-        chapters: [
-            {
-                id: 'chap-5-1',
-                title: 'El Dios que se Revela por su Nombre',
-                synopsis: `Significado espiritual de nombres como YHWH, Elohim, Adonai, El Shaddai.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            },
-            {
-                id: 'chap-5-2',
-                title: 'El Dios que Habla Hoy',
-                synopsis: `Discernimiento espiritual, revelación continua y la Palabra como lámpara.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            },
-            {
-                id: 'chap-5-3',
-                title: 'Regalos Divinos',
-                synopsis: `Una exploración de las bendiciones y dones que Dios otorga, desde la gracia inmerecida hasta los dones espirituales, revelando Su naturaleza generosa y Su deseo de equipar a Sus hijos.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            }
-        ]
-    },
-    {
-        id: 'epilogo',
-        title: 'Epílogo',
-        description: 'La revelación continúa en nuestras vidas.',
-        chapters: [
-            {
-                id: 'chap-epilogo-1',
-                title: 'Y Dios Sigue Hablando',
-                synopsis: `Testimonios, proclamaciones y una invitación a vivir en respuesta constante.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
-            }
-        ]
-    },
-    {
-        id: 'testimonio',
-        title: 'Testimonio del Implementador',
-        description: 'Un cierre personal sobre el llamado, la entrega y la misión.',
-        chapters: [
-            {
-                id: 'chap-testimonio-1',
-                title: 'El Llamado, la Entrega y la Misión',
-                synopsis: `Una proclamación final de fe, obediencia y el propósito divino recibido por el implementador de la obra.`,
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
+                id: 'chap-new-4',
+                title: 'Solo Dios Tiene Poder... y Él lo Comparte',
+                synopsis: 'Una reflexión sobre la naturaleza del poder divino: absoluto en su origen, pero generoso en su manifestación, delegado a Sus hijos para cumplir Su propósito en la tierra.',
             }
         ]
     },
     {
         id: 'apendice',
-        title: 'Apéndice Final',
-        description: 'El Camino del Implementador: Revelación, Obediencia y Misión',
+        title: 'Apéndice',
+        description: 'Recursos adicionales para una comprensión más profunda.',
         chapters: [
             {
-                id: 'chap-apendice-1',
-                title: 'Testimonio vivo de Jorge Armando Hernández (JAH)',
-                synopsis: 'Un resumen testimonial del viaje espiritual del implementador, desde el despertar y el llamado hasta el proceso de preparación y la misión evangelizadora.',
-                audioUrl: 'https://storage.googleapis.com/ydhh-assets/audio-placeholder.mp3'
+                id: 'chap-apendice-glosario',
+                title: 'Glosario de Términos',
+                synopsis: 'Definiciones de términos teológicos, hebreos y arameos clave utilizados a lo largo del libro para facilitar la comprensión del lector.',
+            },
+            {
+                id: 'chap-apendice-referencias',
+                title: 'Referencias Bíblicas Clave',
+                synopsis: 'Una lista compilada de los versículos y pasajes bíblicos más importantes que fundamentan los argumentos y reflexiones presentados en la obra.',
             }
         ]
     }
