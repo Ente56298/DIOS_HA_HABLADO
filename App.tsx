@@ -77,7 +77,25 @@ const App: React.FC = () => {
     
     const [editingChapterId, setEditingChapterId] = useState<string | null>(null);
 
-    const [mediaState, setMediaState] = useState<{ [key: string]: ChapterMediaState }>({});
+    const [mediaState, setMediaState] = useState<{ [key: string]: ChapterMediaState }>(() => {
+        try {
+            const saved = localStorage.getItem('mediaState');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                // Basic validation to prevent crashes if structure changes
+                for (const chapterId in parsed) {
+                    if (parsed[chapterId] && !Array.isArray(parsed[chapterId].userAudios)) {
+                        parsed[chapterId].userAudios = [];
+                    }
+                }
+                return parsed;
+            }
+            return {};
+        } catch (error) {
+            console.error("Failed to parse media state from localStorage", error);
+            return {};
+        }
+    });
 
     const [favoriteChapters, setFavoriteChapters] = useState<Set<string>>(() => {
         try {
@@ -132,6 +150,36 @@ const App: React.FC = () => {
     useEffect(() => {
         localStorage.setItem('readChapters', JSON.stringify(Array.from(readChapters)));
     }, [readChapters]);
+
+    useEffect(() => {
+        try {
+            // Create a version of the state for storage that strips transient properties
+            const stateToSave = Object.entries(mediaState).reduce((acc, [chapterId, chapterState]) => {
+                if (!chapterState) {
+                    return acc;
+                }
+                // Destructure to remove transient properties from the chapter state
+                const { isGeneratingUnified, unifiedError, ...chapterRest } = chapterState;
+    
+                acc[chapterId] = {
+                    ...chapterRest,
+                    userAudios: (chapterState.userAudios || []).map(audio => {
+                        // Destructure to remove transient properties from the audio file state
+                        const { isGeneratingSubs, error, ...audioRest } = audio;
+                        return audioRest;
+                    })
+                };
+                return acc;
+            }, {} as { [key: string]: ChapterMediaState });
+    
+            localStorage.setItem('mediaState', JSON.stringify(stateToSave));
+        } catch (e) {
+            console.error("Could not save media state to local storage:", e);
+            if (e instanceof DOMException && (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED')) {
+                 alert('No se pudo guardar el estado de los medios. Es posible que el almacenamiento local esté lleno. Considere eliminar algunos archivos de audio/video para liberar espacio.');
+            }
+        }
+    }, [mediaState]);
 
     const allChapters = useMemo(() => BOOK_STRUCTURE.flatMap(part => part.chapters), []);
     const totalChapters = allChapters.length;
