@@ -10,6 +10,8 @@ import {
     CHAPTER_NEW_2_CONTENT,
     CHAPTER_NEW_3_CONTENT,
     CHAPTER_NEW_4_CONTENT,
+    CHAPTER_NEW_5_CONTENT,
+    CHAPTER_NEW_6_CONTENT,
     CHAPTER_APENDICE_GLOSARIO_CONTENT,
     CHAPTER_APENDICE_REFERENCIAS_CONTENT,
 } from './prefilledContent';
@@ -23,6 +25,8 @@ const initialBookContent: BookContent = {
     'chap-new-2': CHAPTER_NEW_2_CONTENT,
     'chap-new-3': CHAPTER_NEW_3_CONTENT,
     'chap-new-4': CHAPTER_NEW_4_CONTENT,
+    'chap-new-5': CHAPTER_NEW_5_CONTENT,
+    'chap-new-6': CHAPTER_NEW_6_CONTENT,
     'chap-apendice-glosario': CHAPTER_APENDICE_GLOSARIO_CONTENT,
     'chap-apendice-referencias': CHAPTER_APENDICE_REFERENCIAS_CONTENT,
 };

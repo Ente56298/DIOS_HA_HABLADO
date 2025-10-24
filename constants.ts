@@ -81,6 +81,16 @@ export const BOOK_STRUCTURE: BookStructure = [
                 id: 'chap-new-4',
                 title: 'Solo Dios Tiene Poder... y Él lo Comparte',
                 synopsis: 'Una reflexión sobre la naturaleza del poder divino: absoluto en su origen, pero generoso en su manifestación, delegado a Sus hijos para cumplir Su propósito en la tierra.',
+            },
+            {
+                id: 'chap-new-5',
+                title: 'La Fe que Mueve Montañas',
+                synopsis: 'Una meditación sobre la naturaleza de la fe verdadera, no como un sentimiento, sino como una convicción activa y obediente que, arraigada en la fidelidad de Dios, tiene el poder de superar lo imposible y manifestar Su gloria.',
+            },
+            {
+                id: 'chap-new-6',
+                title: 'El Gozo del Siervo Cumplidor',
+                synopsis: 'Una reflexión final sobre la recompensa más profunda de la vida cristiana: no las bendiciones materiales, sino el gozo inefable que proviene de escuchar al Padre decir: "Bien hecho, siervo bueno y fiel".',
             }
         ]
     },

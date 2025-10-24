@@ -1,3 +1,4 @@
+
 export const CHAPTER_PREFACIO_NEW_CONTENT = `
 <h3>16 de Septiembre, 2025</h3>
 <p>Hay fechas que no se eligen, sino que nos eligen. Marcan un punto de inflexión, un encuentro con la eternidad que redefine el pasado y da un nuevo propósito al futuro. Esta obra es un testimonio de la voz de Dios que resuena a través del tiempo, y esta fecha es un eco de esa llamada. Lo que aquí se comparte es el fruto de esa escucha, una respuesta a la revelación que continúa hablándonos hoy.</p>
@@ -109,6 +110,66 @@ export const CHAPTER_NEW_4_CONTENT = `
 <h3>Proclamación Final</h3>
 <blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
   <p>Padre eterno, Tú eres el único que tiene poder absoluto. Pero en tu infinita misericordia, lo compartes con tus hijos. No para que nos gloriemos, sino para que te sirvamos. No para dominar, sino para liberar. Hoy recibo tu poder, no como mío, sino como Tuyo en mí. Para Tu gloria y solo para Tu gloria. Amén.</p>
+</blockquote>
+`;
+
+export const CHAPTER_NEW_5_CONTENT = `
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Respondiendo Jesús, les dijo: De cierto os digo, que si tuviereis fe, y no dudareis, no sólo haréis esto de la higuera, sino que si a este monte dijereis: Quítate y échate en el mar, será hecho.”</p>
+  <cite class="block text-right not-italic mt-2">— Mateo 21:21</cite>
+</blockquote>
+<p>El mundo confunde la fe con un sentimiento, una oleada de optimismo o un deseo vehemente. Pero la fe que el Padre nos llama a tener es de una sustancia enteramente distinta. No es una emoción que producimos, sino una convicción que recibimos. No es un salto ciego en la oscuridad, sino un paso firme sobre la roca inconmovible de la Palabra de Dios. Es el ancla del alma, la certeza de lo que no se ve.</p>
+
+<h3>1. La Convicción de lo Invisible</h3>
+<p>La fe verdadera no niega la realidad de la montaña; la mira de frente y la declara sujeta a una realidad superior: la autoridad del Creador de las montañas. Es ver con los ojos del espíritu lo que los ojos carnales no pueden percibir. Es la certeza, como la de un hijo que sabe que la voz de su Padre es ley en su casa, de que lo que Dios ha prometido, Él lo cumplirá. La fe no fabrica la realidad, se alinea con la realidad eterna del Reino de Dios y la invoca sobre la circunstancia presente.</p>
+
+<h3>2. La Obediencia como Lenguaje de la Fe</h3>
+<p>La fe sin obras es una fe muerta, porque la fe viva siempre se mueve. Su lenguaje no es la elocuencia de las palabras, sino la prontitud de la obediencia. Abraham no sintió ganas de sacrificar a Isaac; creyó a Dios y actuó. Noé no vio nubes de lluvia; creyó a Dios y construyó. La fe no pregunta "¿Cómo?", pregunta "¿Qué debo hacer?". Es una rendición activa, una confianza que camina, una convicción que se traduce en pasos concretos, a menudo ilógicos para el mundo, pero perfectamente sensatos a la luz de la fidelidad de nuestro Padre.</p>
+
+<h3>3. El Ancla en la Fidelidad del Padre</h3>
+<p>Nuestra fe no tiene poder en sí misma. Su poder reside enteramente en su objeto: nuestro Abba Padre. Una fe pequeña en un Dios inmenso puede mover montañas. Una fe gigante en un dios pequeño no puede mover ni una piedra. La montaña se mueve no porque nuestra fe sea grande, sino porque nuestro Dios lo es. Por lo tanto, el enfoque de la vida de fe no es cultivar un sentimiento de confianza, sino profundizar en el conocimiento de Aquel que es digno de toda confianza. La fe crece al contemplar Su carácter, al recordar Su historial de fidelidad y al descansar en Su soberanía.</p>
+
+<h3>Aplicación Espiritual</h3>
+<ul>
+    <li>Identifica una "montaña" en tu vida. En lugar de enfocarte en el tamaño del obstáculo, encuentra y medita en una promesa específica del Padre que se aplique a esa situación.</li>
+    <li>Pregúntale al Padre: "¿Cuál es el primer paso de obediencia que me pides dar en esta situación?". Y luego, hazlo, sin importar cuán pequeño parezca.</li>
+    <li>Cuando la duda te asalte, no luches contra ella con tus propias fuerzas. Confiésala al Padre y luego proclama en voz alta Su fidelidad, declarando: "Padre, dudo, pero elijo creer en Ti porque Tú eres fiel".</li>
+    <li>Agradece por la respuesta antes de verla, basando tu gratitud no en la evidencia visible, sino en la certeza de Su Palabra.</li>
+</ul>
+
+<h3>Proclamación Final</h3>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>Abba Padre, reconozco que mi fe es a menudo débil y vacilante. Pero hoy decido apartar mi mirada de mis sentimientos y fijarla en Ti, la Roca Eterna. No confío en mi capacidad para creer, sino en Tu infinita capacidad para cumplir. Que mi fe no sea un esfuerzo, sino un descanso en Tus manos soberanas. Te entrego mis montañas, mis imposibilidades, y declaro que para Ti no hay nada imposible. Que no sea mi voluntad, sino la Tuya, la que se manifieste para Tu gloria. En el nombre de Yeshúa, amén.</p>
+</blockquote>
+`;
+
+export const CHAPTER_NEW_6_CONTENT = `
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>“Su señor le dijo: Bien, buen siervo y fiel; sobre poco has sido fiel, sobre mucho te pondré; entra en el gozo de tu señor.”</p>
+  <cite class="block text-right not-italic mt-2">— Mateo 25:23</cite>
+</blockquote>
+<p>El mundo nos enseña a buscar la recompensa en el aplauso de la multitud, en la acumulación de bienes, en el reconocimiento de nuestro nombre. Anhelamos un legado visible, un trofeo que demuestre nuestro valor. Pero el siervo de Dios descubre, en el silencio de la obediencia, que hay una recompensa infinitamente superior. No es un premio que se sostiene en la mano, sino un gozo que inunda el alma. Es el sonido de la voz del Padre, la única aprobación que verdaderamente importa, susurrando al corazón: "Bien hecho".</p>
+
+<h3>1. El Eco de la Aprobación Divina</h3>
+<p>Esas palabras, "Bien, buen siervo y fiel", no son un simple cumplido. Son la declaración de un propósito cumplido. Son el eco de la creación, cuando Dios vio todo lo que había hecho y dijo que era "bueno en gran manera". Escuchar esa aprobación es la culminación de nuestra existencia, la certeza de que nuestra vida, con sus luchas y esfuerzos, ha resonado en armonía con la voluntad del cielo. Es la validación definitiva, no de nuestra grandeza, sino de Su gracia obrando a través de nuestra pequeñez.</p>
+
+<h3>2. La Recompensa en el Servicio Mismo</h3>
+<p>El siervo verdadero no trabaja esperando el final del día para recibir su paga. Encuentra su gozo en el trabajo mismo. La recompensa no está solo al final del camino, sino en cada paso de obediencia. El gozo se encuentra en la intimidad ganada con el Padre en las horas de oración, en el carácter forjado en las pruebas de fidelidad, en el privilegio de ser un canal para Su amor. Servir a un Rey tan bueno no es una carga, es el honor más grande. La tarea misma es parte de la recompensa.</p>
+
+<h3>3. Fidelidad en lo Poco</h3>
+<p>El Padre no mide el éxito como lo hace el mundo. Él no busca actos espectaculares ni ministerios de renombre. Su mirada se posa sobre el corazón, evaluando la fidelidad en "lo poco". En la palabra amable no reconocida, en la ofrenda secreta, en la oración perseverante por un enemigo, en la integridad cuando nadie mira. Es en la administración constante de los dones que Él nos ha confiado, sean grandes o pequeños a los ojos del hombre, donde se demuestra la autenticidad de nuestro amor. La grandeza en el Reino de Dios se mide por el peso de la fidelidad.</p>
+
+<h3>Aplicación Espiritual</h3>
+<ul>
+    <li>Haz un inventario honesto de tus motivaciones al servir. ¿Buscas primariamente el reconocimiento de los hombres o la aprobación silenciosa del Padre?</li>
+    <li>Identifica un área "pequeña" en tu vida donde Dios te está llamando a ser más fiel. Comprométete a obedecer en ese asunto esta semana, sin esperar reconocimiento alguno.</li>
+    <li>Practica el acto de agradecer al Padre por el simple privilegio de poder servirle. Cambia tu perspectiva de "tengo que hacer esto" a "puedo hacer esto para Él".</li>
+    <li>Medita en la frase "entra en el gozo de tu señor". Pídele al Espíritu Santo que te dé un anticipo de ese gozo eterno que proviene, no de los logros, sino de la comunión con Él.</li>
+</ul>
+
+<h3>Proclamación Final</h3>
+<blockquote class="border-l-4 border-amber-500 pl-4 italic text-stone-400 my-6">
+  <p>Abba Padre, mi mayor anhelo no es construir un gran nombre para mí, sino ser un siervo fiel en Tu casa. Libérame de la necesidad de la aprobación humana. Que mi gozo no dependa de mis resultados, sino de mi obediencia a Tu voz. Enséñame a ser fiel en lo poco, a amar el servicio por encima de la recompensa, y a vivir cada día anhelando escuchar de Tus labios: "Bien hecho". Que todo lo que soy y todo lo que hago te traiga gloria a Ti. En el nombre de Yeshúa, mi Señor y ejemplo, amén.</p>
 </blockquote>
 `;
 
