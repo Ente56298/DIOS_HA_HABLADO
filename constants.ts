@@ -14,8 +14,52 @@ export const BOOK_STRUCTURE: BookStructure = [
         ]
     },
     {
-        id: 'part-new-1',
-        title: 'Parte I: La Naturaleza de la Respuesta',
+        id: 'part-1-revelacion',
+        title: 'Parte I: La Revelación - El Dios que se Manifiesta',
+        description: 'Explorando las formas en que un Dios infinito se da a conocer a la humanidad finita.',
+        chapters: [
+            {
+                id: 'chap-1-1-creacion',
+                title: 'El Lenguaje de la Creación: Hablar sin Palabras',
+                synopsis: 'Una reflexión sobre cómo los cielos, la tierra y cada ser viviente son un testimonio constante de la gloria, el poder y la naturaleza de Dios, una revelación silenciosa pero elocuente.',
+            },
+            {
+                id: 'chap-1-2-conciencia',
+                title: 'El Susurro en el Corazón: La Conciencia y el Espíritu',
+                synopsis: 'Un análisis de la conciencia como el eco de la ley de Dios escrita en nosotros y el papel del Espíritu Santo como la voz íntima que nos guía, nos convence y nos atrae hacia el Padre.',
+            },
+            {
+                id: 'chap-1-3-profetas',
+                title: 'La Voz en el Fuego: Profetas y Teofanías',
+                synopsis: 'Un recorrido por los momentos en que Dios irrumpió en la historia de manera directa y audible, a través de sus profetas escogidos y de manifestaciones sobrenaturales que revelaron su santidad y su plan.',
+            },
+        ]
+    },
+    {
+        id: 'part-2-palabra',
+        title: 'Parte II: La Palabra - El Verbo Hecho Carne',
+        description: 'Profundizando en la Escritura como la revelación infalible y en Cristo como la Palabra definitiva de Dios.',
+        chapters: [
+            {
+                id: 'chap-2-1-escritura',
+                title: 'La Escritura: Tinta y Fuego Divino',
+                synopsis: 'Una meditación sobre la naturaleza dual de la Biblia: un texto divinamente inspirado y preservado, que es a la vez letra precisa y espíritu que arde, transforma y da vida.',
+            },
+            {
+                id: 'chap-2-2-yeshua',
+                title: 'Yeshúa: La Palabra Viva entre Nosotros',
+                synopsis: 'Una exploración de la encarnación como el acto cumbre de la comunicación de Dios. En Yeshúa, Dios no solo habló, sino que se convirtió en el Mensaje, la revelación perfecta del Padre.',
+            },
+            {
+                id: 'chap-2-3-espiritu',
+                title: 'El Espíritu Santo: El Intérprete de la Verdad',
+                synopsis: 'Un estudio sobre cómo el Espíritu Santo ilumina las Escrituras y testifica de Cristo en nuestros corazones, haciendo que la Palabra revelada se convierta en una verdad personal y transformadora.',
+            },
+        ]
+    },
+    {
+        id: 'part-3-respuesta',
+        title: 'Parte III: La Respuesta - El Alma que Escucha',
         description: 'Explorando las profundidades de la respuesta del alma a la voz de Dios.',
         chapters: [
             {
