@@ -66,6 +66,11 @@ export const BOOK_STRUCTURE: BookStructure = [
                 id: 'chap-interludio-orar-sin-cesar',
                 title: 'Proclamación: Caminar con Dios',
                 synopsis: 'Una declaración de rendición que reconoce el control limitado del hombre y la soberanía total de Dios en cada paso de la vida.'
+            },
+            {
+                id: 'chap-interludio-oraciones-rendicion',
+                title: 'Oraciones de Rendición y Comunión',
+                synopsis: 'Una serie de oraciones cortas y poderosas para la entrega total, la consagración familiar, el gobierno divino, la protección, la comunión y la obediencia.'
             }
         ]
     },

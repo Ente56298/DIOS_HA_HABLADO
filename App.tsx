@@ -13,6 +13,7 @@ import {
     CHAPTER_NEW_5_CONTENT,
     CHAPTER_NEW_6_CONTENT,
     CHAPTER_INTERLUDIO_ORAR_SIN_CESAR_CONTENT,
+    CHAPTER_INTERLUDIO_ORACIONES_RENDICION_CONTENT,
     CHAPTER_APENDICE_GLOSARIO_CONTENT,
     CHAPTER_APENDICE_REFERENCIAS_CONTENT,
     CHAPTER_ORACION_FINAL_CONTENT,
@@ -30,6 +31,7 @@ const initialBookContent: BookContent = {
     'chap-new-5': CHAPTER_NEW_5_CONTENT,
     'chap-new-6': CHAPTER_NEW_6_CONTENT,
     'chap-interludio-orar-sin-cesar': CHAPTER_INTERLUDIO_ORAR_SIN_CESAR_CONTENT,
+    'chap-interludio-oraciones-rendicion': CHAPTER_INTERLUDIO_ORACIONES_RENDICION_CONTENT,
     'chap-apendice-glosario': CHAPTER_APENDICE_GLOSARIO_CONTENT,
     'chap-apendice-referencias': CHAPTER_APENDICE_REFERENCIAS_CONTENT,
     'chap-oracion-final': CHAPTER_ORACION_FINAL_CONTENT,
@@ -720,7 +722,7 @@ const App: React.FC = () => {
                             <BookIcon className="w-10 h-10 text-amber-400"/>
                             <div>
                                 <h1 className="text-2xl font-bold tracking-tight text-gradient">Y Dios Ha Hablado</h1>
-                                <p className="text-sm text-stone-400">Generador de Contenido por JAH</p>
+                                <p className="text-sm text-stone-400">Revelación, Palabra y Respuesta</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-4">

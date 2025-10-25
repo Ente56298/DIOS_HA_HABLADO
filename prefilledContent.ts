@@ -324,3 +324,42 @@ export const CHAPTER_ORACION_FINAL_CONTENT = `
     </li>
 </ol>
 `;
+
+export const CHAPTER_INTERLUDIO_ORACIONES_RENDICION_CONTENT = `
+<h3>Serie: Oraciones de Rendición y Comunión</h3>
+<p>Una colección de oraciones para guiar el alma en el camino de la entrega y la comunión constante con el Padre.</p>
+<ol>
+    <li>
+        <strong>Entrega Total</strong>
+        <p>Pongo en ti, Señor, todo lo que soy. Me rindo a tus pies. No me guardo nada, porque todo lo que tengo, todo lo que soy, es tuyo.</p>
+    </li>
+    <li>
+        <strong>Consagración Familiar</strong>
+        <p>Mi familia está en tus manos, oh Dios mío. Cada nombre, cada historia, cada herida… los consagro a tu pacto eterno. Sé escudo, luz y guía sobre ellos.</p>
+    </li>
+    <li>
+        <strong>Gobierno Divino</strong>
+        <p>Permite, oh Padre, que siempre seas tú el que gobierne. Que no me rija el deseo, sino tu voluntad. Hoy te entrego el cetro, y me postro ante tu trono.</p>
+    </li>
+    <li>
+        <strong>Protección Interior</strong>
+        <p>Oh Padre, protege mi espíritu. Guárdame de lo que me rodea, y de lo que me habita. Sé escudo invisible, fortaleza en mi alma.</p>
+    </li>
+    <li>
+        <strong>Presencia y Misericordia</strong>
+        <p>Déjame sentir tu agradable presencia. Hazme sentir tu bendita misericordia. Que tu abrazo me envuelva, que tu ternura me sane, que tu fidelidad me sostenga.</p>
+    </li>
+    <li>
+        <strong>Formación y Unción</strong>
+        <p>Hazme cada día más parecido a tu Hijo. Úngeme de ti, Señor. Que mi carácter refleje tu compasión, y mi vida sea testimonio encarnado.</p>
+    </li>
+    <li>
+        <strong>Purificación y Alineación</strong>
+        <p>Quita todo aquello que no se alinee a tu voluntad. Aunque lo haya abrazado por años… hoy lo suelto. Haz tu voluntad en mí.</p>
+    </li>
+    <li>
+        <strong>Discernimiento y Obediencia</strong>
+        <p>Permite reconocer en cada acto tu voluntad. Que no viva por reacción, sino por revelación. Que todo sea para ti, por ti, contigo.</p>
+    </li>
+</ol>
+`;
