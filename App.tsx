@@ -164,12 +164,15 @@ const App: React.FC = () => {
                 if (!chapterState) {
                     return acc;
                 }
+                // FIX: Cast chapterState to ChapterMediaState because it's inferred as 'unknown'
+                // due to JSON.parse() in the useState initializer. This allows safe property access.
+                const typedChapterState = chapterState as ChapterMediaState;
                 // Destructure to remove transient properties from the chapter state
-                const { isGeneratingUnified, unifiedError, isReordering, reorderError, ...chapterRest } = chapterState;
+                const { isGeneratingUnified, unifiedError, isReordering, reorderError, ...chapterRest } = typedChapterState;
     
                 acc[chapterId] = {
                     ...chapterRest,
-                    userAudios: (chapterState.userAudios || []).map(audio => {
+                    userAudios: (typedChapterState.userAudios || []).map(audio => {
                         // Destructure to remove transient properties from the audio file state
                         const { isGeneratingSubs, error, ...audioRest } = audio;
                         return audioRest;
